@@ -7,8 +7,8 @@
 //   useNavigate,
 //   useSearchParams,
 // } from 'react-router-dom';
-
+import Header from "../pages/Header/header";
 //---------------------------------------------------------------//
 export const App = () => {
-  return <></>;
+  return <><Header/></>;
 };
