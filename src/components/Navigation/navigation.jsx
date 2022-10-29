@@ -5,33 +5,25 @@ const Navigation = () => {
   const location = useLocation();
 
   return (
-    <nav>
+    <nav className={styles.nav}>
       <ul className={styles.list}>
-        <li className={styles.link_btn_report}>
-          <NavLink to="/home" state={location} className={styles.link_report}>
+        <li className={styles.nav_item}>
+          <NavLink to="/home" state={location} className={styles.link_btn}>
             Home
           </NavLink>
         </li>
-        <div className={styles.btn_overlap}>
-          <li className={styles.link_btn}>
-            <NavLink
-              to="/materials"
-              state={location}
-              className={styles.link_tab}
-            >
-              Materials
-            </NavLink>
-          </li>
-          <li className={styles.link_btn}>
-            <NavLink
-              to="/contacts"
-              state={location}
-              className={styles.link_tab_inc}
-            >
-              Contacts
-            </NavLink>
-          </li>
-        </div>
+        {/* <div className={styles.btn_overlap}> */}
+        <li className={styles.nav_item}>
+          <NavLink to="/materials" state={location} className={styles.link_btn}>
+            Materials
+          </NavLink>
+        </li>
+        <li className={styles.nav_item}>
+          <NavLink to="/contacts" state={location} className={styles.link_btn}>
+            Contacts
+          </NavLink>
+        </li>
+        {/* </div> */}
       </ul>
     </nav>
   );

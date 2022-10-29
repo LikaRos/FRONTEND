@@ -6,12 +6,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
 :root {
-  --main-color: ;
+  --main-color: #f5f6fb;
   --secondary-color: ;
-  --accent-color: ;
+  --accent-color: #ff6b01;
   --accent-pale-color: ;
 
-  --main-text: ;
+  --main-text: #000;
   --secondary-text: ;
   --accent-pale-text: ;
   --inputs-text: ;
@@ -41,7 +41,8 @@ code {
 h1,
 h2,
 h3,
-h4 p {
+h4,
+p {
   margin: 0;
 }
 

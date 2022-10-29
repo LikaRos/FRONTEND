@@ -7,6 +7,8 @@ import {
   //   useNavigate,
   //   useSearchParams,
 } from 'react-router-dom';
+// import Footer from './Footer/Footer';
+// import Header from './Header/Header';
 // import Header from '../pages/Header/header';
 import MainPage from '../pages/MainPage/MainPage';
 import SharedLayout from './SharedLayout';
@@ -15,9 +17,11 @@ import SharedLayout from './SharedLayout';
 export const App = () => {
   return (
     <>
-      {/* <Routes>
+      <Routes>
         <Route path="/" element={<SharedLayout />}>
-          <Route index element={<LoginPage />} />
+          {/* <Route index element={<MainPage />} /> */}
+
+          {/* <Route index element={<LoginPage />} />
           <Route
             path="/register"
             element={
@@ -73,9 +77,9 @@ export const App = () => {
                 <ContactsPage />
               </PrivateRoute>
             }
-          />
+          /> */}
         </Route>
-      </Routes> */}
+      </Routes>
     </>
   );
 };
