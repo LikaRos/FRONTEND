@@ -1,25 +1,50 @@
 import React from 'react';
 import { useState } from 'react';
 import Main from 'components/Main/Main';
-import QuestionButtons from 'components/QuestionButtons/QuestionButton';
+import QuestionButton from 'components/QuestionButton/QuestionButton';
 
 // import styles from './MainPage.module.css';
-
+const options = [
+  {
+    name: 'tech',
+    title: 'QA technical training',
+    id: 1,
+  },
+  {
+    name: 'theory',
+    title: 'Testing theory',
+    id: 2,
+  },
+];
 export default function MainPage() {
-  const [questions, setQuestions] = useState([]);
-  const [answers, setAnswers] = useState([]);
+  //   const { author, description, quotation } =;
+  const [tech, setTech] = useState([]); //для статистики
+  const [theory, setTheory] = useState([]); //для статистики
+
+  const handleUpdate = event => {
+    const { name } = event.target;
+    switch (name) {
+      case 'tech':
+        setTech(prevState => prevState + 1);
+        break;
+
+      case 'theory':
+        setTheory(prevState => prevState + 1);
+        break;
+
+      default:
+        return;
+    }
+  };
+
   return (
     <>
-      <Main>
-        <h3 class="MainPage_mainPage_author"> Джоном Ф. Вудсом.[</h3>
-        <h2 class="MainPage_mainPage_quote">
-          «Пишите код так, как будто сопровождать его будет склонный к насилию
-          психопат, который знает, где вы живете.»
-        </h2>
-        <p class="MainPage_mainPage_descr">
-          Hacker and computer programmer, 1976
-        </p>
-        <QuestionButtons />
+      <Main
+        author={'author'}
+        quotation={'quotation'}
+        description={'description'}
+      >
+        <QuestionButton options={options} handleUpdate={handleUpdate} />
       </Main>
     </>
   );
