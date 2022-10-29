@@ -1,12 +1,4 @@
-.nav {
-  margin-right: 40px;
-}
-
-.list {
-  list-style: none;
-}
-
-.link_btn {
+.link {
   display: block;
   text-decoration: none;
   padding-top: 26px;
@@ -16,44 +8,17 @@
 
   font-weight: 500;
 }
-
-.link_btn:hover {
+.link:hover {
   color: var(--accent-color);
 }
-
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .nav {
-    margin-right: 40px;
-  }
-
-  .nav_item:not(:last-child) {
-    margin-right: 60px;
-  }
-
-  .list {
-    display: flex;
-  }
-
-  .link_btn {
+	.link {
     font-size: 12px;
     line-height: 1.33;
   }
 }
-
 @media screen and (min-width: 1280px) {
-  .nav {
-    margin-right: 80px;
-  }
-
-  .nav_item:not(:last-child) {
-    margin-right: 80px;
-  }
-
-  .list {
-    display: flex;
-  }
-
-  .link_btn {
+	.link {
     font-size: 14px;
     line-height: 1.14;
   }

@@ -1,26 +1,25 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-import {
-  //   Navigate,
-  Route,
-  Routes,
-  //   useNavigate,
-  //   useSearchParams,
-} from 'react-router-dom';
-// import Header from '../pages/Header/header';
-import MainPage from '../pages/MainPage/MainPage';
-import SharedLayout from './SharedLayout';
+import { Route, Routes } from 'react-router-dom';
+import Layout from './Layout/Layout';
+import { AuthPage } from '../pages/AuthPage/AuthPage';
+// import SharedLayout from './SharedLayout';
+
 
 //---------------------------------------------------------------//
 export const App = () => {
   return (
     <>
-      <div>
-        <MainPage />
-      </div>
-      {/* <Routes>
-        <Route path="/" element={<SharedLayout />}>
-          <Route index element={<LoginPage />} />
+      <Routes>
+
+        <Route path="/" element={<Layout />}>
+          <Route path="auth" element={<AuthPage />} />
+        </Route>
+      	{/* </Routes> */}
+   
+        {/* <Route path="/" element={<SharedLayout />}>
+				</Route> */}
+          {/* <Route index element={<MainPage />} /> */}
+
+          {/* <Route index element={<LoginPage />} />
           <Route
             path="/register"
             element={
@@ -77,8 +76,9 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-        </Route>
-      </Routes> */}
+					  </Route> */}
+      
+      </Routes>
     </>
   );
 };

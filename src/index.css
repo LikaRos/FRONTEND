@@ -6,12 +6,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
 
 :root {
-  --main-color: ;
+  --main-color: #f5f6fb;
   --secondary-color: ;
-  --accent-color: ;
+
+  --accent-color: #ff6b09;
+
   --accent-pale-color: ;
 
-  --main-text: ;
+  --main-text: #000;
   --secondary-text: ;
   --accent-pale-text: ;
   --inputs-text: ;
@@ -20,6 +22,7 @@
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -41,7 +44,8 @@ code {
 h1,
 h2,
 h3,
-h4 p {
+h4,
+p {
   margin: 0;
 }
 
@@ -53,4 +57,5 @@ li {
 
 a {
   transition: 0.3s;
+  text-decoration: none;
 }
