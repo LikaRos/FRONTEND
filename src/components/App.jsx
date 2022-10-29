@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
-import SharedLayout from './SharedLayout';
+// import SharedLayout from './SharedLayout';
 
 
 //---------------------------------------------------------------//
@@ -10,13 +10,13 @@ export const App = () => {
     <>
       <Routes>
 
-        {/* <Route path="/" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route path="auth" element={<AuthPage />} />
         </Route>
-      	</Routes> */}
+      	{/* </Routes> */}
    
-        <Route path="/" element={<SharedLayout />}>
-				</Route>
+        {/* <Route path="/" element={<SharedLayout />}>
+				</Route> */}
           {/* <Route index element={<MainPage />} /> */}
 
           {/* <Route index element={<LoginPage />} />
