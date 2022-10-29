@@ -127,10 +127,18 @@ export const AuthForm = () => {
             autoComplete="on"
           />
           <div className={styles.formButtonWrapper}>
-            <Link to="/" className={styles.formButton} onClick={handleLogin}>
+            <Link
+              to="/home"
+              className={styles.formButton}
+              onClick={handleLogin}
+            >
               Sign in
             </Link>
-            <Link to="/" className={styles.formButton} onClick={handleRegister}>
+            <Link
+              to="/home"
+              className={styles.formButton}
+              onClick={handleRegister}
+            >
               Sign up
             </Link>
           </div>
