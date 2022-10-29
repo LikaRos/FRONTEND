@@ -1,0 +1,50 @@
+.wrapper {
+  display: flex;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+
+  margin-right: 20px;
+
+  border-radius: 50%;
+  background: #ffffff;
+  box-shadow: 0px 1px 1px rgba(18, 29, 46, 0.1);
+}
+
+.text {
+  font-weight: 500;
+  margin-right: 20px;
+  color: currentColor;
+}
+
+.usr_data {
+  display: flex;
+  transition: 0.3s;
+}
+
+.usr_data:hover {
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .text {
+    font-size: 12px;
+    line-height: 1.33;
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .text {
+    font-size: 14px;
+    line-height: 1.14;
+    padding-top: 26px;
+    padding-bottom: 26px;
+  }
+}
