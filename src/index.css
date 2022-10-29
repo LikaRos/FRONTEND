@@ -8,7 +8,7 @@
 :root {
   --main-color: ;
   --secondary-color: ;
-  --accent-color: ;
+  --accent-color: #ff6b09;
   --accent-pale-color: ;
 
   --main-text: ;
@@ -20,6 +20,7 @@
 }
 
 body {
+  box-sizing: border-box;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -53,4 +54,5 @@ li {
 
 a {
   transition: 0.3s;
+  text-decoration: none;
 }

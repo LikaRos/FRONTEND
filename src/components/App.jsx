@@ -1,27 +1,43 @@
 // import { useDispatch, useSelector } from 'react-redux';
 // import { useEffect } from 'react';
-import {
-  //   Navigate,
-  Route,
-  Routes,
-  //   useNavigate,
-  //   useSearchParams,
-} from 'react-router-dom';
+// import {
+//   Navigate,
+//   Route,
+//   Routes,
+//   useNavigate,
+//   useSearchParams,
+// } from 'react-router-dom';
 // import Header from '../pages/Header/header';
-import MainPage from '../pages/MainPage/MainPage';
-import SharedLayout from './SharedLayout';
+import { Routes, Route } from 'react-router';
+import Layout from './Layout/Layout';
+import { AuthPage } from '../pages/AuthPage/AuthPage';
+// import {
+//   //   Navigate,
+//   Route,
+//   Routes,
+//   //   useNavigate,
+//   //   useSearchParams,
+// } from 'react-router-dom';
+// // import Header from '../pages/Header/header';
+// import MainPage from '../pages/MainPage/MainPage';
+// import SharedLayout from './SharedLayout';
 
 //---------------------------------------------------------------//
 export const App = () => {
   return (
     <>
-      <div>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route path="auth" element={<AuthPage />} />
+        </Route>
+      </Routes>
+      {/* <div>
         {' '}
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum animi
         similique accusamus beatae sequi fuga atque iusto architecto quasi.
         Fugit repellat numquam, dolores fuga non quas, quasi, quam vel in odit
         neque omnis. Ipsam perspiciatis tempore ducimus, aperiam praesentium
-      </div>
+      </div> */}
       {/* <Routes>
         <Route path="/" element={<SharedLayout />}>
           <Route index element={<LoginPage />} />
