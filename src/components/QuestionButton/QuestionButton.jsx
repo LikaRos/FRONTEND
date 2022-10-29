@@ -1,17 +1,18 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import styles from './QuestionButton.module.css';
 
 export default function QuestionButton({ options, handleUpdate }) {
   return options.map(item => (
-    <button
+    <Link
+      to="/question"
       className={styles.item}
-      type="button"
       name={item.name}
       key={item.id}
       onClick={handleUpdate}
     >
       {item.title}
-    </button>
+    </Link>
   ));
 }
 
