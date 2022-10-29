@@ -11,9 +11,9 @@ export const AuthPage = () => {
           <p className={styles.text}>
             <strong>[</strong> We will help you find weak points in knowledge so
             that you can strengthen it. We will show you what is relevant to
-            know for a <span className={styles.textSpan}>QA Engineer</span> and
-            will try to make the learning process more diverse
-            <span className={styles.textSpan}>_ ]</span>
+            know for a <strong>QA Engineer</strong> and will try to make the
+            learning process more diverse_
+            <strong> ]</strong>
           </p>
         </div>
         <AuthForm className={styles.divForm} />
