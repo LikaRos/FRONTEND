@@ -7,7 +7,7 @@ import Logout from '../../components/Loguot/logout';
 import UserEmailName from '../../components/UserEmailName/userEmailName';
 
  //-------------------------------------------------------//
- const Header = () => {
+ export default function Header() {
   return (
     <header className={styles.header}>
       <div className={styles.container}>
@@ -19,4 +19,3 @@ import UserEmailName from '../../components/UserEmailName/userEmailName';
     </header>
   );
 };
-export default Header;

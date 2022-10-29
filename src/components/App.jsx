@@ -7,8 +7,14 @@
 //   useNavigate,
 //   useSearchParams,
 // } from 'react-router-dom';
-import Header from "../pages/Header/header";
+import Footer  from "../pages/Footer/footer";
+// import Header from "../pages/Header/header";
 //---------------------------------------------------------------//
 export const App = () => {
-  return <><Header/></>;
+  return (
+		<>
+			{/* <Header/> */}
+			<Footer/>
+		</>
+	)
 };
