@@ -8,12 +8,8 @@ const Navigation = () => {
     <nav>
       <ul className={styles.list}>
         <li className={styles.link_btn_report}>
-          <NavLink
-            to="/home"
-            state={location}
-            className={styles.link_report}
-          >
-						Home
+          <NavLink to="/home" state={location} className={styles.link_report}>
+            Home
           </NavLink>
         </li>
         <div className={styles.btn_overlap}>
