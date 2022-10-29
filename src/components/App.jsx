@@ -1,30 +1,8 @@
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-
-import {
-  //   Navigate,
-  Route,
-  Routes,
-  //   useNavigate,
-  //   useSearchParams,
-} from 'react-router-dom';
-// import Footer from './Footer/Footer';
-// import Header from './Header/Header';
-
-// import Header from '../pages/Header/header';
-import { Routes, Route } from 'react-router';
+import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
-// import {
-//   //   Navigate,
-//   Route,
-//   Routes,
-//   //   useNavigate,
-//   //   useSearchParams,
-// } from 'react-router-dom';
-// // import Header from '../pages/Header/header';
-// import MainPage from '../pages/MainPage/MainPage';
-// import SharedLayout from './SharedLayout';
+import SharedLayout from './SharedLayout';
+
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -32,12 +10,13 @@ export const App = () => {
     <>
       <Routes>
 
-        <Route path="/" element={<Layout />}>
+        {/* <Route path="/" element={<Layout />}>
           <Route path="auth" element={<AuthPage />} />
         </Route>
-      </Routes>
+      	</Routes> */}
    
         <Route path="/" element={<SharedLayout />}>
+				</Route>
           {/* <Route index element={<MainPage />} /> */}
 
           {/* <Route index element={<LoginPage />} />
@@ -96,8 +75,9 @@ export const App = () => {
                 <ContactsPage />
               </PrivateRoute>
             }
-          /> */}
-        </Route>
+          />
+					  </Route> */}
+      
       </Routes>
     </>
   );

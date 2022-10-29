@@ -1,13 +1,13 @@
 import { useSelector } from 'react-redux';
 import { Outlet } from 'react-router';
 import { getIsLoggedIn } from '../../redux/Auth/auth-selector';
-import Navigation from '../Navigation/navigation';
+import Header from '../../components/Header/Header';
 
 const Layout = () => {
   const isLogin = useSelector(getIsLoggedIn);
   return (
     <>
-      {isLogin && <Navigation />}
+      {isLogin && <Header />}
       <Outlet />
     </>
   );
