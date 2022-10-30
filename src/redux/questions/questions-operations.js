@@ -3,7 +3,7 @@ import axios from 'axios';
 axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 export const getRandomQuestions = createAsyncThunk(
-  'questions/getRandomQuestions', //под капотом создаст статусы
+  'questions/random', //под капотом создаст статусы
   async (type, { rejectedWithValue }) => {
     try {
       const { data } = await axios.get(`questions/${type}/random`);
@@ -12,6 +12,15 @@ export const getRandomQuestions = createAsyncThunk(
     } catch (error) {
       return rejectedWithValue(error);
     }
+  }
+);
+
+export const getAnswers = createAsyncThunk(
+  'questions/answers',
+  async answers => {
+    const { data } = await axios.patch('/questions/result', answers);
+
+    return data;
   }
 );
 

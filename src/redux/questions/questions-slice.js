@@ -1,5 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { getRandomQuestions, getResult } from './questions-operations';
+import {
+  getRandomQuestions,
+  getResult,
+  getAnswers,
+} from './questions-operations';
 
 const initialState = {
   questions: [],
@@ -30,6 +34,16 @@ const question = createSlice({
       state.loading = true;
     },
     [getResult.rejected]: (state, _) => {
+      state.loading = false;
+    },
+    [getAnswers.fulfilled]: (state, { payload }) => {
+      state.result = payload.result;
+      state.loading = false;
+    },
+    [getAnswers.pending]: (state, _) => {
+      state.loading = true;
+    },
+    [getAnswers.rejected]: (state, _) => {
       state.loading = false;
     },
   },
