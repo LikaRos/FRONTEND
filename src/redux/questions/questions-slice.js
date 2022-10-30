@@ -33,6 +33,18 @@ const questionSlice = createSlice({
       state.loading = false;
     },
   },
+  reducers: {
+    addAnswers(state, action) {
+      state.answers.push(action.payload);
+    },
+    clearQuestions(state) {
+      state.questions = [];
+    },
+    clearAnswers(state) {
+      state.answers = [];
+    },
+  },
 });
-
+export const { addAnswers, clearQuestions, clearAnswers } =
+  questionSlice.actions;
 export const questionsReduser = questionSlice.reducer;
