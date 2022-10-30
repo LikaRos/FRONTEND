@@ -15,5 +15,5 @@ export function QuotationListItem({ author, quotation, description }) {
 QuotationListItem.propTypes = {
   author: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  quotation: PropTypes.bool.isRequired,
+  quotation: PropTypes.string.isRequired,
 };
