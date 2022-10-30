@@ -1,6 +1,3 @@
-export const getRandomQuestion = state => state.questions.question;
-export const getRightAnswer = state => state.result.correct;
-export const getWrongAnswer = state => state.result.incorrect;
-
-console.log(getRightAnswer);
-console.log(getWrongAnswer);
+export const getRandomQuestions = state => state.questions.questions;
+export const getResult = state => state.questions.result;
+export const getAnswers = state => state.questions.answers;

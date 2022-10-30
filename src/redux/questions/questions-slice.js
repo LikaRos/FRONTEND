@@ -36,16 +36,6 @@ const question = createSlice({
     [getResult.rejected]: (state, _) => {
       state.loading = false;
     },
-    [getAnswers.fulfilled]: (state, { payload }) => {
-      state.result = payload.result;
-      state.loading = false;
-    },
-    [getAnswers.pending]: (state, _) => {
-      state.loading = true;
-    },
-    [getAnswers.rejected]: (state, _) => {
-      state.loading = false;
-    },
   },
 });
 

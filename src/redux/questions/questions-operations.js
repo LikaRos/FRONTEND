@@ -15,15 +15,6 @@ export const getRandomQuestions = createAsyncThunk(
   }
 );
 
-export const getAnswers = createAsyncThunk(
-  'questions/answers',
-  async answers => {
-    const { data } = await axios.patch('/questions/result', answers);
-
-    return data;
-  }
-);
-
 export const getResult = createAsyncThunk(
   'questions/getResult',
   async (answers, { rejectedWithValue }) => {
