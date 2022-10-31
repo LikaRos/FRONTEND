@@ -6,7 +6,6 @@ import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 // import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
-
 //---------------------------------------------------------------//
 export const App = () => {
   return (

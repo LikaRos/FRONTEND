@@ -4,7 +4,7 @@ import { Icons } from '../../components/Icons/icons';
 
 const Logo = () => {
 	return (
-    <NavLink to="/">
+    <NavLink to="/home">
       <Icons
               name="logo"
               className=""

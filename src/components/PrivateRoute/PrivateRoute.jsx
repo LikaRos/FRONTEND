@@ -1,3 +1,4 @@
+
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import { getToken, getIsLoggedIn } from 'redux/auth/auth-selector';
@@ -11,3 +12,4 @@ export const PrivateRoute = ({ children }) => {
   }
   return token ? children : <Navigate to="/" />;
 };
+

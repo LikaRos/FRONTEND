@@ -11,6 +11,7 @@ import NoLoginNav from 'components/Navigation/NoLoginNav/NoLoginNav';
 //-------------------------------------------------------//
 export default function Header() {
   const isLogin = useSelector(getIsLoggedIn);
+	console.log(isLogin);
   return (
     <header className={styles.header}>
       <div className={styles.container}>
