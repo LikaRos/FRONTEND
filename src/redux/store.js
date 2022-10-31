@@ -27,11 +27,6 @@ const persistConfigQuestions = {
   whitelist: ['questions', 'answers', 'result'],
 };
 
-const persistConfigQuestions = {
-  key: 'questions',
-  storage,
-  whitelist: ['questions', 'answers', 'result'],
-};
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const persistedQuestions = persistReducer(
   persistConfigQuestions,

@@ -13,21 +13,19 @@ export const QuestionTicket = ({ i = 0 }) => {
         <div>
           <p>{questionIndex.question}</p>
 
-          <ul key={questionIndex._id}>
+          <ul>
             {questionIndex.answers.map((answer, i) => {
               return (
-                <>
-                  <li key={index}>
-                    <input
-                      name="answ"
-                      type="radio"
-                      value={answer}
-                      id={i}
-                      key={i}
-                    />
-                    {answer}
-                  </li>
-                </>
+                <li key={i + 1}>
+                  <input
+                    name="answ"
+                    type="radio"
+                    value={answer}
+                    id={i}
+                    key={i}
+                  />
+                  {answer}
+                </li>
               );
             })}
           </ul>
