@@ -11,7 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './Auth/auth-slice';
-import questionReducer from './questions/questions-slice';
+import { questionsReduser } from './questions/questions-slice';
 
 //----------------------------------------------------------------//
 
@@ -29,7 +29,7 @@ const persistConfigQuestions = {
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const persistedQuestions = persistReducer(
   persistConfigQuestions,
-  questionReducer
+  questionsReduser
 );
 
 const store = configureStore({

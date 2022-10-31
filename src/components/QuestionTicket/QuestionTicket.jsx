@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { getRandomQuestions } from '../../redux/questions/questions-selectors';
 
-export default function QuestionTicket({ i = 0 }) {
+export const QuestionTicket = ({ i = 0 }) =>{
   let index = Number(i);
 
   const randomQuestion = useSelector(getRandomQuestions);
