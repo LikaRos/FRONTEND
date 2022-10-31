@@ -1,11 +1,15 @@
 import { NavLink, useLocation } from 'react-router-dom';
 import styles from './navigation.module.css';
+import Logout from 'components/Loguot/logout';
 
-const Navigation = () => {
+const Navigation = ({ isActive }) => {
   const location = useLocation();
 
   return (
-    <nav className={styles.nav}>
+    <nav
+      // className={styles.nav}
+      className={`${styles.nav} ${isActive ? styles.active : ''}`}
+    >
       <ul className={styles.list}>
         <li className={styles.nav_item}>
           <NavLink to="/home" state={location} className={styles.link_btn}>
@@ -22,6 +26,9 @@ const Navigation = () => {
           <NavLink to="/contacts" state={location} className={styles.link_btn}>
             Contacts
           </NavLink>
+        </li>
+        <li>
+          <Logout isHere="onMobile" />
         </li>
         {/* </div> */}
       </ul>
