@@ -12,13 +12,12 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="auth" element={<AuthPage />} />
+          <Route path="/auth" element={<AuthPage />} />
+          <Route path="/home" element={<MainPage />} />
+          <Route path="/question" element={<QuestionPage />} />
         </Route>
-        <Route index element={<MainPage />} />
-        <Route path="/question" element={<QuestionPage />} />
-      </Routes>
 
-      {/* <Route path="/" element={<SharedLayout />}>
+        {/* <Route path="/" element={<SharedLayout />}>
 				</Route> 
       
 
@@ -63,9 +62,8 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-					  </Route> 
-
-       </Routes>  */}
+					  </Route>  */}
+      </Routes>
     </>
   );
 };

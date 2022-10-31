@@ -44,7 +44,7 @@ export default function QuestionButton() {
   //   };
 
   return options.map(item => (
-    <Link to="question" id={item.id} onClick={handleChange} key={item.id}>
+    <Link to="/question" id={item.id} onClick={handleChange} key={item.id}>
       {item.title}
       <svg width={24} height={16}>
         <use href="#arrow"></use>
