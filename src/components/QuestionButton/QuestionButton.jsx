@@ -1,4 +1,3 @@
-// import PropTypes from 'prop-types';
 // import styles from './QuestionButton.module.css';
 import { useDispatch } from 'react-redux';
 
@@ -22,7 +21,7 @@ export default function QuestionButton() {
   const dispatch = useDispatch();
   let type = null;
 
-  const handleChange = async event => {
+  const handleChange = event => {
     const { name } = event.target;
     switch (name) {
       case 'tech':
@@ -39,12 +38,14 @@ export default function QuestionButton() {
     dispatch(getRandomQuestions(type));
   };
 
-  //   const handleChange = () => {
-  //     dispatch(getRandomQuestions(type));
-  //   };
-
   return options.map(item => (
-    <Link to="/question" id={item.id} onClick={handleChange} key={item.id}>
+    <Link
+      to="/test"
+      name={item.name}
+      id={item.id}
+      onClick={handleChange}
+      key={item.id}
+    >
       {item.title}
       <svg width={24} height={16}>
         <use href="#arrow"></use>

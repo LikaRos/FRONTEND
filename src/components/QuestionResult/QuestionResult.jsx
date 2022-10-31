@@ -18,7 +18,7 @@ export default function QuestionResult() {
   const handleNext = () => {};
 
   const getResult = () => {
-    dispatch(getAnswers(answers));
+    dispatch(getAnswerResult(answers));
   };
   return (
     <>

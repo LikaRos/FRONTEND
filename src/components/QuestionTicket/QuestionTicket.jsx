@@ -1,19 +1,20 @@
 import { useSelector } from 'react-redux';
-import { getRandomQuestions } from '../../redux/questions/questions-selectors';
 
-export const QuestionTicket = ({ i = 0 }) =>{
+import { getRandomQuestions } from 'redux/questions/questions-selectors';
+
+export const QuestionTicket = ({ i = 0 }) => {
   let index = Number(i);
 
-  const randomQuestion = useSelector(getRandomQuestions);
-
+  const randomQuestions = useSelector(getRandomQuestions);
+  const questionIndex = randomQuestions[index];
   return (
     <>
-      {randomQuestion[index] && (
+      {questionIndex && (
         <div>
-          <p>{randomQuestion[index].question}</p>
+          <p>{questionIndex.question}</p>
 
-          <ul key={randomQuestion[index]._id}>
-            {randomQuestion[index].answers.map((answer, i) => {
+          <ul key={questionIndex._id}>
+            {questionIndex.answers.map((answer, i) => {
               return (
                 <>
                   <li key={index}>
@@ -34,4 +35,4 @@ export const QuestionTicket = ({ i = 0 }) =>{
       )}
     </>
   );
-}
+};

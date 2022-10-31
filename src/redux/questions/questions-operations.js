@@ -15,8 +15,21 @@ export const getRandomQuestions = createAsyncThunk(
   }
 );
 
+export const getAnswerResult = createAsyncThunk(
+  'questions/result',
+  async (answers, { rejectedWithValue }) => {
+    try {
+      const { data } = await axios.post('/questions/result', answers);
+
+      return data;
+    } catch (error) {
+      return rejectedWithValue(error);
+    }
+  }
+);
+
 export const getResult = createAsyncThunk(
-  'questions/getResult',
+  'questions/result',
   async (answers, { rejectedWithValue }) => {
     try {
       const { data } = await axios.get('/questions/result', answers);
