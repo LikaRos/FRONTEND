@@ -1,7 +1,3 @@
-.nav {
-  margin-right: 40px;
-}
-
 .list {
   list-style: none;
 }
@@ -56,10 +52,6 @@
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
-  .nav {
-    margin-right: 40px;
-  }
-
   .nav_item:not(:last-child) {
     margin-right: 60px;
   }
@@ -75,10 +67,6 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .nav {
-    margin-right: 80px;
-  }
-
   .nav_item:not(:last-child) {
     margin-right: 80px;
   }
