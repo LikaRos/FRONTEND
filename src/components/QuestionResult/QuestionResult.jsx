@@ -1,6 +1,9 @@
 import { getRandomQuestions } from '../../redux/questions/questions-selectors';
-import { getAnswers } from 'redux/questions/questions-operations';
-import QuestionTicket from 'components/QuestionTicket/QuestionTicket';
+import { getAnswerResult } from 'redux/questions/questions-operations';
+import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 /*---------------------------------------------- */
 export default function QuestionResult() {
@@ -27,22 +30,25 @@ export default function QuestionResult() {
     if ((randomQuestions.length = 12)) {
     }
   };
-  const gatherAnswers = btnRadios.map(el => {
-    if (el.checked) {
-      setAnswers([
-        ...answers,
-        { answer: el.value, _id: randomQuestions[index]._id },
-      ]);
-    }
-    if ((randomQuestions.length = 12)) {
-      btnNext.disabled = true;
-    }
-    if (index === 0) {
-      btnBack.disabled = true;
-    }
-  });
+  const answersArray = btnRadio => randomQuestions[index];
+  console.log(answers);
 
-  //   const gatherAnswers = () => {
+  //   btnRadios.foreach(el => {
+  //     if (el.checked) {
+  //       setAnswers([
+  //         ...answers,
+  //         { answer: el.value, _id: randomQuestions[index]._id },
+  //       ]);
+  //     }
+  //     if ((randomQuestions.length = 12)) {
+  //       btnNext.disabled = true;
+  //     }
+  //     if (index === 0) {
+  //       btnBack.disabled = true;
+  //     }
+  //   });
+
+  //   const gatherAnswers = (btnRadio) => {
   //     if (btnRadio.checked) {
   //       return randomQuestions[index + 1].question;
   //     }
@@ -58,11 +64,12 @@ export default function QuestionResult() {
   const getResult = () => {
     dispatch(getAnswerResult(answers));
   };
+
   return (
     <>
       <div>
         <b>Question {Number(index) + 1} / 12 </b>
-        <QuestionTicket index={index} radioButton={radioButton} />
+        <QuestionTicket index={index} btnRadio={btnRadio} />
       </div>
       <div>
         <button type="button" name="back" onClick={handleBack}>

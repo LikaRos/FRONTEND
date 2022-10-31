@@ -1,3 +1,4 @@
+import QuestionResult from 'components/QuestionResult/QuestionResult';
 import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -49,6 +50,7 @@ export const QuestionPage = () => {
         clearAnswers
       </button>
       <QuestionTicket />
+      <QuestionResult />
     </>
   );
 };
