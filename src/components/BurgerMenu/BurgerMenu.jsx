@@ -14,14 +14,14 @@ export const BurgerMenu = ({ handlerMenu, isActive }) => {
       <Icons
         name="threeHorizontalStripes"
         className={styles.burger__open}
-        color="#000000"
+        color="currentColor"
         width="20"
         height="20"
       />
       <Icons
         name="crossForClosing"
         className={styles.burger__close}
-        color="#000000"
+        color="currentColor"
         width="26"
         height="26"
       />

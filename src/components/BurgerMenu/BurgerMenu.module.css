@@ -1,12 +1,13 @@
 .burger {
+  position: relative;
   width: 26px;
   height: 26px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 3;
   margin: 0;
   padding: 0;
+  margin-left: 20px;
 
   border: none;
   background: none;
@@ -15,15 +16,18 @@
 }
 
 .burger__icon {
+  position: absolute;
+  width: 26px;
+  height: 26px;
   fill: currentColor;
 
   transition: color var(--transition), transform var(--transition),
     overflow var(--transition);
 }
 
-/* .burger__icon:hover {
+.burger__icon:hover {
   color: var(--accent-color);
-} */
+}
 
 .burger__open {
   composes: burger__icon;

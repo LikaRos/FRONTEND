@@ -8,8 +8,6 @@ const Navigation = ({ isLogin, isActive }) => {
 
   const matches = useMediaQuery('(max-width:767px)');
 
-  console.log(isLogin);
-
   return (
     <nav
       // className={styles.nav}

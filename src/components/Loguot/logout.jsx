@@ -23,7 +23,7 @@ const Logout = () => {
       <Icons
         name="logout"
         className=""
-        color="#000000"
+        color="currentColor"
         width="16"
         height="16"
       />
