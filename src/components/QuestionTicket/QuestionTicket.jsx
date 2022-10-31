@@ -3,16 +3,18 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import {
+  getAnswers,
   getRandomQuestions,
   questionNumber,
 } from 'redux/questions/questions-selectors';
 
 export const QuestionTicket = () => {
-  const index = useSelector(questionNumber);
   const [answer, setAnswer] = useState({});
-
+  const index = useSelector(questionNumber);
   const randomQuestions = useSelector(getRandomQuestions);
   const currentQuestion = randomQuestions[index];
+
+  const answers = useSelector(getAnswers);
 
   const handleCheckAnswer = e => {
     const answerqwe = e.target.defaultValue;
@@ -23,7 +25,7 @@ export const QuestionTicket = () => {
     setAnswer(answerObj);
     console.log(answer);
   };
-
+  let isChecked = false;
   return (
     <>
       {currentQuestion && (
@@ -35,13 +37,27 @@ export const QuestionTicket = () => {
               return (
                 <li key={i + 1}>
                   <input
-                    //   checked={true}
+                    // defaultChecked={
+                    //   answers.find(el => el.answer === answer) ? true : false
+                    // }
+                    checked={
+                      isChecked
+                      // answers.find(el => el.answer === answer) ? true : false
+
+                      // console.log(
+                      //   'find',
+                      //   answers.find(el => el.answer === answer) ? true : false
+                      // )
+                    }
+                    onChange={() => {
+                      isChecked = true;
+                    }}
                     name="answ"
                     type="radio"
                     value={answer}
                     id={i}
                     key={i}
-                    onChange={handleCheckAnswer}
+                    onInput={handleCheckAnswer}
                   />
                   {answer}
                 </li>
