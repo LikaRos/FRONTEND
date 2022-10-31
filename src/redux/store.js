@@ -26,6 +26,7 @@ const persistConfigQuestions = {
   storage,
   whitelist: ['questions', 'answers', 'result'],
 };
+
 const persistedReducer = persistReducer(persistConfig, authReducer);
 const persistedQuestions = persistReducer(
   persistConfigQuestions,

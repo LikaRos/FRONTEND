@@ -1,3 +1,5 @@
+import QuestionResult from 'components/QuestionResult/QuestionResult';
+import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -37,7 +39,7 @@ export const QuestionPage = () => {
 
   return (
     <>
-      <div>Запитання дивись у консолі :)</div>;
+      <div>Запитання дивись у консолі</div>;
       <button type="button" onClick={handleAddAnswer}>
         addAnswer
       </button>
@@ -47,6 +49,7 @@ export const QuestionPage = () => {
       <button type="button" onClick={handleClearAnswers}>
         clearAnswers
       </button>
+      <QuestionTicket />
     </>
   );
 };

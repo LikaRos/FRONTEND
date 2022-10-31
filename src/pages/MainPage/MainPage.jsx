@@ -1,56 +1,20 @@
-import React from 'react';
-// import { useState } from 'react';
-
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
-import { useDispatch } from 'react-redux';
-import { getRandomQuestions } from 'redux/questions/questions-operations';
+// import { useDispatch } from 'react-redux';
 
 // import styles from './MainPage.module.css';
-const options = [
-  {
-    name: 'tech',
-    title: 'QA technical training',
-    id: 1,
-  },
-  {
-    name: 'theory',
-    title: 'Testing theory',
-    id: 2,
-  },
-];
+
+// import { getIsLoggedIn } from 'redux/Auth/auth-selector';
+// import { useDispatch } from 'react-redux';
 
 export default function MainPage() {
-  // const [type, setType] = useState(''); //для статистики
-  let type = null;
-  const dispatch = useDispatch();
-  //  const [randomQuestions, setRandomQuestions] = useState([]); //для статистики
-
-  //   const addQuestion = () => {
-  //     setRandomQuestion;
-  //   };
-
-  const handleUpdate = async event => {
-    const { name } = event.target;
-    switch (name) {
-      case 'tech':
-        type = 'tech';
-        break;
-
-      case 'theory':
-        type = 'theory';
-        break;
-
-      default:
-        return;
-    }
-    dispatch(getRandomQuestions(type));
-  };
+  //   const isLogged = useSelector(getIsLoggedIn);
+  //   const dispatch = useDispatch();
 
   return (
     <>
       <Main />
-      <QuestionButton options={options} handleUpdate={handleUpdate} />
+      <QuestionButton />
     </>
   );
 }

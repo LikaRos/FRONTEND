@@ -1,28 +1,55 @@
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
-import styles from './QuestionButton.module.css';
+import { useDispatch } from 'react-redux';
 
-export default function QuestionButton({ options, handleUpdate }) {
+// import styles from './QuestionButton.module.css';
+import { getRandomQuestions } from 'redux/questions/questions-operations';
+import { Link } from 'react-router-dom';
+
+const options = [
+  {
+    name: 'tech',
+    title: 'QA technical training',
+    id: 1,
+  },
+  {
+    name: 'theory',
+    title: 'Testing theory',
+    id: 2,
+  },
+];
+
+export default function QuestionButton() {
+  const dispatch = useDispatch();
+  let type = null;
+
+  const handleChange = event => {
+    const { name } = event.target;
+    switch (name) {
+      case 'tech':
+        type = 'tech';
+        break;
+
+      case 'theory':
+        type = 'theory';
+        break;
+
+      default:
+        return;
+    }
+    dispatch(getRandomQuestions(type));
+  };
+
   return options.map(item => (
     <Link
-      to="/question"
-      className={styles.item}
+      to="/test"
       name={item.name}
+      id={item.id}
+      onClick={handleChange}
       key={item.id}
-      onClick={handleUpdate}
     >
       {item.title}
+      <svg width={24} height={16}>
+        <use href="#arrow"></use>
+      </svg>
     </Link>
   ));
 }
-
-QuestionButton.propTypes = {
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      title: PropTypes.string.isRequired,
-      id: PropTypes.number.isRequired,
-    })
-  ),
-  handleUpdate: PropTypes.func.isRequired,
-};
