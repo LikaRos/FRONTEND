@@ -3,6 +3,7 @@ import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
 // import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
@@ -15,6 +16,7 @@ export const App = () => {
           <Route path="auth" element={<AuthPage />} />
           <Route path="home" element={<MainPage />} />
           <Route path="question" element={<QuestionPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
         </Route>
         {/* </Routes> */}
 
