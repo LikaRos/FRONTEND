@@ -1,10 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { logIn, logOut, getRefresh } from './auth-operations';
+import { logIn, logOut } from './auth-operations';
 
 export const initialState = {
-  accessToken: null,
-  refreshToken: null,
-  sid: null,
+  token: null,
   isLogin: false,
 };
 
@@ -14,8 +12,6 @@ const authSlice = createSlice({
   reducers: {
     googleAuth: (state, { payload }) => {
       state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
-      state.sid = payload.sid;
       state.isLogin = true;
     },
   },
@@ -24,9 +20,7 @@ const authSlice = createSlice({
       state.isLogin = false;
     },
     [logIn.fulfilled]: (state, { payload }) => {
-      state.accessToken = payload.accessToken;
-      state.refreshToken = payload.refreshToken;
-      state.sid = payload.sid;
+      state.token = payload.token;
       state.isLogin = true;
     },
     [logIn.rejected]: (state, { payload }) => {
@@ -34,26 +28,24 @@ const authSlice = createSlice({
     },
 
     [logOut.fulfilled]: (state, { payload }) => {
-      state.accessToken = null;
-      state.refreshToken = null;
-      state.sid = null;
+      state.token = null;
       state.isLogin = false;
     },
-    [getRefresh.pending]: (state, { payload }) => {
-      state.isLogin = false;
-    },
-    [getRefresh.fulfilled]: (state, { payload }) => {
-      state.accessToken = payload.newAccessToken;
-      state.refreshToken = payload.newRefreshToken;
-      state.sid = payload.newSid;
-      state.isLogin = true;
-    },
-    [getRefresh.rejected]: (state, { payload }) => {
-      state.isLogin = false;
-      state.accessToken = null;
-      state.refreshToken = null;
-      state.sid = null;
-    },
+    // [getRefresh.pending]: (state, { payload }) => {
+    //   state.isLogin = false;
+    // },
+    // [getRefresh.fulfilled]: (state, { payload }) => {
+    //   state.accessToken = payload.newAccessToken;
+    //   state.refreshToken = payload.newRefreshToken;
+    //   state.sid = payload.newSid;
+    //   state.isLogin = true;
+    // },
+    // [getRefresh.rejected]: (state, { payload }) => {
+    //   state.isLogin = false;
+    //   state.accessToken = null;
+    //   state.refreshToken = null;
+    //   state.sid = null;
+    // },
   },
 });
 
