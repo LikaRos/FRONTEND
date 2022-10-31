@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import {
-  getRandomQuestions,
-  getResult,
-  getAnswers,
-} from './questions-operations';
+import { getRandomQuestions, getResult } from './questions-operations';
 
 const initialState = {
   questions: [],
@@ -12,7 +8,7 @@ const initialState = {
   loading: false,
 };
 
-const question = createSlice({
+const questionReducer = createSlice({
   name: 'questions',
   initialState,
   extraReducers: {
@@ -39,4 +35,4 @@ const question = createSlice({
   },
 });
 
-export default question.reducer;
+export default questionReducer.reducer;

@@ -11,6 +11,7 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 import { authReducer } from './Auth/auth-slice';
+import questionReducer from './questions/questions-slice';
 
 //----------------------------------------------------------------//
 
@@ -19,11 +20,22 @@ const persistConfig = {
   storage,
   whitelist: ['accessToken', 'refreshToken', 'sid', 'user'],
 };
+
+const persistConfigQuestions = {
+  key: 'questions',
+  storage,
+  whitelist: ['questions', 'answers', 'result'],
+};
 const persistedReducer = persistReducer(persistConfig, authReducer);
+const persistedQuestions = persistReducer(
+  persistConfigQuestions,
+  questionReducer
+);
 
 const store = configureStore({
   reducer: {
     auth: persistedReducer,
+    questions: persistedQuestions,
   },
   devTools: process.env.NODE_ENV === 'development',
   middleware: getDefaultMiddleware =>

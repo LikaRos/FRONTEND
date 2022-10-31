@@ -20,30 +20,31 @@ const options = [
 
 export default function QuestionButton() {
   const dispatch = useDispatch();
-  const type = ['tech', 'theory'];
-  const handleChange = () => {
+  let type = null;
+
+  const handleChange = async event => {
+    const { name } = event.target;
+    switch (name) {
+      case 'tech':
+        type = 'tech';
+        break;
+
+      case 'theory':
+        type = 'theory';
+        break;
+
+      default:
+        return;
+    }
     dispatch(getRandomQuestions(type));
   };
 
-  //   const onSubmit = event => {
-  //     event.preventDefault();
-  //     dispatch(getRandomQuestions());
+  //   const handleChange = () => {
+  //     dispatch(getRandomQuestions(type));
   //   };
 
   return options.map(item => (
-    //  <form className={styles.form} onSubmit={onSubmit}>
-    //    <button
-    //      className={styles.item}
-    //      type="submit"
-    //      name={item.name}
-    //      key={item.id}
-    //      onClick={handleChange}
-    //    >
-    //      {item.title}
-    //    </button>
-    //  </form>
-
-    <Link to="question" id={item.id} onClick={handleChange}>
+    <Link to="question" id={item.id} onClick={handleChange} key={item.id}>
       {item.title}
       <svg width={24} height={16}>
         <use href="#arrow"></use>
