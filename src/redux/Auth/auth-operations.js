@@ -2,25 +2,31 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API, tokenAuth } from '../../services/API';
 import { toast } from 'react-toastify';
 
-export const signIn = createAsyncThunk('/users/signup', async credentials => {
-  const { data } = await API.post('/users/signup', credentials);
-  return data;
-});
-
-export const logIn = createAsyncThunk('/users/login', async credentials => {
-  try {
-    const { data } = await API.post('/users/login', credentials);
-    tokenAuth.set(data.token);
+export const signIn = createAsyncThunk(
+  'api/auth/users/signup',
+  async credentials => {
+    const { data } = await API.post('/api/auth/users/signup', credentials);
     return data;
-  } catch (error) {
-    if (error.response.status === 401) {
-      toast.error('Server error, please try again later');
-    }
-    if (error.response.status !== 401) {
-      toast.error('Wrong email or password, please try again.');
+  }
+);
+
+export const logIn = createAsyncThunk(
+  'api/auth/users/login',
+  async credentials => {
+    try {
+      const { data } = await API.post('/api/auth/users/login', credentials);
+      tokenAuth.set(data.token);
+      return data;
+    } catch (error) {
+      if (error.response.status === 401) {
+        toast.error('Server error, please try again later');
+      }
+      if (error.response.status !== 401) {
+        toast.error('Wrong email or password, please try again.');
+      }
     }
   }
-});
+);
 
 export const logOut = createAsyncThunk('/users/logout', async () => {
   try {
