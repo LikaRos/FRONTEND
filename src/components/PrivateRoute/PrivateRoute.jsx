@@ -1,9 +1,15 @@
-import React from 'react';
+
 import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
-import { getSuccessToken } from '../../redux/auth/auth-selectors';
-//------------------------------------------------------------------------//
-export default function PrivateRoute({ children }) {
-  const accountToken = useSelector(getSuccessToken);
-  return accountToken ? children : <Navigate to="/"></Navigate>;
-}
+import { getToken, getIsLoggedIn } from 'redux/auth/auth-selector';
+import { Loader } from '../Loader/Loader';
+
+export const PrivateRoute = ({ children }) => {
+  const token = useSelector(getToken);
+  const isLoggedIn = useSelector(getIsLoggedIn);
+  if (token && !isLoggedIn) {
+    return <Loader />;
+  }
+  return token ? children : <Navigate to="/" />;
+};
+

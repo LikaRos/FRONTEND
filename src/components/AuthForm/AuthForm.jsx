@@ -12,12 +12,12 @@ import styles from './authForm.module.css';
 // import authOperations from '../../redux/auth/authOperations';
 
 export const AuthForm = () => {
+  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   //   const [emptyInput, setEmptyInput] = useState(false);
   //   const [invalidEmail, setInvalidEmail] = useState(false);
   //   const [smallLengthPassword, setSmallLengthPassword] = useState(false);
-  const dispatch = useDispatch();
 
   const onChange = event => {
     // setEmptyInput(false);
@@ -66,15 +66,12 @@ export const AuthForm = () => {
 
   //     return key;
   //   };
-  const handleRegister = event => {
-    event.preventDefault();
+  const handleRegister = () => {
     const credentials = { email, password };
     // if (checkValidData()) {
     //   return;
     // }
-    dispatch(signIn(credentials))
-      .unwrap()
-      .then(() => dispatch(logIn(credentials)));
+    dispatch(signIn(credentials));
   };
   const onHandleSigIn = async () => {
     window.location.replace('http://localhost:3001/api/googleAuth/google');
@@ -104,7 +101,7 @@ export const AuthForm = () => {
           Or login to our app using e-mail and password:
         </p>
 
-        <form className={styles.signUpForm} onSubmit={handleLogin}>
+        <form className={styles.signUpForm}>
           <input
             className={styles.input}
             name="email"

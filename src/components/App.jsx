@@ -3,8 +3,9 @@ import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-// import PublicRoute from './PublicRoute/PublicRoute';
-// import PrivateRoute from './PrivateRoute/PrivateRoute';
+// import SharedLayout from './SharedLayout';
+// import MainPage from '../pages/MainPage/MainPage';
+// import Header from '../components/Header/Header';
 //---------------------------------------------------------------//
 export const App = () => {
   return (
@@ -81,10 +82,7 @@ export const App = () => {
             }
           />
 					  </Route> */}
-				
       </Routes>
-
-
     </>
   );
 };
