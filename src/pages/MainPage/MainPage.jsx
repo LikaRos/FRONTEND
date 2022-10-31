@@ -1,8 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
+// import { useState } from 'react';
 
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
+import { useDispatch } from 'react-redux';
+import { getRandomQuestions } from 'redux/questions/questions-operations';
 
 // import styles from './MainPage.module.css';
 const options = [
@@ -19,28 +21,30 @@ const options = [
 ];
 
 export default function MainPage() {
-  const [type, setType] = useState(''); //для статистики
+  // const [type, setType] = useState(''); //для статистики
+  let type = null;
+  const dispatch = useDispatch();
   //  const [randomQuestions, setRandomQuestions] = useState([]); //для статистики
 
   //   const addQuestion = () => {
   //     setRandomQuestion;
   //   };
 
-  const handleUpdate = event => {
+  const handleUpdate = async event => {
     const { name } = event.target;
-    switch ((name, type)) {
+    switch (name) {
       case 'tech':
-        setType('tech');
+        type = 'tech';
         break;
 
       case 'theory':
-        setType('theory');
+        type = 'theory';
         break;
 
       default:
         return;
     }
-    //  dispatch(getRandomQuestions(type));
+    dispatch(getRandomQuestions(type));
   };
 
   return (

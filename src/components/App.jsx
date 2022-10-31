@@ -1,6 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
+import MainPage from 'pages/MainPage/MainPage';
+import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 // import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
@@ -9,19 +11,21 @@ import { AuthPage } from '../pages/AuthPage/AuthPage';
 export const App = () => {
   return (
     <>
-      {/* <Header /> */}
-      {/* <MainPage /> */}
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route path="auth" element={<AuthPage />} />
+          <Route path="home" element={<MainPage />} />
+          <Route path="question" element={<QuestionPage />} />
         </Route>
-      </Routes>
+        {/* </Routes> */}
 
-      {/* <Route path="/" element={<SharedLayout />}>
-				</Route> 
-      <Route index element={<MainPage />} />
+        {/* <Route path="/" element={<SharedLayout />}>
+				</Route> */}
+        {/* <Route index element={<MainPage />} /> */}
 
-      {/* <Route index element={<LoginPage />} />
+        {/* <Route index element={<LoginPage />} />
+
+
           <Route
             path="/register"
             element={
@@ -79,8 +83,7 @@ export const App = () => {
             }
           />
 					  </Route> */}
-
-      {/* </Routes> */}
+      </Routes>
     </>
   );
 };
