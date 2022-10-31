@@ -1,9 +1,6 @@
-import React from 'react';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { useState } from 'react';
-
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
+// import { useDispatch } from 'react-redux';
 
 // import styles from './MainPage.module.css';
 

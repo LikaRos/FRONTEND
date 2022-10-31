@@ -1,10 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
-// import SharedLayout from './SharedLayout';
+import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 import MainPage from '../pages/MainPage/MainPage';
-import QuestionPage from 'pages/QuestionPage/QuestionPage';
-// import Header from '../components/Header/Header';
 
 //---------------------------------------------------------------//
 export const App = () => {
