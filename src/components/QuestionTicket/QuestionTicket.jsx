@@ -6,15 +6,15 @@ export const QuestionTicket = ({ i = 0 }) => {
   let index = Number(i);
 
   const randomQuestions = useSelector(getRandomQuestions);
-  const questionIndex = randomQuestions[index];
+  const currentQuestion = randomQuestions[index];
   return (
     <>
-      {questionIndex && (
+      {currentQuestion && (
         <div>
-          <p>{questionIndex.question}</p>
+          <b>{currentQuestion.question}</b>
 
           <ul>
-            {questionIndex.answers.map((answer, i) => {
+            {currentQuestion.answers.map((answer, i) => {
               return (
                 <li key={i + 1}>
                   <input
