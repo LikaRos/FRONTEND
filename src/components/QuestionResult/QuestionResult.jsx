@@ -1,13 +1,11 @@
 import {
   getAnswers,
-  getRandomQuestions,
   questionNumber,
 } from '../../redux/questions/questions-selectors';
-import { getAnswerResult } from 'redux/questions/questions-operations';
-import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+
 import {
   addAnswers,
   questionNumberIncrement,
@@ -16,7 +14,7 @@ import {
 /*---------------------------------------------- */
 export default function QuestionResult({ answer }) {
   const dispatch = useDispatch();
-  const randomQuestions = useSelector(getRandomQuestions);
+
   // const [answers, setAnswers] = useState([]);
   // const [index, setIndex] = useState('0');
   const index = useSelector(questionNumber);
@@ -26,11 +24,8 @@ export default function QuestionResult({ answer }) {
 	3)-  Написать функцию   стрелки назад  и вперед
 	4) + Ф-ция getResult */
 
-  const btnRadio = document.getElementsByName('answ');
-  const btnNext = document.getElementsByName('next');
-  const btnBack = document.getElementsByName('back');
   const handleBack = () => {
-    const decrementQuestionIndex = Number(index) - 1;
+    //  const decrementQuestionIndex = Number(index) - 1;
     // setIndex(decrementQuestionIndex);
   };
   const handleNext = () => {
@@ -45,7 +40,7 @@ export default function QuestionResult({ answer }) {
   };
   // const answersArray = btnRadio => randomQuestions[index];
   // console.log(answers);
-  const btnRadios = [];
+
   // btnRadios.foreach(el => {
   //   if (el.checked) {
   //     setAnswers([
