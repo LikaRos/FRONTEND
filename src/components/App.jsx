@@ -4,11 +4,8 @@ import { AuthPage } from '../pages/AuthPage/AuthPage';
 import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
-// import SharedLayout from './SharedLayout';
-// import MainPage from '../pages/MainPage/MainPage';
-// import Header from '../components/Header/Header';
-import {PublicRoute} from '../components/PublicRoute/PublicRoute';
-import {PrivateRoute} from '../components/PrivateRoute/PrivateRoute';
+import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -19,7 +16,7 @@ export const App = () => {
           <Route
             path="/auth"
             element={
-              <PublicRoute >
+              <PublicRoute>
                 <AuthPage />
               </PublicRoute>
             }
@@ -27,13 +24,13 @@ export const App = () => {
           <Route
             path="/home"
             element={
-              <PrivateRoute >
+              <PrivateRoute>
                 <MainPage />
               </PrivateRoute>
             }
           />
           <Route
-            path="/question"
+            path="/test"
             element={
               <PrivateRoute>
                 <QuestionPage />

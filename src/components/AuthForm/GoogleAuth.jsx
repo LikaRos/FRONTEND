@@ -7,7 +7,7 @@ import { tokenAuth } from '../../services/API';
 export const GoogleAuth = ({ children }) => {
   const [params] = useSearchParams();
   const accessToken = params.get('token');
-  const email = params.get('email');
+  //   const email = params.get('email');
   const dispatch = useDispatch();
   useEffect(() => {
     if (accessToken) {
