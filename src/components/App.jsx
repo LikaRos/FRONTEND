@@ -15,9 +15,7 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route path="auth" element={<AuthPage />} />
-          <Route path="home" element={<MainPage />} />
-          <Route path="question" element={<QuestionPage />} /> */}
+
           <Route
             path="/auth"
             element={
@@ -59,7 +57,7 @@ export const App = () => {
             }
           /> */}
         </Route>
-        {/* </Routes> */}
+
       </Routes>
     </>
   );
