@@ -18,6 +18,7 @@ export default function QuestionResult({ answer }) {
 
   const handleBack = () => {
     dispatch(questionNumberDecrement());
+    console.log('answers', answers);
   };
 
   const handleNext = () => {
@@ -32,7 +33,12 @@ export default function QuestionResult({ answer }) {
         <b>Question {Number(index) + 1} / 12 </b>
       </div>
       <div>
-        <button type="button" name="back" onClick={handleBack}>
+        <button
+          type="button"
+          name="back"
+          disabled={Number(index) === 0}
+          onClick={handleBack}
+        >
           Back
         </button>
         {Number(index) + 1 < 12 ? (
