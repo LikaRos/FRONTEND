@@ -7,28 +7,47 @@ import ContactsPage from 'pages/ContactsPage/ContactsPage';
 // import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
-import {PublicRoute} from '../components/PublicRoute/PublicRoute';
-import {PrivateRoute} from '../components/PrivateRoute/PrivateRoute';
-
 //---------------------------------------------------------------//
 export const App = () => {
   return (
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
+          <Route path="auth" element={<AuthPage />} />
+          <Route path="home" element={<MainPage />} />
+          <Route path="question" element={<QuestionPage />} />
+          <Route path="contacts" element={<ContactsPage />} />
+        </Route>
+        {/* </Routes> */}
+
+        {/* <Route path="/" element={<SharedLayout />}>
+				</Route> */}
+        {/* <Route index element={<MainPage />} /> */}
+
+        {/* <Route index element={<LoginPage />} />
+
+
           <Route
-            path="/auth"
+            path="/register"
             element={
-              <PublicRoute >
-                <AuthPage />
+              <PublicRoute redirectTo="/home">
+                <RegisterView />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/login"
+            element={
+              <PublicRoute redirectTo="/home">
+                <LoginPage />
               </PublicRoute>
             }
           />
           <Route
             path="/home"
             element={
-              <PrivateRoute >
-                <MainPage />
+              <PrivateRoute>
+                <MainPage />{' '}
               </PrivateRoute>
             }
           />
@@ -40,14 +59,22 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          {/* <Route
+          <Route
+            path="/result"
+            element={
+              <PrivateRoute>
+                <ResultPage />
+              </PrivateRoute>
+            }
+          />
+          <Route
             path="/materials"
             element={
               <PrivateRoute>
                 <MaterialsPage />
               </PrivateRoute>
             }
-          /> */}
+          />
           <Route
             path="/contacts"
             element={
@@ -56,7 +83,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-        </Route>
+					  </Route> */}
       </Routes>
     </>
   );
