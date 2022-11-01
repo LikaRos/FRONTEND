@@ -1,0 +1,122 @@
+.container {
+    width: 280px;
+    margin: 0 auto;
+    background-color: white;
+    transition: box-shadow ease-in-out 0.3s;
+
+}
+
+.container:hover {
+    box-shadow: 0px 9px 12px 1px rgba(0, 0, 0, 0.67);
+    -webkit-box-shadow: 0px 9px 12px 1px rgba(0, 0, 0, 0.67);
+    -moz-box-shadow: 0px 9px 12px 1px rgba(0, 0, 0, 0.67);
+    transition: box-shadow ease-in-out 0.3s;
+}
+.container:not(:last-child) {
+    margin-bottom: 20px;
+}
+
+.image {
+    width: 100%;
+    height: 50%;
+}
+
+.box {
+    height: 200px;
+    padding: 20px 20px;
+    display: grid;
+    grid-template-rows: 1fr 1fr 5fr 1fr;
+}
+
+.name {
+    margin: 0;
+    font-family: "Montserrat-700";
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+}
+
+.position {
+    margin: 0;
+    font-family: "Montserrat-400";
+    font-size: 12px;
+    line-height: 12px;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-family: "Montserrat-500";
+    margin: 0;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.contactsLogo {
+    width: 20px;
+    height: 20px;
+    fill: rgb(2, 0, 134);
+    transition: fill ease-in-out 0.25s;
+
+}
+.contactsLogo:hover {
+    fill: #ff6b09;
+    transition: fill ease-in-out 0.25s;
+}
+
+.contactsLogo__text {
+    vertical-align: 8px;
+    color: black;
+    display: inline-block;
+    text-decoration: underline;
+    margin-left: 5px;
+}
+
+.contacts {
+    margin-top: 10px;
+
+    display: flex;
+    justify-content: flex-start;
+
+
+}
+.contacts a svg :last-child {
+height: 25px;
+         width: 30px;
+}
+
+.contactsWrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-right: 10px;
+}
+
+@media (min-width: 768px) {
+    .container {
+        width: 352px;
+    }
+
+    .box {
+        padding: 20px 30px 22px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .container {
+        width: 295px;
+    }
+
+    .container:not(:last-child) {
+        margin-bottom: 20px;
+    }
+
+    .description {
+        font-size: 12px;
+    }
+}

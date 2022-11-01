@@ -3,7 +3,8 @@ import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+// import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
 import {PublicRoute} from '../components/PublicRoute/PublicRoute';
@@ -15,7 +16,6 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-
           <Route
             path="/auth"
             element={
@@ -47,7 +47,7 @@ export const App = () => {
                 <MaterialsPage />
               </PrivateRoute>
             }
-          />
+          /> */}
           <Route
             path="/contacts"
             element={
@@ -55,9 +55,8 @@ export const App = () => {
                 <ContactsPage />
               </PrivateRoute>
             }
-          /> */}
+          />
         </Route>
-
       </Routes>
     </>
   );
