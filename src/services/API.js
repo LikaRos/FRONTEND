@@ -1,6 +1,7 @@
 import axios from 'axios';
-const { BASE_URL } = process.env;
-export const API = axios.create(BASE_URL);
+export const API = axios.create({
+  baseURL: 'http://localhost:3001',
+});
 
 export const tokenAuth = {
   set(token) {
