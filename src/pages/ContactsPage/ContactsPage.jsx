@@ -4,12 +4,9 @@ import { nanoid } from 'nanoid';
 
 import styles from './ContactsPage.module.css';
 import { contacts } from '../../components/data/contacts.js';
-import Appear from 'components/common/Appear/Appear';
 
 const ContactsPage = () => {
   return (
-    <>
-    <Appear time={650}>
     <div className={styles.wrapper}>
       <div className={styles.headContainer}>
         <h2 className={styles.head}>Our team</h2>
@@ -22,8 +19,6 @@ const ContactsPage = () => {
         ))}
       </ul>
     </div>
-    </Appear>
-    </>
   );
 };
 
