@@ -16,20 +16,6 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          {/* <Route path="auth" element={<AuthPage />} />
-          <Route path="home" element={<MainPage />} />
-          <Route path="question" element={<QuestionPage />} />
-          <Route path="contacts" element={<ContactsPage />} />
-        </Route>
-        {/* </Routes> */}
-
-        {/* <Route path="/" element={<SharedLayout />}>
-				</Route> */}
-        {/* <Route index element={<MainPage />} /> */}
-
-        {/* <Route index element={<LoginPage />} />
-
-
           <Route
             path="/auth"
             element={
@@ -61,7 +47,7 @@ export const App = () => {
                 <MaterialsPage />
               </PrivateRoute>
             }
-          />
+          /> */}
           <Route
             path="/contacts"
             element={
@@ -69,9 +55,8 @@ export const App = () => {
                 <ContactsPage />
               </PrivateRoute>
             }
-          /> */}
+          />
         </Route>
-        {/* </Routes> */}
       </Routes>
     </>
   );
