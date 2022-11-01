@@ -21,7 +21,7 @@ const contacts = [
     name: 'Yuri Lys',
     photo: Yura,
     position: 'Full-stack Developer',
-    tasks: `Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tenetur repellendus cumque maxime at natus facere illum sit, autem, ratione sed eum animi odio iusto, minus beatae sequi? Ut, natus.`,
+    tasks: ``,
     email: 'Lys1999@ukr.net',
     linkedin: 'https://www.linkedin.com/in/yurii-lys-889b52249/',
     github: 'https://github.com/RedokLeeroy',
@@ -47,7 +47,7 @@ const contacts = [
     github: 'https://github.com/GaydAndr',
   },
   {
-    name: 'Vsevolod',
+    name: '',
     photo: Vsevolod,
     position: 'Front-End Developer',
     tasks:

@@ -40,7 +40,6 @@ const ContactsCard = ({
             <a href={`mailto:${email}`}>
               <svg className={styles.contactsLogo}>
                 <use href={sprite + '#email-logo'} />
-                
               </svg>
             </a>
           </li>
