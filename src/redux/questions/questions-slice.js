@@ -53,6 +53,9 @@ const questionSlice = createSlice({
     questionNumberDecrement(state) {
       state.questionNumber -= 1;
     },
+    questionNumberReset(state) {
+      state.questionNumber = 0;
+    },
   },
 });
 export const {
@@ -62,5 +65,6 @@ export const {
   clearAnswers,
   questionNumberIncrement,
   questionNumberDecrement,
+  questionNumberReset,
 } = questionSlice.actions;
 export const questionsReduser = questionSlice.reducer;
