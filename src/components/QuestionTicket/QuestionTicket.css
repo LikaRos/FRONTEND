@@ -1,0 +1,16 @@
+.unChecked {
+  cursor: pointer;
+  width: 5px;
+  height: 5px;
+  background: rgb(173, 170, 194);
+}
+.checked {
+  cursor: pointer;
+  width: 5px;
+  height: 5px;
+  background: rgb(181, 86, 3);
+}
+.questionsButton {
+  height: 100px;
+  width: 200px;
+}

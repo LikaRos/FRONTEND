@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-
+import './QuestionTicket.css';
 import {
   getAnswers,
   getRandomQuestions,
@@ -13,44 +13,69 @@ import {
   questionNumberDecrement,
   questionNumberIncrement,
 } from 'redux/questions/questions-slice';
+import { useEffect } from 'react';
+import { nanoid } from 'nanoid';
 
 export const QuestionTicket = () => {
-  // const [answer, setAnswer] = useState({});
-  // const index = useSelector(questionNumber);
+  const [answer, setAnswer] = useState({});
+  const index = useSelector(questionNumber);
   const randomQuestions = useSelector(getRandomQuestions);
-  const [index, setIndex] = useState(0);
+  // const [index, setIndex] = useState(0);
   // let index = 0;
+  // const [currentQuestion, setCurrentQuestion] = useState(
+  //   randomQuestions[index]
+  // );
   const currentQuestion = randomQuestions[index];
-  // const answers = useSelector(getAnswers);
+  const answers = useSelector(getAnswers);
   const dispatch = useDispatch();
-  let answer = null;
-  let answers = [];
+  // let answer = null;
+  // let answers = [];
   // const localData = JSON.parse(localStorage.getItem(CONTACTS_KEY);
   //  localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts)
 
+  useEffect(() => {
+    console.log('answers', answers);
+  }, [answers]);
+
   const handleCheckAnswer = e => {
-    const answerqwe = e.target.defaultValue;
+    toggleClass();
+    const answerqwe = e.target.textContent;
     const answerObj = {
       id: currentQuestion._id,
       answer: answerqwe,
     };
-    // setAnswer(answerObj);
-    answer = answerObj;
-    console.log(answer);
+    setAnswer(answerObj);
+    e.target.classList.add('checked');
+    console.log('e.target.classList', e.target.classList);
+    console.log('handleCheckAnswer', answer);
   };
 
+  function toggleClass() {
+    const wrongUnswers = document.querySelectorAll('.checked');
+    console.log('wrongUnswers', wrongUnswers);
+    wrongUnswers.forEach(el => {
+      if (!el.classList.contains('unChecked')) {
+        el.classList.add('unChecked');
+      }
+      if (el.classList.contains('checked')) {
+        el.classList.remove('checked');
+      }
+    });
+  }
+
   const handleBack = () => {
-    // dispatch(questionNumberDecrement());
-    setIndex(index - 1);
+    dispatch(questionNumberDecrement());
+    // setIndex(index - 1);
     console.log('answers', answers);
   };
 
   const handleNext = e => {
-    e.preventDefault();
-    // dispatch(questionNumberIncrement());
-    setIndex(index + 1);
-    answers.push(answer);
-    // dispatch(addAnswers(answer));
+    dispatch(addAnswers(answer));
+    dispatch(questionNumberIncrement());
+    // setCurrentQuestion(randomQuestions[index]);
+    // e.preventDefault();
+    // answers.push(answer);
+    // setIndex(index + 1);
     console.log('answers', answers);
   };
 
@@ -60,84 +85,108 @@ export const QuestionTicket = () => {
       {currentQuestion && (
         <div>
           <b>{currentQuestion.question}</b>
-          {/* <ul>
+          <ul>
             {currentQuestion.answers.map((answer, i) => {
               return (
-                <li key={i + 1}>
-                  {answers.find(el => el.answer === answer) ? (
-                    <input
-                      defaultChecked={true}
-                      name="answ"
-                      type="radio"
-                      value={answer}
-                      id={i}
-                      key={i}
-                      onChange={handleCheckAnswer}
-                    />
+                <li key={nanoid()}>
+                  {!answers.find(
+                    el => el.id === currentQuestion._id && el.answer === answer
+                  ) ? (
+                    <span
+                      className="unChecked"
+                      key={nanoid()}
+                      onClick={handleCheckAnswer}
+                    >
+                      '--' {answer}
+                    </span>
                   ) : (
-                    <input
-                      defaultChecked={false}
-                      name="answ"
-                      type="radio"
-                      value={answer}
-                      id={i}
-                      key={i}
-                      onChange={handleCheckAnswer}
-                    />
+                    <span
+                      className="checked"
+                      key={nanoid()}
+                      onClick={handleCheckAnswer}
+                    >
+                      '++' {answer}
+                    </span>
                   )}
-                  {console.log(
-                    '!!!!!',
-                    answers.find(el => el.answer === answer)
-                  )}
-                  {answer}
                 </li>
               );
             })}
-          </ul> */}
+          </ul>
           <div>
             <b>Question {Number(index) + 1} / 12 </b>
           </div>
-          <form>
+          {/* <form>
             {currentQuestion.answers.map((answer, i) => {
               return (
-                <label>
-                  <input
-                    defaultChecked={false}
-                    name="answ"
-                    type="radio"
-                    value={answer}
-                    id={i}
-                    key={i}
-                    onChange={handleCheckAnswer}
-                  />
-                  Option 1
-                </label>
+                <div key={i + 1}>
+                  <label>
+                    {answers.find(
+                      el =>
+                        el.id === currentQuestion._id && el.answer === answer
+                    ) ? (
+                      <input
+                        defaultChecked={true}
+                        name="answ"
+                        type="checkbox"
+                        value={answer}
+                        id={i}
+                        key={i}
+                        onChange={handleCheckAnswer}
+                      />
+                    ) : (
+                      <input
+                        // checked={false}
+                        name="answ"
+                        type="radio"
+                        value={answer}
+                        id={i}
+                        key={i}
+                        onChange={handleCheckAnswer}
+                      />
+                    )}
+                    {answers.find(
+                      el =>
+                        el.id === currentQuestion._id && el.answer === answer
+                    ) ? (
+                      <span>+++</span>
+                    ) : (
+                      <span>---</span>
+                    )}
+                    {answer}
+                  </label>
+                </div>
               );
-            })}
-            <div>
+            })} */}
+          <div>
+            <button
+              className="questionsButton"
+              type="button"
+              name="back"
+              disabled={Number(index) === 0}
+              onClick={handleBack}
+            >
+              Back
+            </button>
+            {Number(index) + 1 < 12 ? (
               <button
                 type="button"
-                name="back"
-                disabled={Number(index) === 0}
-                onClick={handleBack}
+                name="next"
+                onClick={handleNext}
+                className="questionsButton"
               >
-                Back
+                Next
               </button>
-              {Number(index) + 1 < 12 ? (
-                <button type="submit" name="next" onClick={handleNext}>
-                  Next
-                </button>
-              ) : (
-                <Link
-                  to="/result"
-                  name="exit"
-                  // onClick={getResult}
-                >
-                  Finish test
-                </Link>
-              )}
-            </div>
-          </form>
+            ) : (
+              <Link
+                to="/result"
+                name="exit"
+                // onClick={getResult}
+              >
+                Finish test
+              </Link>
+            )}
+          </div>
+          {/* </form> */}
           {/* <QuestionResult answer={answer} /> */}
         </div>
       )}
