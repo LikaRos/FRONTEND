@@ -15,21 +15,21 @@ export const QuestionTicket = () => {
   const currentQuestion = randomQuestions[index];
 
   const handleCheckAnswer = e => {
-    const answerqwe = e.target.defaultValue;
+    const clickedAnswer = e.target.defaultValue;
     const answerObj = {
       id: currentQuestion._id,
-      answer: answerqwe,
+      answer: clickedAnswer,
     };
     setAnswer(answerObj);
-    console.log(answer);
+    console.log(clickedAnswer);
   };
 
   return (
     <>
       {currentQuestion && (
         <div>
-          <b>{currentQuestion.question}</b>
-
+          <p>Question {Number(index) + 1} / 12 </p>
+          <p>{currentQuestion.question}</p>{' '}
           <ul>
             {currentQuestion.answers.map((answer, i) => {
               return (
