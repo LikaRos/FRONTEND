@@ -1,5 +1,4 @@
 // import QuestionResult from 'components/QuestionResult/QuestionResult';
-import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './QuestionTicket.css';
@@ -12,30 +11,25 @@ import {
   addAnswers,
   questionNumberDecrement,
   questionNumberIncrement,
+  removeAnswer,
 } from 'redux/questions/questions-slice';
-import { useEffect } from 'react';
+// import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
+// import { useState } from 'react';
 
 export const QuestionTicket = () => {
-  const [answer, setAnswer] = useState({});
+  // const [isChecked, setIsChecked] = useState(false);
   const index = useSelector(questionNumber);
   const randomQuestions = useSelector(getRandomQuestions);
-  // const [index, setIndex] = useState(0);
-  // let index = 0;
-  // const [currentQuestion, setCurrentQuestion] = useState(
-  //   randomQuestions[index]
-  // );
   const currentQuestion = randomQuestions[index];
   const answers = useSelector(getAnswers);
   const dispatch = useDispatch();
-  // let answer = null;
-  // let answers = [];
-  // const localData = JSON.parse(localStorage.getItem(CONTACTS_KEY);
-  //  localStorage.setItem(CONTACTS_KEY, JSON.stringify(contacts)
+  let answer = null;
+  // console.log('answer', answer);
 
-  useEffect(() => {
-    console.log('answers', answers);
-  }, [answers]);
+  // useEffect(() => {
+  //   console.log('answers', answers);
+  // }, [answers]);
 
   const handleCheckAnswer = e => {
     toggleClass();
@@ -44,10 +38,12 @@ export const QuestionTicket = () => {
       id: currentQuestion._id,
       answer: answerqwe,
     };
-    setAnswer(answerObj);
+    answer = answerObj;
     e.target.classList.add('checked');
-    console.log('e.target.classList', e.target.classList);
-    console.log('handleCheckAnswer', answer);
+    // setIsChecked(true);
+    // console.log('answer', answer);
+    // console.log('index', index);
+    // console.log('answers.length', answers.length);
   };
 
   function toggleClass() {
@@ -65,21 +61,33 @@ export const QuestionTicket = () => {
 
   const handleBack = () => {
     dispatch(questionNumberDecrement());
-    // setIndex(index - 1);
-    console.log('answers', answers);
+    // console.log('--answer', answer);
+    // console.log('--index', index);
+    // console.log('--answers.length', answers.length);
   };
 
   const handleNext = e => {
-    dispatch(addAnswers(answer));
-    dispatch(questionNumberIncrement());
-    // setCurrentQuestion(randomQuestions[index]);
-    // e.preventDefault();
-    // answers.push(answer);
-    // setIndex(index + 1);
-    console.log('answers', answers);
+    // console.log('++answer', answer);
+    // console.log('++index', index);
+    // console.log('++answers.length', answers.length);
+    if (answers.length === index && !answer) {
+      console.log('вибери блять щось!!!!!');
+      return;
+    }
+    if (!answer) {
+      dispatch(questionNumberIncrement());
+      return;
+    }
+    if (answer && !answers.find(el => el.id === answer.id)) {
+      dispatch(addAnswers(answer));
+      dispatch(questionNumberIncrement());
+      return;
+    } else {
+      dispatch(removeAnswer(answer.id));
+      dispatch(addAnswers(answer));
+      dispatch(questionNumberIncrement());
+    }
   };
-
-  // let isChecked = false;
   return (
     <>
       {currentQuestion && (
@@ -89,23 +97,23 @@ export const QuestionTicket = () => {
             {currentQuestion.answers.map((answer, i) => {
               return (
                 <li key={nanoid()}>
-                  {!answers.find(
-                    el => el.id === currentQuestion._id && el.answer === answer
+                  {answers.find(
+                    el => el?.id === currentQuestion._id && el.answer === answer
                   ) ? (
-                    <span
-                      className="unChecked"
-                      key={nanoid()}
-                      onClick={handleCheckAnswer}
-                    >
-                      '--' {answer}
-                    </span>
-                  ) : (
                     <span
                       className="checked"
                       key={nanoid()}
                       onClick={handleCheckAnswer}
                     >
-                      '++' {answer}
+                      {answer}
+                    </span>
+                  ) : (
+                    <span
+                      className="unChecked"
+                      key={nanoid()}
+                      onClick={handleCheckAnswer}
+                    >
+                      {answer}
                     </span>
                   )}
                 </li>
@@ -115,48 +123,6 @@ export const QuestionTicket = () => {
           <div>
             <b>Question {Number(index) + 1} / 12 </b>
           </div>
-          {/* <form>
-            {currentQuestion.answers.map((answer, i) => {
-              return (
-                <div key={i + 1}>
-                  <label>
-                    {answers.find(
-                      el =>
-                        el.id === currentQuestion._id && el.answer === answer
-                    ) ? (
-                      <input
-                        defaultChecked={true}
-                        name="answ"
-                        type="checkbox"
-                        value={answer}
-                        id={i}
-                        key={i}
-                        onChange={handleCheckAnswer}
-                      />
-                    ) : (
-                      <input
-                        // checked={false}
-                        name="answ"
-                        type="radio"
-                        value={answer}
-                        id={i}
-                        key={i}
-                        onChange={handleCheckAnswer}
-                      />
-                    )}
-                    {answers.find(
-                      el =>
-                        el.id === currentQuestion._id && el.answer === answer
-                    ) ? (
-                      <span>+++</span>
-                    ) : (
-                      <span>---</span>
-                    )}
-                    {answer}
-                  </label>
-                </div>
-              );
-            })} */}
           <div>
             <button
               className="questionsButton"
@@ -177,17 +143,11 @@ export const QuestionTicket = () => {
                 Next
               </button>
             ) : (
-              <Link
-                to="/result"
-                name="exit"
-                // onClick={getResult}
-              >
+              <Link to="/result" name="exit">
                 Finish test
               </Link>
             )}
           </div>
-          {/* </form> */}
-          {/* <QuestionResult answer={answer} /> */}
         </div>
       )}
     </>

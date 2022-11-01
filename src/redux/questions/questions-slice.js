@@ -38,6 +38,9 @@ const questionSlice = createSlice({
     addAnswers(state, action) {
       state.answers.push(action.payload);
     },
+    removeAnswer(state, action) {
+      state.answers = state.answers.filter(el => el.id !== action.payload);
+    },
     clearQuestions(state) {
       state.questions = [];
     },
@@ -54,6 +57,7 @@ const questionSlice = createSlice({
 });
 export const {
   addAnswers,
+  removeAnswer,
   clearQuestions,
   clearAnswers,
   questionNumberIncrement,
