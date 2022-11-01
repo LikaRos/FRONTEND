@@ -32,11 +32,12 @@ export const QuestionTicket = () => {
         <div className={styles.ticketContainer}>
           <p>Question {Number(index) + 1} / 12 </p>
           <p>{currentQuestion.question}</p>{' '}
-          <ul>
+          <ul className={styles.radioList}>
             {currentQuestion.answers.map((answer, i) => {
               return (
-                <li key={i + 1}>
+                <li key={i + 1} className={styles.radioItem}>
                   <input
+                    className={styles.radioBtn}
                     //   checked={true}
                     name="question1"
                     type="radio"

@@ -2,3 +2,13 @@
   display: block;
   text-align: center;
 }
+
+.radioBtn {
+  margin-left: 73px;
+  margin-right: 20px;
+}
+.radioItem {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 15px;
+}
