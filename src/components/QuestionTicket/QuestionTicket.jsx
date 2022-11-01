@@ -2,6 +2,8 @@ import QuestionResult from 'components/QuestionResult/QuestionResult';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import styles from './QuestionTicket.module.css';
+
 import {
   getRandomQuestions,
   questionNumber,
@@ -27,7 +29,7 @@ export const QuestionTicket = () => {
   return (
     <>
       {currentQuestion && (
-        <div>
+        <div className={styles.ticketContainer}>
           <p>Question {Number(index) + 1} / 12 </p>
           <p>{currentQuestion.question}</p>{' '}
           <ul>
@@ -36,7 +38,7 @@ export const QuestionTicket = () => {
                 <li key={i + 1}>
                   <input
                     //   checked={true}
-                    name="answ"
+                    name="question1"
                     type="radio"
                     value={answer}
                     id={i}

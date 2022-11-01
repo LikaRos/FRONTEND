@@ -1,6 +1,10 @@
 import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
+import styles from './QuestionPage.module.css';
+// import { AuthPage } from 'pages/AuthPage/AuthPage';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+// import { getIsLoggedIn } from 'redux/Auth/auth-selector';
 import {
   getAnswers,
   getRandomQuestions,
@@ -21,6 +25,8 @@ export const QuestionPage = () => {
     console.log('answers', answers);
   }, [questions, answers]);
 
+  //   const isLoggedIn = useSelector(getIsLoggedIn);
+
   const handleAddAnswer = () => {
     dispatch(addAnswers('answer 1'));
     // console.log('answers', answers);
@@ -36,9 +42,14 @@ export const QuestionPage = () => {
     // console.log('cleared answers', answers);
   };
 
+  const handlerTestExit = () => {
+    const questions = [];
+    dispatch(getRandomQuestions(questions));
+  };
+
   return (
     <>
-      <div>Запитання дивись у консолі</div>;
+      <p>Запитання дивись у консолі</p>;
       <button type="button" onClick={handleAddAnswer}>
         addAnswer
       </button>
@@ -48,7 +59,26 @@ export const QuestionPage = () => {
       <button type="button" onClick={handleClearAnswers}>
         clearAnswers
       </button>
-      <QuestionTicket />
+      {/* {isLoggedIn ? ( */}
+      <section className={styles.testSection}>
+        <div>
+          {/* {
+            (type: 'tech' ? (
+              <p>[QA_technical_training]</p>
+            ) : (
+              <p>[Testing_theory]</p>
+            ))
+          } */}
+
+          <Link to="/auth" type="button" onClick={handlerTestExit}>
+            Exit
+          </Link>
+        </div>
+        <QuestionTicket />
+      </section>
+      {/* ) : (
+        <AuthPage />
+      )} */}
     </>
   );
 };

@@ -34,10 +34,16 @@ export default function QuestionResult({ answer }) {
     <>
       <div>
         <button type="button" name="back" onClick={handleBack}>
+          <svg width={24} height={16}>
+            <use href="#arrow"></use>
+          </svg>
           Back
         </button>
         {Number(index) + 1 < 12 ? (
           <button type="button" name="next" onClick={handleNext}>
+            <svg width={24} height={16}>
+              <use href="#arrow"></use>
+            </svg>
             Next
           </button>
         ) : (
@@ -55,14 +61,14 @@ export default function QuestionResult({ answer }) {
 }
 
 //  const handleBack = () => {
-//    //  const decrementQuestionIndex = Number(index) - 1;
-//    // setIndex(decrementQuestionIndex);
+//  const decrementQuestionIndex = Number(index) - 1;
+// setIndex(decrementQuestionIndex);
 //  };
 /*
-   // const incrementQuestionIndex = Number(index) + 1;
-    // setIndex(incrementQuestionIndex);
-    // if ((randomQuestions.length = 12)) {
-    // }*/
+   const incrementQuestionIndex = Number(index) + 1;
+    setIndex(incrementQuestionIndex);
+    if ((randomQuestions.length = 12)) {
+    }*/
 
 // const answersArray = btnRadio => randomQuestions[index];
 // console.log(answers);

@@ -26,10 +26,12 @@ export default function QuestionButton() {
     switch (name) {
       case 'tech':
         type = 'tech';
+
         break;
 
       case 'theory':
         type = 'theory';
+
         break;
 
       default:
@@ -47,9 +49,6 @@ export default function QuestionButton() {
       key={item.id}
     >
       {item.title}
-      <svg width={24} height={16}>
-        <use href="#arrow"></use>
-      </svg>
     </Link>
   ));
 }
