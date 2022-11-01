@@ -6,20 +6,28 @@ import Logo from '../Logo/logo';
 import Navigation from '../Navigation/navigation';
 import UserEmailName from '../UserEmailName/userEmailName';
 import { getIsLoggedIn } from '../../redux/Auth/auth-selector';
-import NoLoginNav from 'components/Navigation/NoLoginNav/NoLoginNav';
+// import NoLoginNav from 'components/Navigation/NoLoginNav/NoLoginNav';
+import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
+import { useState } from 'react';
 
 //-------------------------------------------------------//
 export default function Header() {
+  const [isActive, setOnMenuBtn] = useState(false);
+
+  const handlerMenu = () => {
+    setOnMenuBtn(!isActive);
+  };
   const isLogin = useSelector(getIsLoggedIn);
-	console.log(isLogin);
+  // const isLogin = false;
   return (
     <header className={styles.header}>
       <div className={styles.container}>
         <Logo />
         <div className={styles.navigaton}>
-					{isLogin && <Navigation />}
-        	{isLogin && <UserEmailName />}
-        	{!isLogin && <NoLoginNav />}
+          <Navigation isLogin={isLogin} isActive={isActive} />
+          {isLogin && <UserEmailName />}
+          {/* {!isLogin && <NoLoginNav />} */}
+          <BurgerMenu handlerMenu={handlerMenu} isActive={isActive} />
         </div>
       </div>
     </header>
