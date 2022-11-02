@@ -3,7 +3,7 @@ import styles from './navigation.module.css';
 import Logout from 'components/Loguot/logout';
 import { useMediaQuery } from 'usehooks-ts';
 
-const Navigation = ({ isLogin, isActive }) => {
+const Navigation = ({ handlerMenu, isLogin, isActive }) => {
   const location = useLocation();
 
   const matches = useMediaQuery('(max-width:767px)');
@@ -16,7 +16,12 @@ const Navigation = ({ isLogin, isActive }) => {
       <ul className={styles.list}>
         {isLogin && (
           <li className={styles.nav_item}>
-            <NavLink to="/home" state={location} className={styles.link_btn}>
+            <NavLink
+              to="/home"
+              state={location}
+              className={styles.link_btn}
+              onClick={handlerMenu}
+            >
               Home
             </NavLink>
           </li>
@@ -28,19 +33,32 @@ const Navigation = ({ isLogin, isActive }) => {
               to="/materials"
               state={location}
               className={styles.link_btn}
+              onClick={handlerMenu}
             >
               Materials
             </NavLink>
           </li>
         )}
         <li className={styles.nav_item}>
-          <NavLink to="/contacts" state={location} className={styles.link_btn}>
+          <NavLink
+            to="/contacts"
+            state={location}
+            className={styles.link_btn}
+            onClick={handlerMenu}
+          >
             Contacts
           </NavLink>
         </li>
         {isLogin && matches && (
           <li className={styles.nav_item}>
-            <Logout />
+            <NavLink
+              to="/auth"
+              state={location}
+              className={styles.link_btn}
+              onClick={handlerMenu}
+            >
+              <Logout />
+            </NavLink>
           </li>
         )}
       </ul>
