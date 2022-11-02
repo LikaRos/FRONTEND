@@ -1,3 +1,5 @@
+import styles from './QuestionResult.module.css';
+
 import {
   getAnswers,
   questionNumber,
@@ -32,15 +34,25 @@ export default function QuestionResult({ answer }) {
 
   return (
     <>
-      <div>
-        <button type="button" name="back" onClick={handleBack}>
+      <section className={styles.sectionContainer}>
+        <button
+          className={styles.btnBack}
+          type="button"
+          name="back"
+          onClick={handleBack}
+        >
           <svg width={24} height={16}>
             <use href="#arrow"></use>
           </svg>
           Back
         </button>
         {Number(index) + 1 < 12 ? (
-          <button type="button" name="next" onClick={handleNext}>
+          <button
+            className={styles.btnNext}
+            type="button"
+            name="next"
+            onClick={handleNext}
+          >
             <svg width={24} height={16}>
               <use href="#arrow"></use>
             </svg>
@@ -55,7 +67,7 @@ export default function QuestionResult({ answer }) {
             Finish test
           </Link>
         )}
-      </div>
+      </section>
     </>
   );
 }
