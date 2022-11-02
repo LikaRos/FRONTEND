@@ -20,7 +20,7 @@ export const getAnswerResult = createAsyncThunk(
   'questions/result',
   async (answers, { rejectedWithValue }) => {
     try {
-      const { data } = await API.post('/questions/result', answers);
+      const { data } = await API.post('/api/questions/result', answers);
 
       return data;
     } catch (error) {
