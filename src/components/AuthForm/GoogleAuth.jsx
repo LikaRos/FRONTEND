@@ -2,20 +2,19 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSearchParams } from 'react-router-dom';
 import { googleAuth } from '../../redux/Auth/auth-slice';
-// import { userGet } from '../../redux/Auth/user-operations';
 import { tokenAuth } from '../../services/API';
-export const GoogleAuth = ({ children }) => {
+export const GoogleAuth = () => {
   const [params] = useSearchParams();
   const accessToken = params.get('token');
-  //   const email = params.get('email');
+  const email = params.get('email');
+
   const dispatch = useDispatch();
   useEffect(() => {
     if (accessToken) {
       tokenAuth.set(accessToken);
-      dispatch(googleAuth({ accessToken }));
+      dispatch(googleAuth({ accessToken, email }));
     }
-  }, [accessToken, dispatch]);
-  return children;
+  }, [accessToken, email, dispatch]);
 };
 // Чи потрібен імейл . Діставити його з параметрів
 
