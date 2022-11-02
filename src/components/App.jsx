@@ -1,8 +1,11 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
+import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-import MainPage from '../pages/MainPage/MainPage';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -10,57 +13,48 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/auth" element={<AuthPage />} />
-          <Route path="/home" element={<MainPage />} />
-          <Route path="/test" element={<QuestionPage />} />
-        </Route>
-
-        {/* <Route path="/" element={<SharedLayout />}>
-				</Route> 
-      
-
-     
+          <Route
+            path="/auth"
+            element={
+              <PublicRoute>
+                <AuthPage />
+              </PublicRoute>
+            }
+          />
           <Route
             path="/home"
             element={
               <PrivateRoute>
-                <MainPage />{' '}
+                <MainPage />
               </PrivateRoute>
             }
           />
           <Route
-            path="/question"
+            path="/test"
             element={
               <PrivateRoute>
                 <QuestionPage />
               </PrivateRoute>
             }
           />
-          <Route
-            path="/result"
-            element={
-              <PrivateRoute>
-                <ResultPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
+          {/* <Route
             path="/materials"
             element={
               <PrivateRoute>
                 <MaterialsPage />
               </PrivateRoute>
             }
-          />
-          <Route
+          /> */}
+          {/* <Route
             path="/contacts"
             element={
-              <PrivateRoute>
+              <PublicRoute>
                 <ContactsPage />
-              </PrivateRoute>
+              </PublicRoute>
             }
-          />
-					  </Route>  */}
+          /> */}
+          <Route path="/contacts" element={<ContactsPage />} />
+        </Route>
       </Routes>
     </>
   );

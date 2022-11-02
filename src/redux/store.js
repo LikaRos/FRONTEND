@@ -18,7 +18,7 @@ import { questionsReduser } from './questions/questions-slice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['accessToken', 'isLogin'],
+  whitelist: ['token', 'isLogin', 'user'],
 };
 
 const persistConfigQuestions = {

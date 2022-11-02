@@ -1,33 +1,33 @@
-// import React from 'react';
-// import Avatar from 'react-avatar';
-// import { useDispatch, useSelector } from 'react-redux';
 import styles from './UserEmailName.module.css';
-// import { logOut } from 'redux/auth/auth-operations';
+import { useSelector } from 'react-redux';
+
+import { getAvatarURL, getEmail } from '../../redux/Auth/auth-selector';
 
 import Logout from 'components/Loguot/logout';
-
-// import { getIsLogged, getUserEmail } from 'redux/auth/auth-selectors';
+import { useMediaQuery } from 'usehooks-ts';
 
 const UserEmailName = () => {
-  // const dispath = useDispatch();
-  // const isLogged = useSelector(getIsLogged);
-  // const email = useSelector(getUserEmail);
+  const userName = useSelector(getEmail);
+  const useAvatarURL = useSelector(getAvatarURL);
 
-  // const handlerLogOut = () => {
-  //   // dispath(logOut());
-  // };
+  const email = userName.split('@')[0];
+  const shortEmail = email.slice(0, 6) + '...';
 
+  const emailLatter = userName.slice(0, 1).toUpperCase();
+  const matches = useMediaQuery('(min-width:768px)');
   return (
-    // isLogged && (
     <div className={styles.wrapper}>
       <div className={styles.usr_data}>
-        <p className={styles.avatar}>D</p>
-        <p className={styles.text}>email</p>
-        {/* <p className={styles.text}>{email}</p> */}
+        {useAvatarURL ? (
+          <img className={styles.avatar} src={useAvatarURL} alt="User phpto" />
+        ) : (
+          <p className={styles.avatar}>{emailLatter}</p>
+        )}
+
+        <p className={styles.text}>{email.length > 6 ? shortEmail : email}</p>
       </div>
-      <Logout />
+      {matches && <Logout />}
     </div>
-    // )
   );
 };
 
