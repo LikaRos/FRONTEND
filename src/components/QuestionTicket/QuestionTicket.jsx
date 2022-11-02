@@ -9,8 +9,11 @@ import {
 } from 'redux/questions/questions-selectors';
 import {
   addAnswers,
+  clearAnswers,
+  clearQuestions,
   questionNumberDecrement,
   questionNumberIncrement,
+  questionNumberReset,
   removeAnswer,
 } from 'redux/questions/questions-slice';
 import { nanoid } from 'nanoid';
@@ -35,9 +38,8 @@ export const QuestionTicket = () => {
   };
 
   function toggleClass() {
-    const wrongUnswers = document.querySelectorAll('.checked');
-    console.log('wrongUnswers', wrongUnswers);
-    wrongUnswers.forEach(el => {
+    const wrongAnswers = document.querySelectorAll('.checked');
+    wrongAnswers.forEach(el => {
       if (!el.classList.contains('unChecked')) {
         el.classList.add('unChecked');
       }
@@ -70,6 +72,13 @@ export const QuestionTicket = () => {
       dispatch(questionNumberIncrement());
     }
   };
+
+  const handleFinishTest = () => {
+    dispatch(questionNumberReset());
+    dispatch(clearAnswers());
+    dispatch(clearQuestions());
+  };
+
   return (
     <>
       {currentQuestion && (
@@ -106,6 +115,9 @@ export const QuestionTicket = () => {
             <b>Question {Number(index) + 1} / 12 </b>
           </div>
           <div>
+            <Link to="/home" name="finish" onClick={handleFinishTest}>
+              Finish test
+            </Link>
             <button
               className="questionsButton"
               type="button"
@@ -125,7 +137,7 @@ export const QuestionTicket = () => {
                 Next
               </button>
             ) : (
-              <Link to="/result" name="exit">
+              <Link to="/result" name="exit" onClick={handleFinishTest}>
                 Finish test
               </Link>
             )}
