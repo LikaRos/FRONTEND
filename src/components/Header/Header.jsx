@@ -24,7 +24,11 @@ export default function Header() {
       <div className={styles.container}>
         <Logo />
         <div className={styles.navigaton}>
-          <Navigation isLogin={isLogin} isActive={isActive} />
+          <Navigation
+            handlerMenu={handlerMenu}
+            isLogin={isLogin}
+            isActive={isActive}
+          />
           {isLogin && <UserEmailName />}
           {/* {!isLogin && <NoLoginNav />} */}
           <BurgerMenu handlerMenu={handlerMenu} isActive={isActive} />

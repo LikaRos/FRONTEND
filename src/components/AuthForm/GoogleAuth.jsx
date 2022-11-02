@@ -7,14 +7,15 @@ export const GoogleAuth = () => {
   const [params] = useSearchParams();
   const accessToken = params.get('token');
   const email = params.get('email');
+  const avatarURL = params.get('avatarURL');
 
   const dispatch = useDispatch();
   useEffect(() => {
     if (accessToken) {
       tokenAuth.set(accessToken);
-      dispatch(googleAuth({ accessToken, email }));
+      dispatch(googleAuth({ accessToken, email, avatarURL }));
     }
-  }, [accessToken, email, dispatch]);
+  }, [accessToken, email, dispatch, avatarURL]);
 };
 // Чи потрібен імейл . Діставити його з параметрів
 

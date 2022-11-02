@@ -4,9 +4,10 @@ import { signIn, logIn, logOut } from './auth-operations';
 export const initialState = {
   token: null,
   isLogin: false,
-	user: {
-		email: "",
-	}
+  user: {
+    email: '',
+    avatarURL: '',
+  },
 };
 
 const authSlice = createSlice({
@@ -16,29 +17,30 @@ const authSlice = createSlice({
     googleAuth: (state, { payload }) => {
       state.token = payload.accessToken;
       state.isLogin = true;
-			state.user.email = payload.email;
+      state.user.email = payload.email;
+      state.user.avatarURL = payload.avatarURL;
     },
   },
   extraReducers: {
-		[signIn.fulfilled]: (state, { payload }) => {
-			state.user = payload.user;
-		},
+    [signIn.fulfilled]: (state, { payload }) => {
+      state.user = payload.user;
+    },
     [logIn.pending]: (state, { payload }) => {
       state.isLogin = false;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
       state.isLogin = true;
-			state.user = payload.user;
+      state.user = payload.user;
     },
     [logIn.rejected]: (state, { payload }) => {
       state.isLogin = false;
-			state.user = '';
+      state.user = {};
     },
     [logOut.fulfilled]: (state, { payload }) => {
       state.token = null;
       state.isLogin = false;
-			state.user = '';
+      state.user = {};
     },
     // [getRefresh.pending]: (state, { payload }) => {
     //   state.isLogin = false;
