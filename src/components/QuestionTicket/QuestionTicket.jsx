@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './QuestionTicket.css';
 import {
   getAnswers,
-  getRandomQuestions,
+  getQuestions,
   questionNumber,
 } from 'redux/questions/questions-selectors';
 import {
@@ -13,23 +13,15 @@ import {
   questionNumberIncrement,
   removeAnswer,
 } from 'redux/questions/questions-slice';
-// import { useEffect } from 'react';
 import { nanoid } from 'nanoid';
-// import { useState } from 'react';
 
 export const QuestionTicket = () => {
-  // const [isChecked, setIsChecked] = useState(false);
   const index = useSelector(questionNumber);
-  const randomQuestions = useSelector(getRandomQuestions);
+  const randomQuestions = useSelector(getQuestions);
   const currentQuestion = randomQuestions[index];
   const answers = useSelector(getAnswers);
   const dispatch = useDispatch();
   let answer = null;
-  // console.log('answer', answer);
-
-  // useEffect(() => {
-  //   console.log('answers', answers);
-  // }, [answers]);
 
   const handleCheckAnswer = e => {
     toggleClass();
@@ -40,10 +32,6 @@ export const QuestionTicket = () => {
     };
     answer = answerObj;
     e.target.classList.add('checked');
-    // setIsChecked(true);
-    // console.log('answer', answer);
-    // console.log('index', index);
-    // console.log('answers.length', answers.length);
   };
 
   function toggleClass() {
@@ -61,15 +49,9 @@ export const QuestionTicket = () => {
 
   const handleBack = () => {
     dispatch(questionNumberDecrement());
-    // console.log('--answer', answer);
-    // console.log('--index', index);
-    // console.log('--answers.length', answers.length);
   };
 
   const handleNext = e => {
-    // console.log('++answer', answer);
-    // console.log('++index', index);
-    // console.log('++answers.length', answers.length);
     if (answers.length === index && !answer) {
       console.log('вибери блять щось!!!!!');
       return;
