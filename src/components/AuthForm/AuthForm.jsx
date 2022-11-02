@@ -3,13 +3,14 @@ import React from 'react';
 // import { connect } from 'react-redux';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import { logIn, signIn } from '../../redux/Auth/auth-operations';
 import styles from './authForm.module.css';
+import { Formik, Form } from 'formik';
+import * as Yup from 'yup';
+import { FormField } from './formic/FormField';
 // import googleIcon from '../../svg/google-auth.png';
 // import Notifications from './pushNotifications/Notifications';
-// import formikEnhancer from './formic-yup/formikEnhancer';
-// import authOperations from '../../redux/auth/authOperations';
 
 export const AuthForm = () => {
   const dispatch = useDispatch();
@@ -77,16 +78,43 @@ export const AuthForm = () => {
     window.location.replace('http://localhost:3001/api/googleAuth/google');
   };
 
+  const schema = Yup.object({
+    email: Yup.string()
+      .email('Невалидный e-mail')
+      .max(50, 'E-mail должен быть меньше 50 символов')
+      .matches(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+        'Некоректный e-mail'
+      )
+      .required('Обязательное поле'),
+    password: Yup.string()
+      .max(20, 'Пароль должен быть меньше 20 символов')
+      .min(6, 'Минимум 6 символов')
+      .matches(
+        /^(?=.*[a-z])|(?=.*[0-9])|(?=.*[!@#$%^&*])$/,
+        'Пароль должен содержать только латинские буквы'
+      )
+      .required('Обязательное поле'),
+  });
+
   return (
     <>
-      <div className={styles.formWrapper}>
-        <p className={styles.formText}>
-          You can use your Google Account to authorize:
-        </p>
-        <button onClick={onHandleSigIn} className={styles.googleButton}>
-          Google
-        </button>
-        {/* <button type="" className={styles.authButton}>
+      <Formik
+        initialValues={{
+          email: '',
+          password: '',
+        }}
+        validationSchema={schema}
+      >
+        {Formik => (
+          <div className={styles.formWrapper}>
+            <p className={styles.formText}>
+              You can use your Google Account to authorize:
+            </p>
+            <button onClick={onHandleSigIn} className={styles.googleButton}>
+              Google
+            </button>
+            {/* <button type="" className={styles.authButton}>
             <a
               className={styles.googleIcon}
               href=" http://localhost:3001/api/googleAuth/google"
@@ -97,51 +125,53 @@ export const AuthForm = () => {
               </div>
             </a>
           </button> */}
-        <p className={styles.formText}>
-          Or login to our app using e-mail and password:
-        </p>
+            <p className={styles.formText}>
+              Or login to our app using e-mail and password:
+            </p>
 
-        <form className={styles.signUpForm}>
-          <input
-            className={styles.input}
-            name="email"
-            type="email"
-            value={email}
-            onChange={onChange}
-            placeholder="E-mail"
-            autoComplete="on"
-          />
-          {/* <div className={styles.invalid}>
+            <Form className={styles.signUpForm}>
+              <input
+                className={styles.input}
+                name="email"
+                type="email"
+                value={email}
+                onChange={onChange}
+                placeholder="E-mail"
+                autoComplete="on"
+              />
+              {/* <div className={styles.invalid}>
               <ErrorMessage className={styles.invalid} name="password" />
             </div> */}
-          <input
-            className={styles.input}
-            name="password"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={onChange}
-            autoComplete="on"
-          />
-          <div className={styles.formButtonWrapper}>
-            <Link
-              to="/home"
-              className={styles.formButton}
-              onClick={handleLogin}
-            >
-              Sign in
-            </Link>
-            <Link
-              to="/home"
-              className={styles.formButton}
-              onClick={handleRegister}
-            >
-              Sign up
-            </Link>
+              <input
+                className={styles.input}
+                name="password"
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={onChange}
+                autoComplete="on"
+              />
+              <div className={styles.formButtonWrapper}>
+                <FormField
+                  to="/home"
+                  className={styles.formButton}
+                  onClick={handleLogin}
+                >
+                  Sign in
+                </FormField>
+                <FormField
+                  to="/home"
+                  className={styles.formButton}
+                  onClick={handleRegister}
+                >
+                  Sign up
+                </FormField>
+              </div>
+            </Form>
+            {/* <Notifications /> */}
           </div>
-        </form>
-        {/* <Notifications /> */}
-      </div>
+        )}
+      </Formik>
     </>
   );
 };
