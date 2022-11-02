@@ -11,11 +11,11 @@ export const FormField = ({ label, ...props }) => {
       </label>
       <input
         className={`form-control shadow-none ${
-          meta.touched && meta.error && 'is-ivalid'
+          meta.touched && meta.error && 'is-invalid'
         }`}
         {...field}
         {...props}
-        autoComplete="on"
+        autoComplete="off"
       />
       <ErrorMessage
         component="div"

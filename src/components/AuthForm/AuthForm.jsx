@@ -80,21 +80,13 @@ export const AuthForm = () => {
 
   const schema = Yup.object({
     email: Yup.string()
-      .email('Невалидный e-mail')
-      .max(50, 'E-mail должен быть меньше 50 символов')
-      .matches(
-        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
-        'Некоректный e-mail'
-      )
-      .required('Обязательное поле'),
+      .email('Invalid e-mail')
+      .max(50, 'E-mail must be less than 50 symbols')
+      .required('Email is required'),
     password: Yup.string()
-      .max(20, 'Пароль должен быть меньше 20 символов')
-      .min(6, 'Минимум 6 символов')
-      .matches(
-        /^(?=.*[a-z])|(?=.*[0-9])|(?=.*[!@#$%^&*])$/,
-        'Пароль должен содержать только латинские буквы'
-      )
-      .required('Обязательное поле'),
+      .max(20, 'Password must be less than 20 symbols')
+      .min(16, 'Password must be more than 16 symbols')
+      .required('Password is required'),
   });
 
   return (
@@ -106,7 +98,7 @@ export const AuthForm = () => {
         }}
         validationSchema={schema}
       >
-        {Formik => (
+        {formik => (
           <div className={styles.formWrapper}>
             <p className={styles.formText}>
               You can use your Google Account to authorize:
@@ -130,7 +122,7 @@ export const AuthForm = () => {
             </p>
 
             <Form className={styles.signUpForm}>
-              <input
+              <FormField
                 className={styles.input}
                 name="email"
                 type="email"
@@ -142,7 +134,7 @@ export const AuthForm = () => {
               {/* <div className={styles.invalid}>
               <ErrorMessage className={styles.invalid} name="password" />
             </div> */}
-              <input
+              <FormField
                 className={styles.input}
                 name="password"
                 type="password"
@@ -152,20 +144,20 @@ export const AuthForm = () => {
                 autoComplete="on"
               />
               <div className={styles.formButtonWrapper}>
-                <FormField
+                <button
                   to="/home"
                   className={styles.formButton}
                   onClick={handleLogin}
                 >
                   Sign in
-                </FormField>
-                <FormField
+                </button>
+                <button
                   to="/home"
                   className={styles.formButton}
                   onClick={handleRegister}
                 >
                   Sign up
-                </FormField>
+                </button>
               </div>
             </Form>
             {/* <Notifications /> */}
