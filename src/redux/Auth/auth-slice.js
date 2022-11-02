@@ -14,8 +14,9 @@ const authSlice = createSlice({
   initialState,
   reducers: {
     googleAuth: (state, { payload }) => {
-      state.accessToken = payload.accessToken;
+      state.token = payload.accessToken;
       state.isLogin = true;
+			state.user.email = payload.email;
     },
   },
   extraReducers: {

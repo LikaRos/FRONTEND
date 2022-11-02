@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { logIn, signIn } from '../../redux/Auth/auth-operations';
 import styles from './authForm.module.css';
+import { GoogleAuth } from './GoogleAuth';
 // import googleIcon from '../../svg/google-auth.png';
 // import Notifications from './pushNotifications/Notifications';
 // import formikEnhancer from './formic-yup/formikEnhancer';
@@ -71,12 +72,12 @@ export const AuthForm = () => {
     // if (checkValidData()) {
     //   return;
     // }
-    dispatch(signIn(credentials));
+    dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
   };
   const onHandleSigIn = async () => {
     window.location.replace('http://localhost:3001/api/googleAuth/google');
   };
-
+	GoogleAuth();
   return (
     <>
       <div className={styles.formWrapper}>
