@@ -39,7 +39,7 @@ const questionSlice = createSlice({
       state.answers.push(action.payload);
     },
     removeAnswer(state, action) {
-      state.answers = state.answers.filter(el => el.id !== action.payload);
+      state.answers = state.answers.filter(el => el?.id !== action.payload);
     },
     clearQuestions(state) {
       state.questions = [];
