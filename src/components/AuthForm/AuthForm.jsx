@@ -72,7 +72,7 @@ export const AuthForm = () => {
     // if (checkValidData()) {
     //   return;
     // }
-    dispatch(signIn(credentials));
+    dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
   };
   const onHandleSigIn = async () => {
     window.location.replace('http://localhost:3001/api/googleAuth/google');
