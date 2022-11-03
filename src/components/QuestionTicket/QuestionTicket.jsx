@@ -247,26 +247,34 @@ export const QuestionTicket = () => {
           <ul className={styles.radioList}>
             {currentQuestion.answers.map((answer, i) => {
               return (
-                <li
-                  key={nanoid()}
-                  className={styles.radioItem}
-                  onClick={handleCheckAnswer}
-                >
+                <li key={nanoid()} className={styles.radioItem}>
                   {answers.find(
                     el => el?.id === currentQuestion._id && el.answer === answer
-                  ) ? (
-                    <input type="radio" className="checked" key={nanoid()}>
-                      {/* <div className={styles.dotUnchecked}>
+                  )
+                    ? ((
+                        <input
+                          type="radio"
+                          className="checked"
+                          key={nanoid()}
+                          value={answer}
+                          onClick={handleCheckAnswer}
+                        />
+                      ),
+                      /* <div className={styles.dotUnchecked}>
                         <div className={styles.dotChecked}></div>
-                      </div> */}
-                      {answer}
-                    </input>
-                  ) : (
-                    <input type="radio" className="unchecked" key={nanoid()}>
-                      {/* <span className={styles.dotUnchecked}></span> */}
-                      {answer}
-                    </input>
-                  )}
+                      </div> */
+                      { answer })
+                    : ((
+                        <input
+                          type="radio"
+                          className="unchecked"
+                          key={nanoid()}
+                          onClick={handleCheckAnswer}
+                          value={answer}
+                        />
+                      ),
+                      /* <span className={styles.dotUnchecked}></span> */
+                      { answer })}
                 </li>
               );
             })}
