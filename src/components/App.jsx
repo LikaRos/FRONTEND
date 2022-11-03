@@ -3,11 +3,15 @@ import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-import ContactsPage from '../pages/ContactsPage/ContactsPage';
+
 import PageNotFound from '../pages/NotFoundPage/PageNotFound';
 // import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+
 //---------------------------------------------------------------//
 export const App = () => {
   return (
@@ -30,18 +34,10 @@ export const App = () => {
 
 
           <Route
-            path="/register"
+            path="/auth"
             element={
-              <PublicRoute redirectTo="/home">
-                <RegisterView />
-              </PublicRoute>
-            }
-          />
-          <Route
-            path="/login"
-            element={
-              <PublicRoute redirectTo="/home">
-                <LoginPage />
+              <PublicRoute>
+                <AuthPage />
               </PublicRoute>
             }
           />
@@ -49,43 +45,34 @@ export const App = () => {
             path="/home"
             element={
               <PrivateRoute>
-                <MainPage />{' '}
+                <MainPage />
               </PrivateRoute>
             }
           />
           <Route
-            path="/question"
+            path="/test"
             element={
               <PrivateRoute>
                 <QuestionPage />
               </PrivateRoute>
             }
           />
-          <Route
-            path="/result"
-            element={
-              <PrivateRoute>
-                <ResultPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
+          {/* <Route
             path="/materials"
             element={
               <PrivateRoute>
                 <MaterialsPage />
               </PrivateRoute>
             }
-          />
-          <Route
+          /> */}
+        {/* <Route
             path="/contacts"
             element={
-              <PrivateRoute>
+              <PublicRoute>
                 <ContactsPage />
-              </PrivateRoute>
+              </PublicRoute>
             }
-          />
-					  </Route> */}
+          /> */}
       </Routes>
     </>
   );

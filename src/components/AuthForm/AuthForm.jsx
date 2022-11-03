@@ -9,6 +9,7 @@ import styles from './authForm.module.css';
 import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FormField } from './formic/FormField';
+import { GoogleAuth } from './GoogleAuth';
 // import googleIcon from '../../svg/google-auth.png';
 // import Notifications from './pushNotifications/Notifications';
 
@@ -72,7 +73,7 @@ export const AuthForm = () => {
     // if (checkValidData()) {
     //   return;
     // }
-    dispatch(signIn(credentials));
+    dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
   };
   const onHandleSigIn = async () => {
     window.location.replace('http://localhost:3001/api/googleAuth/google');
@@ -89,6 +90,7 @@ export const AuthForm = () => {
       .required('Password is required'),
   });
 
+	GoogleAuth();
   return (
     <>
       <Formik
