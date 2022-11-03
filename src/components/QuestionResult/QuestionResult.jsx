@@ -13,6 +13,8 @@ import {
   questionNumberIncrement,
   questionNumberDecrement,
 } from 'redux/questions/questions-slice';
+import GlobeBack from 'components/Globe/GlobeBack';
+import GlobeNext from 'components/Globe/GlobeNext';
 
 /*---------------------------------------------- */
 export default function QuestionResult({ answer }) {
@@ -41,10 +43,8 @@ export default function QuestionResult({ answer }) {
           name="back"
           onClick={handleBack}
         >
-          <svg width={24} height={16}>
-            <use href="#arrow"></use>
-          </svg>
-          Back
+          <GlobeBack className={styles.svgBackArrow} />
+          Previous question
         </button>
         {Number(index) + 1 < 12 ? (
           <button
@@ -53,10 +53,8 @@ export default function QuestionResult({ answer }) {
             name="next"
             onClick={handleNext}
           >
-            <svg width={24} height={16}>
-              <use href="#arrow"></use>
-            </svg>
-            Next
+            Next question
+            <GlobeNext className={styles.svgNextArrow} />
           </button>
         ) : (
           <Link

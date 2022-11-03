@@ -1,11 +1,12 @@
-.container {
+.testSection {
   padding: 0 15px;
-
+  background: var(--main-color);
   margin-left: auto;
   margin-right: auto;
+}
+.container {
   width: 1280px;
 }
-
 h2 {
   font-size: 22px;
   line-height: 33px;

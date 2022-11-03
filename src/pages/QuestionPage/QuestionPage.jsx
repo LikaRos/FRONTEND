@@ -9,11 +9,11 @@ import {
   getAnswers,
   getRandomQuestions,
 } from 'redux/questions/questions-selectors';
-import {
-  addAnswers,
-  clearAnswers,
-  clearQuestions,
-} from 'redux/questions/questions-slice';
+// import {
+//   addAnswers,
+//   clearAnswers,
+//   clearQuestions,
+// } from 'redux/questions/questions-slice';
 
 export const QuestionPage = () => {
   const questions = useSelector(getRandomQuestions);
@@ -27,20 +27,20 @@ export const QuestionPage = () => {
 
   //   const isLoggedIn = useSelector(getIsLoggedIn);
 
-  const handleAddAnswer = () => {
-    dispatch(addAnswers('answer 1'));
-    // console.log('answers', answers);
-  };
+  //   const handleAddAnswer = () => {
+  //     dispatch(addAnswers('answer 1'));
+  //     // console.log('answers', answers);
+  //   };
 
-  const handleClearQuestions = () => {
-    dispatch(clearQuestions());
-    // console.log('cleared questions', questions);
-  };
+  //   const handleClearQuestions = () => {
+  //     dispatch(clearQuestions());
+  //     // console.log('cleared questions', questions);
+  //   };
 
-  const handleClearAnswers = () => {
-    dispatch(clearAnswers());
-    // console.log('cleared answers', answers);
-  };
+  //   const handleClearAnswers = () => {
+  //     dispatch(clearAnswers());
+  //     // console.log('cleared answers', answers);
+  //   };
 
   const handlerTestExit = () => {
     const questions = [];
@@ -49,7 +49,7 @@ export const QuestionPage = () => {
 
   return (
     <>
-      <p>Запитання дивись у консолі</p>;
+      {/* <p>Запитання дивись у консолі</p>;
       <button type="button" onClick={handleAddAnswer}>
         addAnswer
       </button>
@@ -58,10 +58,11 @@ export const QuestionPage = () => {
       </button>
       <button type="button" onClick={handleClearAnswers}>
         clearAnswers
-      </button>
+      </button> */}
+
       {/* {isLoggedIn ? ( */}
       <section className={styles.testSection}>
-        <div>
+        <div className={styles.container}>
           {/* {
             (type: 'tech' ? (
               <p>[QA_technical_training]</p>

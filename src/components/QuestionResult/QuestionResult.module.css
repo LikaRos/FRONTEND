@@ -1,0 +1,57 @@
+.sectionContainer {
+  background: var(--main-color);
+}
+
+.svgBackArrow {
+  margin-right: 20px;
+  fill: var(--main-text);
+}
+.svgNextArrow {
+  margin-right: 20px;
+  margin-left: 50px;
+  fill: var(--main-text);
+}
+
+.svgNextArrow {
+  padding-left: 14px;
+  margin-right: 20px;
+  fill: var(--main-text);
+}
+.btnNext,
+.btnBack {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 70px;
+  padding-left: 14px;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: var(--main-text);
+  background-color: var(--secondary-color);
+  border: none;
+}
+.btnNext {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 24px;
+  padding-left: 20px;
+}
+
+.btnNext:hover,
+.btnNext:active,
+.btnBack:hover,
+.btnBack:active {
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  border: none;
+  outline-color: var(--secondary-color);
+}
+
+.btnNext:hover .svgNextArrow,
+.btnNext:active .svgNextArrow,
+.btnBack:hover .svgBackArrow,
+.btnBack:active .svgBackArrow {
+  fill: var(--secondary-color);
+}

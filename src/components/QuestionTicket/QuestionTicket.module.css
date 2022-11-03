@@ -1,6 +1,10 @@
 .ticketContainer {
   display: block;
   text-align: center;
+  width: 821px;
+  height: 445px;
+  margin: 0 auto;
+  background: var(--secondary-color);
 }
 
 .radioBtn {
