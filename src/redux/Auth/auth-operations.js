@@ -31,6 +31,22 @@ export const logOut = createAsyncThunk('users/logout', async () => {
   }
 });
 
+export const userGet = createAsyncThunk('user/current', async credentials => {
+  // console.log(credentials);
+  // const { data } = await API.get('/api/auth/users/current', credentials);
+  // console.log(2);
+  // return data;
+  try {
+    console.log(tokenAuth.get());
+    tokenAuth.get();
+    const { data } = await API.get('/api/auth/users/current', credentials);
+    console.log(data);
+    return data;
+  } catch (error) {
+    toast.error('ERROR');
+  }
+});
+
 // export const getRefresh = createAsyncThunk(
 //   'auth/refresh',
 //   async (_, { getState, rejectWithValue }) => {
