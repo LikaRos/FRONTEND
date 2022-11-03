@@ -18,13 +18,13 @@ import { questionsReduser } from './questions/questions-slice';
 const persistConfig = {
   key: 'auth',
   storage,
-  whitelist: ['token', 'isLogin', 'user'],
+  whitelist: ['accessToken', 'isLogin'],
 };
 
 const persistConfigQuestions = {
   key: 'questions',
   storage,
-  whitelist: ['questions', 'answers', 'result'],
+  whitelist: ['questions', 'answers', 'result', 'questionNumber'],
 };
 
 const persistedReducer = persistReducer(persistConfig, authReducer);

@@ -6,13 +6,98 @@
   margin: 0 auto;
   background: var(--secondary-color);
 }
-
-.radioBtn {
-  margin-left: 73px;
-  margin-right: 20px;
+.radioList {
+  text-align: left;
+  margin-left: 87px;
 }
+
+.wrapper {
+  display: flex;
+}
+.unChecked {
+  cursor: pointer;
+  width: 5px;
+  height: 5px;
+  background: rgb(173, 170, 194);
+  font-size: 16px;
+}
+.checked {
+  cursor: pointer;
+  width: 5px;
+  height: 5px;
+  background: rgb(181, 86, 3);
+  font-size: 16px;
+}
+.dot {
+  border: 2px solid var(--main-text);
+  height: 16px;
+  width: 16px;
+  background-color: var(--main-color);
+  border-radius: 50%;
+
+  display: inline-block;
+}
+.questionsButton {
+  height: 100px;
+  width: 200px;
+}
+
 .radioItem {
   display: flex;
   flex-direction: row;
   margin-bottom: 15px;
+}
+
+.svgBackArrow {
+  margin-right: 20px;
+  fill: var(--main-text);
+}
+.svgNextArrow {
+  margin-right: 20px;
+  margin-left: 50px;
+  fill: var(--main-text);
+}
+
+.svgNextArrow {
+  padding-left: 14px;
+  margin-right: 20px;
+  fill: var(--main-text);
+}
+.btnNext,
+.btnBack {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 70px;
+  padding-left: 14px;
+  font-size: 12px;
+  line-height: 14px;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.02em;
+  color: var(--main-text);
+  background-color: var(--secondary-color);
+  border: none;
+}
+.btnNext {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  padding-right: 2px;
+  padding-left: 20px;
+}
+
+.btnNext:hover,
+.btnNext:active,
+.btnBack:hover,
+.btnBack:active {
+  color: var(--secondary-color);
+  background-color: var(--accent-color);
+  border: none;
+  outline-color: var(--secondary-color);
+}
+
+.btnNext:hover .svgNextArrow,
+.btnNext:active .svgNextArrow,
+.btnBack:hover .svgBackArrow,
+.btnBack:active .svgBackArrow {
+  fill: var(--secondary-color);
 }

@@ -1,74 +1,74 @@
-import styles from './QuestionResult.module.css';
+// import styles from './QuestionResult.module.css';
 
-import {
-  getAnswers,
-  questionNumber,
-} from '../../redux/questions/questions-selectors';
+// import {
+//   getAnswers,
+//   questionNumber,
+// } from '../../redux/questions/questions-selectors';
 
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+// import { useDispatch, useSelector } from 'react-redux';
+// import { Link } from 'react-router-dom';
 
-import {
-  addAnswers,
-  questionNumberIncrement,
-  questionNumberDecrement,
-} from 'redux/questions/questions-slice';
-import GlobeBack from 'components/Globe/GlobeBack';
-import GlobeNext from 'components/Globe/GlobeNext';
+// import {
+//   addAnswers,
+//   questionNumberIncrement,
+//   questionNumberDecrement,
+// } from 'redux/questions/questions-slice';
+// import GlobeBack from 'components/Globe/GlobeBack';
+// import GlobeNext from 'components/Globe/GlobeNext';
 
-/*---------------------------------------------- */
-export default function QuestionResult({ answer }) {
-  const dispatch = useDispatch();
+// /*---------------------------------------------- */
+// export default function QuestionResult({ answer }) {
+//   const dispatch = useDispatch();
 
-  // const [answers, setAnswers] = useState([]);
-  // const [index, setIndex] = useState('0');
-  const index = useSelector(questionNumber);
-  const answers = useSelector(getAnswers);
+//   // const [answers, setAnswers] = useState([]);
+//   // const [index, setIndex] = useState('0');
+//   const index = useSelector(questionNumber);
+//   const answers = useSelector(getAnswers);
 
-  const handleBack = () => {
-    dispatch(questionNumberDecrement());
-  };
-  const handleNext = () => {
-    dispatch(questionNumberIncrement());
-    dispatch(addAnswers(answer));
-    console.log('answers', answers);
-  };
+//   const handleBack = () => {
+//     dispatch(questionNumberDecrement());
+//   };
+//   const handleNext = () => {
+//     dispatch(questionNumberIncrement());
+//     dispatch(addAnswers(answer));
+//     console.log('answers', answers);
+//   };
 
-  return (
-    <>
-      <section className={styles.sectionContainer}>
-        <button
-          className={styles.btnBack}
-          type="button"
-          name="back"
-          onClick={handleBack}
-        >
-          <GlobeBack className={styles.svgBackArrow} />
-          Previous question
-        </button>
-        {Number(index) + 1 < 12 ? (
-          <button
-            className={styles.btnNext}
-            type="button"
-            name="next"
-            onClick={handleNext}
-          >
-            Next question
-            <GlobeNext className={styles.svgNextArrow} />
-          </button>
-        ) : (
-          <Link
-            to="/result"
-            name="exit"
-            // onClick={getResult}
-          >
-            Finish test
-          </Link>
-        )}
-      </section>
-    </>
-  );
-}
+//   return (
+//     <>
+//       <section className={styles.sectionContainer}>
+//         <button
+//           className={styles.btnBack}
+//           type="button"
+//           name="back"
+//           onClick={handleBack}
+//         >
+//           <GlobeBack className={styles.svgBackArrow} />
+//           Previous question
+//         </button>
+//         {Number(index) + 1 < 12 ? (
+//           <button
+//             className={styles.btnNext}
+//             type="button"
+//             name="next"
+//             onClick={handleNext}
+//           >
+//             Next question
+//             <GlobeNext className={styles.svgNextArrow} />
+//           </button>
+//         ) : (
+//           <Link
+//             to="/result"
+//             name="exit"
+//             // onClick={getResult}
+//           >
+//             Finish test
+//           </Link>
+//         )}
+//       </section>
+//     </>
+//   );
+// }
 
 //  const handleBack = () => {
 //  const decrementQuestionIndex = Number(index) - 1;
