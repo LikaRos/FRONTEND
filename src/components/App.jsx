@@ -17,7 +17,6 @@ export const App = () => {
     <>
       <Routes>
         <Route path="/" element={<Layout />}>
-
           <Route
             path="/auth"
             element={
@@ -42,7 +41,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-            <Route
+          <Route
             path="/result"
             element={
               <PrivateRoute>
@@ -50,7 +49,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          
+
           {/* <Route
             path="/materials"
             element={
@@ -59,19 +58,18 @@ export const App = () => {
               </PrivateRoute>
             }
           /> */}
-          {/* <Route
+          <Route
             path="/contacts"
             element={
               <PublicRoute>
                 <ContactsPage />
               </PublicRoute>
             }
-          /> */}
-          <Route path="/contacts" element={<ContactsPage />} />
-
+          />
+          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
         </Route>
       </Routes>
-			<ToastContainer />
+      <ToastContainer />
     </>
   );
 };

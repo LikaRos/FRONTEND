@@ -104,7 +104,7 @@
   display: block;
   text-align: center;
   width: 821px;
-  height: 445px;
+  min-height: 445px;
   margin: 0 auto;
   background: var(--secondary-color);
   box-shadow: 0px 4px 15px rgba(2, 23, 42, 0.1);
