@@ -3,11 +3,12 @@ import React from 'react';
 
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getRandomQuestions } from 'redux/questions/questions-operations';
 // import { Modal } from 'components/AuthForm/AuthModal';
 // import { userGet } from 'redux/Auth/user-operations';
 // import { useEffect } from 'react';
+import { getEmail } from 'redux/Auth/auth-selector';
 
 // import styles from './MainPage.module.css';
 const options = [
@@ -24,6 +25,9 @@ const options = [
 ];
 
 export default function MainPage() {
+  const userEmail = { email: useSelector(getEmail) };
+  console.log(userEmail);
+
   // const [type, setType] = useState(''); //для статистики
   let type = null;
   const dispatch = useDispatch();
