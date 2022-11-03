@@ -199,7 +199,7 @@ export const QuestionTicket = () => {
 
   const handleCheckAnswer = e => {
     setIsDisabledNextBtn(false);
-    const answerqwe = e.target.textContent;
+    const answerqwe = e.target.value;
     const answerObj = {
       id: currentQuestion._id,
       answer: answerqwe,
@@ -227,13 +227,21 @@ export const QuestionTicket = () => {
   };
 
   return (
-    <>
-      <h2 className={styles.subTitle}>
-        [{testName === 'theory' ? 'Testing theory' : 'QA technical training'}_]
-      </h2>
-      <Link to="/home" name="finish" onClick={handleFinishTest}>
-        Finish test
-      </Link>
+    <div className={styles.testContainer}>
+      <div className={styles.titleContainer}>
+        <h2 className={styles.subTitle}>
+          [{testName === 'theory' ? 'Testing theory' : 'QA technical training'}
+          _]
+        </h2>
+        <Link
+          to="/home"
+          name="finish"
+          onClick={handleFinishTest}
+          className={styles.endBtn}
+        >
+          Finish test
+        </Link>
+      </div>
       {currentQuestion && (
         <div className={styles.ticketContainer}>
           {/* <b>{currentQuestion.question}</b> */}
@@ -250,66 +258,70 @@ export const QuestionTicket = () => {
                 <li key={nanoid()} className={styles.radioItem}>
                   {answers.find(
                     el => el?.id === currentQuestion._id && el.answer === answer
-                  )
-                    ? ((
-                        <input
-                          type="radio"
-                          className="checked"
-                          key={nanoid()}
-                          value={answer}
-                          onClick={handleCheckAnswer}
-                        />
-                      ),
-                      /* <div className={styles.dotUnchecked}>
+                  ) ? (
+                    <label class={styles.radio}>
+                      <input
+                        checked={true}
+                        type="radio"
+                        className="checked"
+                        key={nanoid()}
+                        value={answer}
+                        onClick={handleCheckAnswer}
+                      />
+                      <span>{answer}</span>
+                    </label>
+                  ) : (
+                    /* <div className={styles.dotUnchecked}>
                         <div className={styles.dotChecked}></div>
                       </div> */
-                      { answer })
-                    : ((
-                        <input
-                          type="radio"
-                          className="unchecked"
-                          key={nanoid()}
-                          onClick={handleCheckAnswer}
-                          value={answer}
-                        />
-                      ),
-                      /* <span className={styles.dotUnchecked}></span> */
-                      { answer })}
+                    <label class={styles.radio}>
+                      <input
+                        type="radio"
+                        className="unchecked"
+                        key={nanoid()}
+                        onClick={handleCheckAnswer}
+                        value={answer}
+                      />
+                      <span>{answer}</span>
+                    </label>
+                  )}
+                  {/* <span className={styles.dotUnchecked}></span> */}
+                  {/* <span onClick={handleCheckAnswer}>{answer}</span> */}
                 </li>
               );
             })}
           </ul>
-          <div>{/* <b>Question {Number(index) + 1} / 12 </b> */}</div>
-          <div className={styles.btnContainer}>
-            <button
-              className={styles.btnBack}
-              type="button"
-              name="back"
-              disabled={Number(index) === 0}
-              onClick={handleBack}
-            >
-              <GlobeBack className={styles.svgBackArrow} />
-              Back
-            </button>
-            {Number(index) + 1 < 12 ? (
-              <button
-                type="button"
-                name="next"
-                onClick={handleNext}
-                className={styles.btnNext}
-                disabled={isDisabledBtn}
-              >
-                Next
-                <GlobeNext className={styles.svgNextArrow} />
-              </button>
-            ) : (
-              <Link to="/result" name="exit" className={styles.btnNext}>
-                <button disabled={isDisabledBtn}>Get results</button>
-              </Link>
-            )}
-          </div>
         </div>
       )}
-    </>
+      <div>{/* <b>Question {Number(index) + 1} / 12 </b> */}</div>
+      <div className={styles.btnContainer}>
+        <button
+          className={styles.btnBack}
+          type="button"
+          name="back"
+          disabled={Number(index) === 0}
+          onClick={handleBack}
+        >
+          <GlobeBack className={styles.svgBackArrow} />
+          Back
+        </button>
+        {Number(index) + 1 < 12 ? (
+          <button
+            type="button"
+            name="next"
+            onClick={handleNext}
+            className={styles.btnNext}
+            disabled={isDisabledBtn}
+          >
+            Next
+            <GlobeNext className={styles.svgNextArrow} />
+          </button>
+        ) : (
+          <Link to="/result" name="exit" className={styles.btnNext}>
+            <button disabled={isDisabledBtn}>Get results</button>
+          </Link>
+        )}
+      </div>
+    </div>
   );
 };

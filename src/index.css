@@ -23,6 +23,11 @@
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
   box-sizing: border-box;
   margin: 0;
@@ -61,27 +66,4 @@ li {
 a {
   transition: 0.3s;
   text-decoration: none;
-}
-
-.unChecked {
-  cursor: pointer;
-  width: 5px;
-  height: 5px;
-  background: rgb(173, 170, 194);
-  font-size: 16px;
-}
-
-/* .unChecked::after {
-  content: 'unChecked';
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background-color: rgb(234, 12, 12);
-} */
-.checked {
-  cursor: pointer;
-  width: 5px;
-  height: 5px;
-  height: 5px;
-  font-size: 16px;
 }
