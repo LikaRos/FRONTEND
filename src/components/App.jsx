@@ -16,53 +16,6 @@ export const App = () => {
           <Route path="/test" element={<QuestionPage />} />
           <Route path="/result" element={<Result />} />
         </Route>
-
-        {/* <Route path="/" element={<SharedLayout />}>
-				</Route> 
-      
-
-     
-          <Route
-            path="/home"
-            element={
-              <PrivateRoute>
-                <MainPage />{' '}
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/question"
-            element={
-              <PrivateRoute>
-                <QuestionPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/result"
-            element={
-              <PrivateRoute>
-                <ResultPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/materials"
-            element={
-              <PrivateRoute>
-                <MaterialsPage />
-              </PrivateRoute>
-            }
-          />
-          <Route
-            path="/contacts"
-            element={
-              <PrivateRoute>
-                <ContactsPage />
-              </PrivateRoute>
-            }
-          />
-					  </Route>  */}
       </Routes>
     </>
   );

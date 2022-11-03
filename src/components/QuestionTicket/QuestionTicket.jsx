@@ -1,7 +1,7 @@
 // import QuestionResult from 'components/QuestionResult/QuestionResult';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import './QuestionTicket.css';
+import styles from './QuestionTicket.module.css';
 import {
   getAnswers,
   getQuestions,
@@ -19,6 +19,8 @@ import {
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useEffect } from 'react';
+import GlobeBack from 'components/Globe/GlobeBack';
+import GlobeNext from 'components/Globe/GlobeNext';
 
 // export const QuestionTicket = () => {
 //   const index = useSelector(questionNumber);
@@ -193,6 +195,8 @@ export const QuestionTicket = () => {
     }
   }, [index]);
 
+  const testName = 'useSelector(getQuestions)[0].type';
+
   const handleCheckAnswer = e => {
     setIsDisabledNextBtn(false);
     const answerqwe = e.target.textContent;
@@ -224,50 +228,59 @@ export const QuestionTicket = () => {
 
   return (
     <>
+      <h2 className={styles.subTitle}>
+        [{testName === 'theory' ? 'Testing theory' : 'QA technical training'}_]
+      </h2>
+      <Link to="/home" name="finish" onClick={handleFinishTest}>
+        Finish test
+      </Link>
       {currentQuestion && (
-        <div>
-          <b>{currentQuestion.question}</b>
-          <ul>
+        <div className={styles.ticketContainer}>
+          {/* <b>{currentQuestion.question}</b> */}
+          <p className={styles.questionNumber}>
+            Question
+            <span className={styles.currentNumber}> {Number(index) + 1}</span>/
+            {randomQuestions.length}
+          </p>
+          <p className={styles.questionTitle}>{currentQuestion.question}</p>
+
+          <ul className={styles.radioList}>
             {currentQuestion.answers.map((answer, i) => {
               return (
-                <li key={nanoid()}>
+                <li
+                  key={nanoid()}
+                  className={styles.radioItem}
+                  onClick={handleCheckAnswer}
+                >
                   {answers.find(
                     el => el?.id === currentQuestion._id && el.answer === answer
                   ) ? (
-                    <span
-                      className="checked"
-                      key={nanoid()}
-                      onClick={handleCheckAnswer}
-                    >
+                    <input type="radio" className="checked" key={nanoid()}>
+                      {/* <div className={styles.dotUnchecked}>
+                        <div className={styles.dotChecked}></div>
+                      </div> */}
                       {answer}
-                    </span>
+                    </input>
                   ) : (
-                    <span
-                      className="unChecked"
-                      key={nanoid()}
-                      onClick={handleCheckAnswer}
-                    >
+                    <input type="radio" className="unchecked" key={nanoid()}>
+                      {/* <span className={styles.dotUnchecked}></span> */}
                       {answer}
-                    </span>
+                    </input>
                   )}
                 </li>
               );
             })}
           </ul>
-          <div>
-            <b>Question {Number(index) + 1} / 12 </b>
-          </div>
-          <div>
-            <Link to="/home" name="finish" onClick={handleFinishTest}>
-              Finish test
-            </Link>
+          <div>{/* <b>Question {Number(index) + 1} / 12 </b> */}</div>
+          <div className={styles.btnContainer}>
             <button
-              className="questionsButton"
+              className={styles.btnBack}
               type="button"
               name="back"
               disabled={Number(index) === 0}
               onClick={handleBack}
             >
+              <GlobeBack className={styles.svgBackArrow} />
               Back
             </button>
             {Number(index) + 1 < 12 ? (
@@ -275,13 +288,14 @@ export const QuestionTicket = () => {
                 type="button"
                 name="next"
                 onClick={handleNext}
-                className="questionsButton"
+                className={styles.btnNext}
                 disabled={isDisabledBtn}
               >
                 Next
+                <GlobeNext className={styles.svgNextArrow} />
               </button>
             ) : (
-              <Link to="/result" name="exit">
+              <Link to="/result" name="exit" className={styles.btnNext}>
                 <button disabled={isDisabledBtn}>Get results</button>
               </Link>
             )}

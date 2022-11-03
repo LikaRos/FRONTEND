@@ -35,7 +35,7 @@ export const QuestionPage = () => {
 
   return (
     <>
-      <div>Запитання дивись у консолі</div>;
+      {/* <div>Запитання дивись у консолі</div>;
       <button type="button" onClick={handleAddAnswer}>
         addAnswer
       </button>
@@ -44,7 +44,7 @@ export const QuestionPage = () => {
       </button>
       <button type="button" onClick={handleClearAnswers}>
         clearAnswers
-      </button>
+      </button> */}
       <QuestionTicket />
     </>
   );
