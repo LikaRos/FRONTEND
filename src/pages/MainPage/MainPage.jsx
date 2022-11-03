@@ -1,11 +1,12 @@
 import React from 'react';
-// import { useState } from 'react';
+import { useEffect } from 'react';
 
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getRandomQuestions } from 'redux/questions/questions-operations';
-import { getEmail } from 'redux/Auth/auth-selector';
+// import { getEmail, getToken } from 'redux/Auth/auth-selector';
+import { userGet } from 'redux/Auth/user-operations';
 
 // import styles from './MainPage.module.css';
 const options = [
@@ -21,13 +22,23 @@ const options = [
   },
 ];
 
-export default function MainPage() {
-  const userEmail = { email: useSelector(getEmail) };
-  console.log(userEmail);
+export const MainPage = () => {
+  const dispatch = useDispatch();
+  // const token = useSelector(getToken);
+  // const userEmail = useSelector(getEmail);
+
+  // console.log(userEmail);
+  useEffect(() => {
+    // const userData = {
+    //   email: userEmail,
+    //   // token: token,
+    // };
+    console.log(123);
+    dispatch(userGet());
+  });
 
   // const [type, setType] = useState(''); //для статистики
   let type = null;
-  const dispatch = useDispatch();
   //  const [randomQuestions, setRandomQuestions] = useState([]); //для статистики
 
   //   const addQuestion = () => {
@@ -57,4 +68,4 @@ export default function MainPage() {
       <QuestionButton options={options} handleUpdate={handleUpdate} />
     </>
   );
-}
+};

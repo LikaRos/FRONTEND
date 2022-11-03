@@ -53,6 +53,7 @@ const authSlice = createSlice({
       console.log(payload);
       state.isLogin = true;
       state.user.verify = payload.verify;
+      state.user.email = payload.email;
     },
 
     [userGet.rejected]: (state, _) => {
