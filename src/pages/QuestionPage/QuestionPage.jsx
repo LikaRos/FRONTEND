@@ -1,37 +1,37 @@
 import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getAnswers, getQuestions } from 'redux/questions/questions-selectors';
-import {
-  addAnswers,
-  clearAnswers,
-  clearQuestions,
-} from 'redux/questions/questions-slice';
+// import {
+//   addAnswers,
+//   clearAnswers,
+//   clearQuestions,
+// } from 'redux/questions/questions-slice';
 
 export const QuestionPage = () => {
   const questions = useSelector(getQuestions);
   const answers = useSelector(getAnswers);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
   useEffect(() => {
     console.log('questions', questions);
     console.log('answers', answers);
   }, [questions, answers]);
 
-  const handleAddAnswer = () => {
-    dispatch(addAnswers('answer 1'));
-    // console.log('answers', answers);
-  };
+  // const handleAddAnswer = () => {
+  //   dispatch(addAnswers('answer 1'));
+  //   // console.log('answers', answers);
+  // };
 
-  const handleClearQuestions = () => {
-    dispatch(clearQuestions());
-    // console.log('cleared questions', questions);
-  };
+  // const handleClearQuestions = () => {
+  //   dispatch(clearQuestions());
+  //   // console.log('cleared questions', questions);
+  // };
 
-  const handleClearAnswers = () => {
-    dispatch(clearAnswers());
-    // console.log('cleared answers', answers);
-  };
+  // const handleClearAnswers = () => {
+  //   dispatch(clearAnswers());
+  //   // console.log('cleared answers', answers);
+  // };
 
   return (
     <>
