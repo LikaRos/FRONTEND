@@ -2,7 +2,6 @@
 @media screen and (min-width: 768px)  and (max-width: 1279px) /  /
 / @media screen and (min-width: 768px)  and (max-width: 1279px)
 @media screen and (min-width: 1280px) */
-
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
@@ -10,6 +9,7 @@
   --secondary-color: #ffffff;
 
   --accent-color: #ff6b09;
+  --accent-hover-color: #cb5709;
 
   --accent-pale-color: ;
 
@@ -25,7 +25,6 @@
 *:before,
 *:after {
   box-sizing: border-box;
-
 }
 
 body {

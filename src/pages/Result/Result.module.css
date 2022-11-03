@@ -1,12 +1,18 @@
 .resultWrapper {
   max-width: 1280px;
+  padding: 40px 0;
   margin: 0 auto;
   text-align: center;
 }
 
+@media screen and (max-width: 768px) {
+  .resultWrapper {
+    padding: 32px 0;
+  }
+}
+
 .title {
   font-family: 'Montserrat';
-  margin-top: 40px;
   font-style: normal;
   font-weight: 700;
   font-size: 22px;
@@ -16,7 +22,6 @@
 
 @media screen and (max-width: 768px) {
   .title {
-    margin-top: 32px;
     font-size: 12px;
     line-height: 15px;
   }
@@ -183,6 +188,10 @@
   font-size: 14px;
   line-height: 17px;
   letter-spacing: 0.02em;
+}
+
+.btn:hover {
+  background-color: var(--accent-hover-color);
 }
 
 @media screen and (max-width: 768px) {

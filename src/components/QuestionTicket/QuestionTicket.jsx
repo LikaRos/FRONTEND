@@ -20,7 +20,6 @@ import { nanoid } from 'nanoid';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import GlobeBack from 'components/Globe/GlobeBack';
-import GlobeNext from 'components/Globe/GlobeNext';
 
 // export const QuestionTicket = () => {
 //   const index = useSelector(questionNumber);
@@ -239,7 +238,7 @@ export const QuestionTicket = () => {
           onClick={handleFinishTest}
           className={styles.endBtn}
         >
-          Finish test
+          Close test
         </Link>
       </div>
       {currentQuestion && (
@@ -303,7 +302,7 @@ export const QuestionTicket = () => {
           onClick={handleBack}
         >
           <GlobeBack className={styles.svgBackArrow} />
-          Back
+          Previous question
         </button>
         {Number(index) + 1 < 12 ? (
           <button
@@ -313,12 +312,15 @@ export const QuestionTicket = () => {
             className={styles.btnNext}
             disabled={isDisabledBtn}
           >
-            Next
-            <GlobeNext className={styles.svgNextArrow} />
+            {/* GlobeNext */}
+            Next question
+            <GlobeBack className={styles.svgNextArrow} />
           </button>
         ) : (
-          <Link to="/result" name="exit" className={styles.btnNext}>
-            <button disabled={isDisabledBtn}>Get results</button>
+          <Link to="/result" name="exit">
+            <button disabled={isDisabledBtn} className={styles.btnFinish}>
+              Finish test
+            </button>
           </Link>
         )}
       </div>
