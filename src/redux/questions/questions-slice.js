@@ -6,6 +6,7 @@ const initialState = {
   answers: [],
   result: {},
   loading: false,
+  questionNumber: 0,
 };
 
 const questionSlice = createSlice({
@@ -37,14 +38,33 @@ const questionSlice = createSlice({
     addAnswers(state, action) {
       state.answers.push(action.payload);
     },
+    removeAnswer(state, action) {
+      state.answers = state.answers.filter(el => el?.id !== action.payload);
+    },
     clearQuestions(state) {
       state.questions = [];
     },
     clearAnswers(state) {
       state.answers = [];
     },
+    questionNumberIncrement(state) {
+      state.questionNumber += 1;
+    },
+    questionNumberDecrement(state) {
+      state.questionNumber -= 1;
+    },
+    questionNumberReset(state) {
+      state.questionNumber = 0;
+    },
   },
 });
-export const { addAnswers, clearQuestions, clearAnswers } =
-  questionSlice.actions;
+export const {
+  addAnswers,
+  removeAnswer,
+  clearQuestions,
+  clearAnswers,
+  questionNumberIncrement,
+  questionNumberDecrement,
+  questionNumberReset,
+} = questionSlice.actions;
 export const questionsReduser = questionSlice.reducer;

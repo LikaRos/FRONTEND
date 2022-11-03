@@ -1,9 +1,7 @@
+import { QuestionTicket } from 'components/QuestionTicket/QuestionTicket';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  getAnswers,
-  getRandomQuestions,
-} from 'redux/questions/questions-selectors';
+import { getAnswers, getQuestions } from 'redux/questions/questions-selectors';
 import {
   addAnswers,
   clearAnswers,
@@ -11,7 +9,7 @@ import {
 } from 'redux/questions/questions-slice';
 
 export const QuestionPage = () => {
-  const questions = useSelector(getRandomQuestions);
+  const questions = useSelector(getQuestions);
   const answers = useSelector(getAnswers);
   const dispatch = useDispatch();
 
@@ -37,7 +35,7 @@ export const QuestionPage = () => {
 
   return (
     <>
-      <div>Запитання дивись у консолі :)</div>;
+      {/* <div>Запитання дивись у консолі</div>;
       <button type="button" onClick={handleAddAnswer}>
         addAnswer
       </button>
@@ -46,7 +44,8 @@ export const QuestionPage = () => {
       </button>
       <button type="button" onClick={handleClearAnswers}>
         clearAnswers
-      </button>
+      </button> */}
+      <QuestionTicket />
     </>
   );
 };
