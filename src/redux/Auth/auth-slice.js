@@ -9,8 +9,8 @@ export const initialState = {
   user: {
     email: '',
     avatarURL: '',
-    // verify: false,
     verify: false,
+    error: null,
   },
 };
 
@@ -31,15 +31,17 @@ const authSlice = createSlice({
     },
     [logIn.pending]: (state, { payload }) => {
       state.isLogin = false;
+      state.error = null;
+    },
+    [logIn.rejected]: (state, { payload }) => {
+      state.isLogin = false;
+      state.user = {};
+      state.error = payload;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
       state.isLogin = true;
       state.user = payload.user;
-    },
-    [logIn.rejected]: (state, { payload }) => {
-      state.isLogin = false;
-      state.user = {};
     },
     [logOut.fulfilled]: (state, { payload }) => {
       state.token = null;

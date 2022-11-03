@@ -23,7 +23,7 @@ const PageNotFound = () => {
         <div className={styles.NotFoundList}>
           <img
             className={styles.NotFoundImg}
-            src="https://thumbs.gfycat.com/AccurateUnfinishedBergerpicard-size_restricted.gif"
+            src="https://media.tenor.com/zXKPbuZpW0IAAAAC/memeblog-gachi.gif"
             alt="not found"
           />
           <p className={styles.NotFoundText}>
