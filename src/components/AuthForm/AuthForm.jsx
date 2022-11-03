@@ -10,11 +10,14 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FormField } from './formic/FormField';
 import { GoogleAuth } from './GoogleAuth';
+// import { getVerify } from 'redux/Auth/auth-selector';
+// import { useSelector } from 'react-redux';
 // import googleIcon from '../../svg/google-auth.png';
 // import Notifications from './pushNotifications/Notifications';
 
 export const AuthForm = () => {
   const dispatch = useDispatch();
+  // const verify = useSelector(getVerify);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   //   const [emptyInput, setEmptyInput] = useState(false);
@@ -47,7 +50,6 @@ export const AuthForm = () => {
     // }
     dispatch(logIn(credentials));
   };
-
   //   const checkValidData = () => {
   //     let key = false;
 
@@ -90,7 +92,7 @@ export const AuthForm = () => {
       .required('Password is required'),
   });
 
-	GoogleAuth();
+  GoogleAuth();
   return (
     <>
       <Formik
@@ -147,6 +149,7 @@ export const AuthForm = () => {
               />
               <div className={styles.formButtonWrapper}>
                 <button
+                  type="button"
                   to="/home"
                   className={styles.formButton}
                   onClick={handleLogin}
@@ -154,6 +157,7 @@ export const AuthForm = () => {
                   Sign in
                 </button>
                 <button
+                  type="button"
                   to="/home"
                   className={styles.formButton}
                   onClick={handleRegister}

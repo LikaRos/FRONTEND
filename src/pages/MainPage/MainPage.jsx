@@ -5,6 +5,9 @@ import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
 import { useDispatch } from 'react-redux';
 import { getRandomQuestions } from 'redux/questions/questions-operations';
+// import { Modal } from 'components/AuthForm/AuthModal';
+// import { userGet } from 'redux/Auth/user-operations';
+// import { useEffect } from 'react';
 
 // import styles from './MainPage.module.css';
 const options = [
@@ -24,6 +27,11 @@ export default function MainPage() {
   // const [type, setType] = useState(''); //для статистики
   let type = null;
   const dispatch = useDispatch();
+  // const [verify, setVerify] = useState(false);
+  // useEffect(() => {
+  //   console.log(dispatch(userGet()));
+  // }, [verify, dispatch]);
+
   //  const [randomQuestions, setRandomQuestions] = useState([]); //для статистики
 
   //   const addQuestion = () => {

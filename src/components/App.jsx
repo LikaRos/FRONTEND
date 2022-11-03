@@ -9,8 +9,8 @@ import PageNotFound from '../pages/NotFoundPage/PageNotFound';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import { PublicRoute } from '../components/PublicRoute/PublicRoute';
-import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+// import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+// import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 
 //---------------------------------------------------------------//
 export const App = () => {
