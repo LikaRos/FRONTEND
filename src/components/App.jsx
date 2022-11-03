@@ -6,7 +6,8 @@ import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { PublicRoute } from '../components/PublicRoute/PublicRoute';
 import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 //---------------------------------------------------------------//
 export const App = () => {
   return (
@@ -56,6 +57,7 @@ export const App = () => {
           <Route path="/contacts" element={<ContactsPage />} />
         </Route>
       </Routes>
+			<ToastContainer />
     </>
   );
 };
