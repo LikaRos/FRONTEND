@@ -1,7 +1,3 @@
-.nav {
-  margin-right: 40px;
-}
-
 .list {
   list-style: none;
 }
@@ -17,16 +13,65 @@
   font-weight: 500;
 }
 
-.link_btn:hover {
+/* .link_btn:hover {
   color: var(--accent-color);
-}
+} */
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
+
   .nav {
-    margin-right: 40px;
+    position: absolute;
+    left: 0;
+    top: 70px;
+    width: 100%;
+    height: calc(100% - 70px);
+    z-index: 999;
+
+    background: #f5f6fb;
+    opacity: 0;
+    transform: translateX(100%);
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .nav.active {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .nav_item {
+    width: 100%;
+    text-align: center;
   }
 
   .nav_item:not(:last-child) {
+    border-bottom: 1px solid #e2e3e5;
+  }
+	.link_btn_active {
+		display: block;
+		text-decoration: none;
+		padding-top: 26px;
+		padding-bottom: 26px;
+		color: var(--main-text);
+		cursor: pointer;
+		font-size: 16px;
+    line-height: 1.14;
+		font-weight: 500;
+		border-bottom: 2px solid var(--accent-color);
+	}
+}
+
+@media screen and (min-width: 768px) and (max-width: 1279px) {
+  .nav_item {
+		position: relative;
+	}
+	.nav_item:not(:last-child) {
     margin-right: 60px;
   }
 
@@ -38,13 +83,25 @@
     font-size: 12px;
     line-height: 1.33;
   }
+	.link_btn_active {
+		display: block;
+		text-decoration: none;
+		padding-top: 26px;
+		padding-bottom: 26px;
+		color: var(--main-text);
+		cursor: pointer;
+		font-size: 12px;
+    line-height: 1.33;
+	
+		font-weight: 500;
+		border-bottom: 2px solid var(--accent-color);
+	}
 }
 
 @media screen and (min-width: 1280px) {
-  .nav {
-    margin-right: 80px;
-  }
-
+	.nav_item {
+		position: relative;
+	}
   .nav_item:not(:last-child) {
     margin-right: 80px;
   }
@@ -57,4 +114,17 @@
     font-size: 14px;
     line-height: 1.14;
   }
+	.link_btn_active {
+	display: block;
+  text-decoration: none;
+  padding-top: 26px;
+  padding-bottom: 26px;
+  color: var(--main-text);
+  cursor: pointer;
+	font-size: 14px;
+	line-height: 1.14;
+
+  font-weight: 500;
+	border-bottom: 2px solid var(--accent-color);
+}
 }

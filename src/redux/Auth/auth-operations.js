@@ -10,9 +10,12 @@ export const signIn = createAsyncThunk('users/signup', async credentials => {
 export const logIn = createAsyncThunk('users/login', async credentials => {
   try {
     const { data } = await API.post('/api/auth/users/login', credentials);
+
+
     tokenAuth.set(data.token);
     return data;
   } catch (error) {
+
     if (error.response.status === 401) {
       toast.error('Server error, please try again later');
     }
