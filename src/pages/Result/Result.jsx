@@ -140,9 +140,9 @@ export const Result = () => {
           Total questions - <b>{resutl.questionsQuantity}</b>
         </p>
       </div>
-      <img src={wichResult().cat} alt="" className={s.img} />
-      <p className={s.imgTitle}>{wichResult().title}</p>
-      <p className={s.imgInscription}>{wichResult().resume}</p>
+      <img src={wichResult()?.cat} alt="" className={s.img} />
+      <p className={s.imgTitle}>{wichResult()?.title}</p>
+      <p className={s.imgInscription}>{wichResult()?.resume}</p>
       <Link to={'/home'} className={s.btn} onClick={handleTryAgain}>
         Try again
       </Link>
