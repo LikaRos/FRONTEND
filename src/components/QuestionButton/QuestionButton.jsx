@@ -1,6 +1,7 @@
+import GlobeButton from 'components/Globe/GlobeButton';
 import { useDispatch, useSelector } from 'react-redux';
 
-// import styles from './QuestionButton.module.css';
+import styles from './QuestionButton.module.css';
 import { Link } from 'react-router-dom';
 import { getRandomQuestions } from 'redux/questions/questions-operations';
 
@@ -15,12 +16,12 @@ const options = [
   {
     name: 'tech',
     title: 'QA technical training',
-    id: 1,
+    id: 'tech',
   },
   {
     name: 'theory',
     title: 'Testing theory',
-    id: 2,
+    id: 'theory',
   },
 ];
 
@@ -63,21 +64,21 @@ const QuestionButton = () => {
 
   return (
     <>
-      {options.map(item => (
-        <Link
-          onClick={handleChange}
-          name={item.name}
-          id={item.id}
-          key={item.id}
-          to="/test"
-        >
-          {item.title}
-          <svg width={24} height={16}>
-            <use href="#arrow"></use>
-          </svg>
-        </Link>
-      ))}
-      ;
+      <div className={styles.wrapper}>
+        {options.map(item => (
+          <Link
+            className={styles.button}
+            onClick={handleChange}
+            name={item.name}
+            id={item.id}
+            key={item.id}
+            to="/test"
+          >
+            {item.title}
+            <GlobeButton className={styles.arrow} />
+          </Link>
+        ))}
+      </div>
     </>
   );
 };
