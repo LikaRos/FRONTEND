@@ -5,6 +5,7 @@
     margin: 50px 20px;
   }
 }
+
 @media screen and (min-width: 1280px) {
   .item {
     display: inline-block;
