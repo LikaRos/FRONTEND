@@ -1,16 +1,16 @@
 import { Route, Routes } from 'react-router-dom';
-import Layout from './Layout/Layout';
-import { AuthPage } from '../pages/AuthPage/AuthPage';
-import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-
-import MainPage from '../pages/MainPage/MainPage';
-import { Result } from 'pages/Result/Result';
-
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
-import { PublicRoute } from '../components/PublicRoute/PublicRoute';
-import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Layout from './Layout/Layout';
+import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+
+import { AuthPage } from '../pages/AuthPage/AuthPage';
+import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
+import MainPage from '../pages/MainPage/MainPage';
+import { Result } from 'pages/Result/Result';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import PageNotFound from '../pages/NotFoundPage/PageNotFound';
 
 export const App = () => {
   return (
@@ -49,6 +49,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route path="*" element={<PageNotFound />} />
 
           {/* <Route
             path="/materials"
@@ -57,16 +58,16 @@ export const App = () => {
                 <MaterialsPage />
               </PrivateRoute>
             }
-          /> */}
-          <Route
+          /> /}
+          {/ <Route
             path="/contacts"
             element={
               <PublicRoute>
                 <ContactsPage />
               </PublicRoute>
             }
-          />
-          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
+          /> */}
+          <Route path="/contacts" element={<ContactsPage />} />
         </Route>
       </Routes>
       <ToastContainer />
