@@ -58,15 +58,15 @@ export const App = () => {
               </PrivateRoute>
             }
           /> */}
-          <Route
+          {/* <Route
             path="/contacts"
             element={
               <PublicRoute>
                 <ContactsPage />
               </PublicRoute>
             }
-          />
-          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
+          /> */}
+          <Route path="/contacts" element={<ContactsPage />} />
         </Route>
       </Routes>
       <ToastContainer />
