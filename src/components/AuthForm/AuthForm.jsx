@@ -85,6 +85,10 @@ export const AuthForm = () => {
     email: Yup.string()
       .email('Invalid e-mail')
       .max(50, 'E-mail must be less than 50 symbols')
+      .matches(
+        /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/,
+        'Invalid e-mail'
+      )
       .required('Email is required'),
     password: Yup.string()
       .max(20, 'Password must be less than 20 symbols')
