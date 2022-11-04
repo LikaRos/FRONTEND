@@ -5,6 +5,7 @@ import { userGet } from 'redux/Auth/user-operations';
 import { useDispatch, useSelector } from 'react-redux';
 import { getToken, getVerify } from '../../redux/Auth/auth-selector';
 import { tokenAuth } from '../../services/API';
+import { Modal } from 'components/AuthForm/AuthModal';
 
 export default function MainPage() {
   const token = useSelector(getToken);
@@ -17,6 +18,7 @@ export default function MainPage() {
   });
   return (
     <>
+      {!verify && <Modal />}
       <Main />
       <QuestionButton />
     </>
