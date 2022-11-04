@@ -17,10 +17,7 @@
   color: var(--accent-color);
 } */
 
-
-
 @media screen and (min-width: 320px) and (max-width: 767px) {
-
   .nav {
     position: absolute;
     left: 0;
@@ -31,7 +28,7 @@
 
     background: #f5f6fb;
     opacity: 0;
-    transform: translateX(100%);
+    transform: translateX(-100%);
     transition: transform var(--transition), opacity var(--transition);
   }
 
@@ -53,25 +50,25 @@
   .nav_item:not(:last-child) {
     border-bottom: 1px solid #e2e3e5;
   }
-	.link_btn_active {
-		display: block;
-		text-decoration: none;
-		padding-top: 26px;
-		padding-bottom: 26px;
-		color: var(--main-text);
-		cursor: pointer;
-		font-size: 16px;
+  .link_btn_active {
+    display: block;
+    text-decoration: none;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    color: var(--main-text);
+    cursor: pointer;
+    font-size: 16px;
     line-height: 1.14;
-		font-weight: 500;
-		border-bottom: 2px solid var(--accent-color);
-	}
+    font-weight: 500;
+    border-bottom: 2px solid var(--accent-color);
+  }
 }
 
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .nav_item {
-		position: relative;
-	}
-	.nav_item:not(:last-child) {
+    position: relative;
+  }
+  .nav_item:not(:last-child) {
     margin-right: 60px;
   }
 
@@ -83,25 +80,25 @@
     font-size: 12px;
     line-height: 1.33;
   }
-	.link_btn_active {
-		display: block;
-		text-decoration: none;
-		padding-top: 26px;
-		padding-bottom: 26px;
-		color: var(--main-text);
-		cursor: pointer;
-		font-size: 12px;
+  .link_btn_active {
+    display: block;
+    text-decoration: none;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    color: var(--main-text);
+    cursor: pointer;
+    font-size: 12px;
     line-height: 1.33;
-	
-		font-weight: 500;
-		border-bottom: 2px solid var(--accent-color);
-	}
+
+    font-weight: 500;
+    border-bottom: 2px solid var(--accent-color);
+  }
 }
 
 @media screen and (min-width: 1280px) {
-	.nav_item {
-		position: relative;
-	}
+  .nav_item {
+    position: relative;
+  }
   .nav_item:not(:last-child) {
     margin-right: 80px;
   }
@@ -114,17 +111,17 @@
     font-size: 14px;
     line-height: 1.14;
   }
-	.link_btn_active {
-	display: block;
-  text-decoration: none;
-  padding-top: 26px;
-  padding-bottom: 26px;
-  color: var(--main-text);
-  cursor: pointer;
-	font-size: 14px;
-	line-height: 1.14;
+  .link_btn_active {
+    display: block;
+    text-decoration: none;
+    padding-top: 26px;
+    padding-bottom: 26px;
+    color: var(--main-text);
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1.14;
 
-  font-weight: 500;
-	border-bottom: 2px solid var(--accent-color);
-}
+    font-weight: 500;
+    border-bottom: 2px solid var(--accent-color);
+  }
 }

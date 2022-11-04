@@ -6,7 +6,7 @@
     width: 280px;
   }
 }
-@media screen and (min-width: 1280px) {
+@media screen and (min-width: 767px) {
   .item {
     width: 530px;
   }
@@ -15,24 +15,32 @@
   .quotation {
     font-style: normal;
     font-weight: 700;
-    font-size: px;
+    font-size: 12px;
     line-height: 20px;
     text-align: center;
     letter-spacing: 0.02em;
     color: var(--main-text);
+    margin-top: 34px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .quotation {
+    font-size: 22px;
+    line-height: 30px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--main-text);
+    margin-top: 82px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .quotation {
     margin-top: 120px;
   }
 }
-.quotation {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 30px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: var(--main-text);
-  margin-top: 120px;
-}
+
 .quotation::after {
   content: '';
   display: block;
@@ -43,25 +51,51 @@
   opacity: 0.15;
   border: 1px solid #00122f;
 }
-
-.author {
-  margin-top: 12px;
-  margin-bottom: 8px;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 22px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: var(--main-text);
+@media screen and (min-width: 270px) {
+  .author {
+    margin-top: 12px;
+    margin-bottom: 8px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 14px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--main-text);
+  }
 }
-.desc {
-  font-style: normal;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  text-align: center;
-  letter-spacing: 0.02em;
-  color: var(--secondary-text);
-  margin-bottom: 80px;
+@media screen and (min-width: 768px) {
+  .author {
+    font-size: 18px;
+    line-height: 22px;
+  }
+}
+@media screen and (min-width: 270px) {
+  .desc {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--secondary-text);
+    margin-bottom: 40px;
+  }
+}
+@media screen and (min-width: 678px) {
+  .desc {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    letter-spacing: 0.02em;
+    color: var(--secondary-text);
+    margin-bottom: 60px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .desc {
+    margin-bottom: 80px;
+  }
 }
