@@ -48,35 +48,14 @@ const authSlice = createSlice({
       state.isLogin = false;
       state.user = {};
     },
-
-    // For get request
-    // [userGet.pending]: (state, _) => {
-    //   state.isLogin = false;
-    // },
-
-    // [userGet.fulfilled]: (state, { payload }) => {
-    //   state.isLogin = true;
-    //   state.user.verify = payload.verify;
-    // },
+    [userGet.fulfilled]: (state, { payload }) => {
+      state.user.verify = payload.verify;
+    },
 
     // [userGet.rejected]: (state, _) => {
     //   state.isLogin = false;
     // },
 
-    //
-    [userGet.pending]: (state, _) => {
-      state.isLogin = false;
-    },
-
-    [userGet.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.isLogin = true;
-      state.user.verify = payload.verify;
-    },
-
-    [userGet.rejected]: (state, _) => {
-      state.isLogin = false;
-    },
     // [getRefresh.pending]: (state, { payload }) => {
     //   state.isLogin = false;
     // },
