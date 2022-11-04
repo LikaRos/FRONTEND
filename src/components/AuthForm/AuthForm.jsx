@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import { logIn, signIn } from '../../redux/Auth/auth-operations';
 import styles from './authForm.module.css';
 import { GoogleAuth } from './GoogleAuth';
+import { toast } from 'react-toastify';
+
 // import googleIcon from '../../svg/google-auth.png';
 // import Notifications from './pushNotifications/Notifications';
 // import formikEnhancer from './formic-yup/formikEnhancer';
@@ -67,11 +69,24 @@ export const AuthForm = () => {
 
   //     return key;
   //   };
-  const handleRegister = () => {
+  const handleRegister = async() => {
     const credentials = { email, password };
-    // if (checkValidData()) {
+		// const user = await fetch('/api/auth/users/current/getCurrent')
+		// .then((date) => {
+		// 	console.log(date);
+		// 	return date.json()
+		// 	})
+		// .then((data) => {
+		// 	console.log(data);
+		// 	return data
+		// })
+		// .catch((error) => console.log(error));
+		// console.log(user);
+    // if (user) {
+		// 	toast.error('User with this email is registered');
     //   return;
     // }
+
     dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
   };
   const onHandleSigIn = async () => {
