@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signIn, logIn, logOut } from './auth-operations';
+// import { userGet } from './user-operations';
+import { userGet } from './user-operations';
 
 export const initialState = {
   token: null,
@@ -7,6 +9,8 @@ export const initialState = {
   user: {
     email: '',
     avatarURL: '',
+    verify: false,
+    error: null,
   },
 };
 
@@ -27,20 +31,51 @@ const authSlice = createSlice({
     },
     [logIn.pending]: (state, { payload }) => {
       state.isLogin = false;
+      state.error = null;
+    },
+    [logIn.rejected]: (state, { payload }) => {
+      state.isLogin = false;
+      state.user = {};
+      state.error = payload;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
       state.isLogin = true;
       state.user = payload.user;
     },
-    [logIn.rejected]: (state, { payload }) => {
-      state.isLogin = false;
-      state.user = {};
-    },
     [logOut.fulfilled]: (state, { payload }) => {
       state.token = null;
       state.isLogin = false;
       state.user = {};
+    },
+
+    // For get request
+    // [userGet.pending]: (state, _) => {
+    //   state.isLogin = false;
+    // },
+
+    // [userGet.fulfilled]: (state, { payload }) => {
+    //   state.isLogin = true;
+    //   state.user.verify = payload.verify;
+    // },
+
+    // [userGet.rejected]: (state, _) => {
+    //   state.isLogin = false;
+    // },
+
+    //
+    [userGet.pending]: (state, _) => {
+      state.isLogin = false;
+    },
+
+    [userGet.fulfilled]: (state, { payload }) => {
+      console.log(payload);
+      state.isLogin = true;
+      state.user.verify = payload.verify;
+    },
+
+    [userGet.rejected]: (state, _) => {
+      state.isLogin = false;
     },
     // [getRefresh.pending]: (state, { payload }) => {
     //   state.isLogin = false;
