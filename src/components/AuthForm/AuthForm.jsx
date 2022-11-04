@@ -10,7 +10,15 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FormField } from './formic/FormField';
 import { GoogleAuth } from './GoogleAuth';
+
+
+// import googleIcon from '../../svg/google-auth.png';
+// import Notifications from './pushNotifications/Notifications';
+// import formikEnhancer from './formic-yup/formikEnhancer';
+// import authOperations from '../../redux/auth/authOperations';
+
 // import { getVerify } from 'redux/Auth/auth-selector';
+
 
 export const AuthForm = () => {
   const dispatch = useDispatch();
@@ -37,6 +45,7 @@ export const AuthForm = () => {
   };
   const handleRegister = () => {
     const credentials = { email, password };
+
     dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
   };
   const onHandleSigIn = async () => {
