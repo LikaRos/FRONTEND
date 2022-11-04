@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 import { logIn, signIn } from '../../redux/Auth/auth-operations';
 import styles from './authForm.module.css';
 import { GoogleAuth } from './GoogleAuth';
+import { toast } from 'react-toastify';
 // import googleIcon from '../../svg/google-auth.png';
 // import Notifications from './pushNotifications/Notifications';
 // import formikEnhancer from './formic-yup/formikEnhancer';
@@ -16,6 +17,7 @@ export const AuthForm = () => {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+
   //   const [emptyInput, setEmptyInput] = useState(false);
   //   const [invalidEmail, setInvalidEmail] = useState(false);
   //   const [smallLengthPassword, setSmallLengthPassword] = useState(false);
@@ -67,17 +69,26 @@ export const AuthForm = () => {
 
   //     return key;
   //   };
+
   const handleRegister = () => {
     const credentials = { email, password };
     // if (checkValidData()) {
     //   return;
     // }
-    dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
+
+    dispatch(signIn(credentials))
+      .unwrap()
+      .then(() => dispatch(logIn(credentials)))
+      .catch(
+        rejectedValueOrSerializedError =>
+          console.log(rejectedValueOrSerializedError),
+        toast.error('Wrong email or password, please try again.')
+      );
   };
   const onHandleSigIn = async () => {
     window.location.replace('http://localhost:3001/api/googleAuth/google');
   };
-	GoogleAuth();
+  GoogleAuth();
   return (
     <>
       <div className={styles.formWrapper}>
