@@ -47,6 +47,9 @@ const questionSlice = createSlice({
     clearAnswers(state) {
       state.answers = [];
     },
+    clearResult(state) {
+      state.result = {};
+    },
     questionNumberIncrement(state) {
       state.questionNumber += 1;
     },
@@ -66,5 +69,6 @@ export const {
   questionNumberIncrement,
   questionNumberDecrement,
   questionNumberReset,
+  clearResult,
 } = questionSlice.actions;
 export const questionsReduser = questionSlice.reducer;
