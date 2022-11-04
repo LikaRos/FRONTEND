@@ -68,7 +68,7 @@ export const AuthForm = () => {
 
   //     return key;
   //   };
-  const handleRegister = async() => {
+  const handleRegister = () => {
     const credentials = { email, password };
 
     dispatch(signIn(credentials)).then(() => dispatch(logIn(credentials)));
