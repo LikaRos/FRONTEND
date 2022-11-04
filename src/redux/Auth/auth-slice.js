@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signIn, logIn, logOut } from './auth-operations';
 import { userGet } from './user-operations';
+// import { signIn, logIn, logOut, getCurrent } from './auth-operations';
 
 export const initialState = {
   token: null,
@@ -8,7 +9,7 @@ export const initialState = {
   user: {
     email: '',
     avatarURL: '',
-    verify: false,
+    verify: null,
   },
 };
 
@@ -44,21 +45,11 @@ const authSlice = createSlice({
       state.isLogin = false;
       state.user = {};
     },
-    //
-    [userGet.pending]: (state, _) => {
-      state.isLogin = false;
-    },
 
     [userGet.fulfilled]: (state, { payload }) => {
-      console.log(payload);
-      state.isLogin = true;
       state.user.verify = payload.verify;
-      state.user.email = payload.email;
     },
 
-    [userGet.rejected]: (state, _) => {
-      state.isLogin = false;
-    },
     // [getRefresh.pending]: (state, { payload }) => {
     //   state.isLogin = false;
     // },
