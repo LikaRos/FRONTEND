@@ -1,19 +1,21 @@
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
-import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 
 import PageNotFound from '../pages/NotFoundPage/PageNotFound';
 // import SharedLayout from './SharedLayout';
 // import MainPage from '../pages/MainPage/MainPage';
 // import Header from '../components/Header/Header';
+import MainPage from '../pages/MainPage/MainPage';
+import { Result } from 'pages/Result/Result';
+
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { PublicRoute } from '../components/PublicRoute/PublicRoute';
 import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-//---------------------------------------------------------------//
+
 export const App = () => {
   return (
     <>
@@ -58,6 +60,15 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route
+            path="/result"
+            element={
+              <PrivateRoute>
+                <Result />
+              </PrivateRoute>
+            }
+          />
+
           {/* <Route
             path="/materials"
             element={

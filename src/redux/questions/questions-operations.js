@@ -4,10 +4,23 @@ import { API } from 'services/API';
 // axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 export const getRandomQuestions = createAsyncThunk(
-  'questions/getRandomQuestions', //под капотом создаст статусы
+  'questions/random', //под капотом создаст статусы
   async (type, { rejectedWithValue }) => {
     try {
-      const { data } = await API.get(`api/questions/${type}/random`);
+      const { data } = await API.get(`/api/questions/${type}/random`);
+
+      return data;
+    } catch (error) {
+      return rejectedWithValue(error);
+    }
+  }
+);
+
+export const getAnswerResult = createAsyncThunk(
+  'questions/result',
+  async (answers, { rejectedWithValue }) => {
+    try {
+      const { data } = await API.post('/api/questions/result', answers);
 
       return data;
     } catch (error) {
@@ -17,10 +30,10 @@ export const getRandomQuestions = createAsyncThunk(
 );
 
 export const getResult = createAsyncThunk(
-  'questions/getResult',
+  'questions/result',
   async (answers, { rejectedWithValue }) => {
     try {
-      const { data } = await API.get('api/questions/result', answers);
+      const { data } = await API.get('/api/questions/result', answers);
 
       return data;
     } catch (error) {

@@ -1,6 +1,3 @@
-import React from 'react';
-// import { useState } from 'react';
-
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,20 +6,12 @@ import { getRandomQuestions } from 'redux/questions/questions-operations';
 // import { userGet } from 'redux/Auth/user-operations';
 // import { useEffect } from 'react';
 import { getEmail } from 'redux/Auth/auth-selector';
+// import { useDispatch } from 'react-redux';
 
 // import styles from './MainPage.module.css';
-const options = [
-  {
-    name: 'tech',
-    title: 'QA technical training',
-    id: 1,
-  },
-  {
-    name: 'theory',
-    title: 'Testing theory',
-    id: 2,
-  },
-];
+
+// import { getIsLoggedIn } from 'redux/Auth/auth-selector';
+// import { useDispatch } from 'react-redux';
 
 export default function MainPage() {
   const userEmail = { email: useSelector(getEmail) };
@@ -62,7 +51,7 @@ export default function MainPage() {
   return (
     <>
       <Main />
-      <QuestionButton options={options} handleUpdate={handleUpdate} />
+      <QuestionButton />
     </>
   );
 }
