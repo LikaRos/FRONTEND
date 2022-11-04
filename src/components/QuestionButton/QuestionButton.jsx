@@ -47,7 +47,6 @@ const QuestionButton = () => {
 
     if (randomQuestions.length === 0) {
       dispatch(getRandomQuestions(type));
-      console.log('type', type);
       return;
     }
 
@@ -55,8 +54,6 @@ const QuestionButton = () => {
       dispatch(clearAnswers());
       dispatch(questionNumberReset());
       dispatch(getRandomQuestions(type));
-      console.log('type', type);
-      console.log('!!!!!!!!!!!qweqwe');
       return;
     }
   };
