@@ -23,8 +23,6 @@ export const Result = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    console.log('answers', answers);
-    console.log('answers.lenght !== 0 ', answers.length !== 0);
     answers.length !== 0 && dispatch(getAnswerResult(answers));
   }, [answers, dispatch]);
 
