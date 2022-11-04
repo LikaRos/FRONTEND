@@ -1,10 +1,19 @@
 .authPage {
   padding: 40px 0 34px 0;
   background-color: #f5f6fb;
-	min-height: 800px;
+
   /* min-height: calc(100vh - 130px); */
 }
-
+@media screen and (min-width: 768px)  and (max-width: 1279px) {
+	.authPage {
+		min-height: 800px;
+	}
+}
+@media screen and (min-width: 1280px) {
+	.authPage {
+		min-height: 600px;
+	}
+}
 .container {
   box-sizing: border-box;
   width: 320px;
