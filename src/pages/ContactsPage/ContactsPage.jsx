@@ -1,13 +1,16 @@
-import React from 'react';
-import ContactsItem from '../../components/ContactsItem/ContactsItem';
+import ContactsItem from '../../components/ContactsItem';
+import Appear from 'common/Appear';
 import { nanoid } from 'nanoid';
+import { contacts } from '../../components/data/contacts.js';
 
 import styles from './ContactsPage.module.css';
-import { contacts } from '../../components/data/contacts.js';
+
+
 
 const ContactsPage = () => {
   return (
-    <div className={styles.wrapper}>
+    <Appear time={600}>
+      <div className={styles.wrapper}>  
       <div className={styles.headContainer}>
         <h2 className={styles.head}>Our team</h2>
       </div>
@@ -19,6 +22,8 @@ const ContactsPage = () => {
         ))}
       </ul>
     </div>
+    </Appear>
+
   );
 };
 
