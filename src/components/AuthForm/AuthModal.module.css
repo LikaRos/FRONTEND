@@ -75,7 +75,7 @@ h1 {
 }
 
 .modalBtn {
-    background: #8c54ff;
+    background: #ff6b08;
     border: 0;
     border-radius: 5px;
     color: #fff;
@@ -88,7 +88,7 @@ h1 {
 
 }
 .modalBtn:hover {
-    background: #682ede;
+    background: #ff6b08;
     transform: scale(1.1);
 }
 
