@@ -1,0 +1,10 @@
+.mainContainer {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  text-align: center;
+  width: 100%;
+  min-height: calc(100vh - 123px);
+  background-color: #f5f6fb;
+  align-items: center;
+}

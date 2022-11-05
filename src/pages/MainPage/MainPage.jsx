@@ -10,6 +10,7 @@ import {
 } from '../../redux/Auth/auth-selector';
 import { tokenAuth } from '../../services/API';
 import { Modal } from 'components/AuthForm/AuthModal';
+import s from './MainPage.module.css'
 
 export default function MainPage() {
   const token = useSelector(getToken);
@@ -24,10 +25,12 @@ export default function MainPage() {
     }
   });
   return (
+
     <>
       <Main />
       <QuestionButton />
       {!verify && !isLoading && <Modal />}
     </>
+
   );
 }
