@@ -1,5 +1,8 @@
 import { useEffect } from 'react';
+import { createPortal } from "react-dom";
 import styles from './AuthModal.module.css';
+
+const modalRoot = document.querySelector("#auth-modal");
 
 export const Modal = ({ onRequestClose }) => {
   // Use useEffect to add an event listener to the document
