@@ -9,6 +9,7 @@ import { getAnswers, getResult } from 'redux/questions/questions-selectors';
 import {
   clearAnswers,
   clearQuestions,
+  clearResult,
   questionNumberReset,
 } from 'redux/questions/questions-slice';
 import amusedCat from '../../svg/cats/amusedCat.png';
@@ -23,7 +24,7 @@ export const Result = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    answers.length !== 0 && dispatch(getAnswerResult(answers));
+    answers.length === 12 && dispatch(getAnswerResult(answers));
   }, [answers, dispatch]);
 
   const resutl = useSelector(getResult);
@@ -36,7 +37,7 @@ export const Result = () => {
       return {
         cat: crushedCat,
         title: 'WTF?',
-        resume: "Maby it's not your's?",
+        resume: "Maby, it's not your's, bro?",
       };
     }
     if (resSuccess > 10 && resSuccess <= 50) {
@@ -57,7 +58,7 @@ export const Result = () => {
       return {
         cat: happyCat,
         title: 'Exellent!',
-        resume: 'You learned the material well.',
+        resume: 'You have learned the material well.',
       };
     }
   };
@@ -107,6 +108,7 @@ export const Result = () => {
     dispatch(questionNumberReset());
     dispatch(clearAnswers());
     dispatch(clearQuestions());
+    dispatch(clearResult());
   };
 
   return (

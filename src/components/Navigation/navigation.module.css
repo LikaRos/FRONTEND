@@ -25,7 +25,6 @@
     width: 100%;
     height: calc(100% - 70px);
     z-index: 999;
-
     background: #f5f6fb;
     opacity: 0;
     transform: translateX(-100%);

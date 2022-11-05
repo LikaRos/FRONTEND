@@ -1,6 +1,6 @@
 import Yura from '../../svg/images/Yura.jpg';
 import Yehor from '../../svg/images/YehorB.jpg';
-import Valentin from '../../svg/images/valentin_kuzmich.jpg';
+import Valentin from '../../svg/images/Valentin_Kuzmich.jpg';
 import Andrew from '../../svg/images/AndriiHaida.jpg';
 import Lika from '../../svg/images/Lika.jpeg';
 import Sasha from '../../svg/images/Sasha.jpeg';
@@ -21,7 +21,8 @@ const contacts = [
     name: 'Yehor Boichenko',
     photo: Yehor,
     position: 'Scrum-master',
-    tasks:'This project was a challenge for me. I completed authorization part in front end and backend. Also make some features and help my colleagues with their tasks.',
+    tasks:
+      'This project was a challenge for me. I completed authorization part in front end and backend. Also make some features and help my colleagues with their tasks.',
     email: 'boichenko.yehor@gmail.com',
     linkedin: 'https://www.linkedin.com/in/yehor-boichenko-0659561aa/',
     github: 'https://github.com/YehorBoichenko',
@@ -38,7 +39,7 @@ const contacts = [
   {
     name: 'Oleksandr Abramov',
     photo: Sasha,
-    position: 'Front-End Developer',
+    position: 'Full-stack Developer',
     tasks:
       'I’ve worked on the Results, Diagram and Questions components on this project. Developed functionality for testing, receiving and displaying test results.',
     email: 'aleksander.abramov@gmail.com',
@@ -59,7 +60,8 @@ const contacts = [
     name: '',
     photo: Vsevolod,
     position: 'Full-stack Developer',
-    tasks:'My job is to design Header and Footer.I wrote the front-end and back-end part for these sections.',
+    tasks:
+      'My job is to design Header and Footer.I wrote the front-end and back-end part for these sections.',
     email: 'vsevolodzharkov@gmail.com',
     linkedin: ' https://www.linkedin.com/in/vsevolod-zharkov-0970a4244/',
     github: 'https://github.com/VsevolodZharkov',
@@ -74,7 +76,6 @@ const contacts = [
     linkedin: 'https://www.linkedin.com/in/kuzmich-valentin-85b5b2173/',
     github: 'https://github.com/Valentin787',
   },
-
 ];
 
 export { contacts };

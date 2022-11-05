@@ -5,12 +5,10 @@ import { contacts } from '../../components/data/contacts.js';
 
 import styles from './ContactsPage.module.css';
 
-
-
 const ContactsPage = () => {
   return (
-    <Appear time={600}>
-      <div className={styles.wrapper}>  
+    // <Appear time={600}>
+    <div className={styles.wrapper}>
       <div className={styles.headContainer}>
         <h2 className={styles.head}>Our team</h2>
       </div>
@@ -22,8 +20,7 @@ const ContactsPage = () => {
         ))}
       </ul>
     </div>
-    </Appear>
-
+    // </Appear>
   );
 };
 

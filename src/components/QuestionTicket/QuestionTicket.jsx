@@ -4,12 +4,14 @@ import styles from './QuestionTicket.module.css';
 import {
   getAnswers,
   getQuestions,
+  getResult,
   questionNumber,
 } from 'redux/questions/questions-selectors';
 import {
   addAnswers,
   clearAnswers,
   clearQuestions,
+  clearResult,
   questionNumberDecrement,
   questionNumberIncrement,
   questionNumberReset,
@@ -28,6 +30,8 @@ export const QuestionTicket = () => {
   const currentQuestion = randomQuestions[index];
   const answers = useSelector(getAnswers);
   const testName = randomQuestions[0]?.type;
+  const { rightAnswers } = useSelector(getResult);
+  console.log('rightAnswers', rightAnswers);
 
   useEffect(() => {
     if (!!document.querySelector('.checked')) {
@@ -62,6 +66,7 @@ export const QuestionTicket = () => {
     dispatch(questionNumberReset());
     dispatch(clearAnswers());
     dispatch(clearQuestions());
+    dispatch(clearResult());
   };
 
   return (
@@ -99,23 +104,45 @@ export const QuestionTicket = () => {
                       <input
                         checked={true}
                         type="radio"
-                        className="checked"
+                        // className={({ result }) =>
+                        //   'checked' + (result ? ' rightAnswer' : '')
+                        // }
+                        className={`checked`}
                         key={nanoid()}
                         value={answer}
                         onChange={handleCheckAnswer}
                       />
-                      <span>{answer}</span>
+                      {rightAnswers?.find(
+                        ({ rightAnswer, _id }) =>
+                          currentQuestion._id === _id && rightAnswer === answer
+                      ) ? (
+                        <span style={{ color: '#0a900a', fontWeight: '700' }}>
+                          {answer}
+                        </span>
+                      ) : (
+                        <span>{answer}</span>
+                      )}
                     </label>
                   ) : (
                     <label className={styles.radio}>
                       <input
                         type="radio"
-                        className="unchecked"
+                        className={`unchecked`}
                         key={nanoid()}
                         onChange={handleCheckAnswer}
                         value={answer}
                       />
-                      <span>{answer}</span>
+                      {rightAnswers?.find(
+                        ({ rightAnswer, _id }) =>
+                          currentQuestion._id === _id && rightAnswer === answer
+                      ) ? (
+                        <span style={{ color: '#0a900a', fontWeight: '700' }}>
+                          {answer}
+                        </span>
+                      ) : (
+                        <span>{answer}</span>
+                      )}
+                      {/* <span>{answer}</span> */}
                     </label>
                   )}
                 </li>

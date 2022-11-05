@@ -9,17 +9,13 @@ import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 
-import { PublicRoute } from '../components/PublicRoute/PublicRoute';
-import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
-
-const UserMaterialsLazyPage = lazy(() => import("../pages/UserMaterialsPage"));
-const ContactsLazyPage = lazy(() => import("../pages/ContactsPage"));
-
-
 import MainPage from '../pages/MainPage/MainPage';
 import { Result } from 'pages/Result/Result';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
+// import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import PageNotFound from '../pages/NotFoundPage/PageNotFound';
+
+const UserMaterialsLazyPage = lazy(() => import('../pages/UserMaterialsPage'));
+const ContactsLazyPage = lazy(() => import('../pages/ContactsPage'));
 
 export const App = () => {
   return (
@@ -51,20 +47,20 @@ export const App = () => {
             }
           />
 
-          <Route  
+          <Route
             path="/materials"
             element={
-              <Suspense fallback={"Loading ..."}>
+              <Suspense fallback={'Loading ...'}>
                 <UserMaterialsLazyPage />
-              </Suspense> 
+              </Suspense>
             }
           />
-          <Route  
+          <Route
             path="/contacts"
             element={
-              <Suspense fallback={"Loading ..."}>
+              <Suspense fallback={'Loading ...'}>
                 <ContactsLazyPage />
-              </Suspense> 
+              </Suspense>
             }
           />
 
@@ -95,7 +91,6 @@ export const App = () => {
             }
           /> */}
           {/* <Route path="/contacts" element={<ContactsPage />} /> */}
-          
         </Route>
       </Routes>
       <ToastContainer />
