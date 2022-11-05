@@ -1,19 +1,17 @@
 import Appear from 'common/Appear';
-import UserMaterials from 'components/UserMaterials'
+import UserMaterials from 'components/UserMaterials';
 import s from './UserMaterialsPage.module.css';
 
 const UserMaterialsPage = () => {
-  
   return (
-    <Appear time={600}>
-      <div className={s.container}>
-        <UserMaterials />
-      </div>
-    </Appear>
+    // <Appear time={600}>
+    <div className={s.container}>
+      <UserMaterials />
+    </div>
+    // </Appear>
+  );
+};
 
-  )
-}
+UserMaterialsPage.propTypes = {};
 
-UserMaterialsPage.propTypes = {}
-
-export default UserMaterialsPage
+export default UserMaterialsPage;
