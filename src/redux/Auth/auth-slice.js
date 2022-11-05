@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { signIn, logIn, logOut } from './auth-operations';
-// import { userGet } from './user-operations';
 import { userGet } from './user-operations';
 
 export const initialState = {
@@ -31,37 +30,36 @@ const authSlice = createSlice({
       state.user = payload.user;
     },
     [logIn.pending]: (state, { payload }) => {
-      state.isLoading = true;
       state.error = null;
+      state.isLoading = true;
     },
     [logIn.rejected]: (state, { payload }) => {
       state.isLogin = false;
-      state.isLoading = false;
       state.user = {};
       state.error = payload;
     },
     [logIn.fulfilled]: (state, { payload }) => {
       state.token = payload.token;
-      state.isLoading = false;
 
       state.isLogin = true;
       state.user = payload.user;
     },
     [logOut.fulfilled]: (state, { payload }) => {
       state.token = null;
-      state.isLoading = false;
-
       state.isLogin = false;
       state.user = {};
+      state.user.verify = false;
+    },
+    [userGet.pending]: (state, { payload }) => {
+      state.isLoading = true;
     },
     [userGet.fulfilled]: (state, { payload }) => {
       state.user.verify = payload.verify;
       state.isLoading = false;
     },
-
-    // [userGet.rejected]: (state, _) => {
-    //   state.isLogin = false;
-    // },
+    [userGet.rejected]: (state, _) => {
+      state.user.verify = false;
+    },
 
     // [getRefresh.pending]: (state, { payload }) => {
     //   state.isLogin = false;
