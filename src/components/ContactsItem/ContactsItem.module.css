@@ -4,6 +4,7 @@
   font-size: 12px;
   line-height: 12px;
   margin: 0;
+  text-align: left;
 }
 
 .container {
@@ -25,7 +26,7 @@
 
 .image {
   width: 288px;
-  height: 244px;
+  height: 286px;
   object-fit: cover;
 }
 
@@ -96,20 +97,27 @@ height: 25px;
   margin-right: 10px;
 }
 
-@media (min-width: 320px) and (max-width: 767px) {
+@media (min-width: 1024px) {
   .container {
-    width: 280px;
+    width: 288px;
   }
   .image {
-    width: 280px;
-    height: 244px;
+    width: 288px;
+    height: 286px;
   }
   .box {
-    padding: 20px 28px 22px;
+    padding: 20px 28px 18px;
+  }
+
+  .container:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  .description {
+    font-size: 12px;
   }
 }
-
-@media (min-width: 768px) {
+@media (min-width: 768px) and (max-width:1023px) {
   .container {
     width: 336px;
   }
@@ -126,24 +134,16 @@ height: 25px;
     font-size: 14px;
   }
 }
-
-@media (min-width: 1280px) {
+@media (min-width: 320px) and (max-width: 767px) {
   .container {
-    width: 288px;
+    width: 280px;
   }
   .image {
-    width: 288px;
+    width: 280px;
     height: 244px;
   }
   .box {
-    padding: 20px 28px 18px;
-  }
-
-  .container:not(:last-child) {
-    margin-bottom: 20px;
-  }
-
-  .description {
-    font-size: 12px;
+    padding: 20px 28px 22px;
   }
 }
+
