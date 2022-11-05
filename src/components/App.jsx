@@ -1,11 +1,15 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Layout from './Layout/Layout';
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-import ContactsPage from 'pages/ContactsPage/ContactsPage';
+// import ContactsPage from 'pages/ContactsPage/ContactsPage';
 import { PublicRoute } from '../components/PublicRoute/PublicRoute';
 import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+
+const UserMaterialsLazyPage = lazy(() => import("../pages/UserMaterialsPage"));
+const ContactsLazyPage = lazy(() => import("../pages/ContactsPage"));
 
 //---------------------------------------------------------------//
 export const App = () => {
@@ -37,11 +41,27 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+          <Route  
+            path="/materials"
+            element={
+              <Suspense fallback={"Loading ..."}>
+                <UserMaterialsLazyPage />
+              </Suspense> 
+            }
+          />
+          <Route  
+            path="/contacts"
+            element={
+              <Suspense fallback={"Loading ..."}>
+                <ContactsLazyPage />
+              </Suspense> 
+            }
+          />
           {/* <Route
             path="/materials"
             element={
               <PrivateRoute>
-                <MaterialsPage />
+                <UserMaterialsLazyPage />
               </PrivateRoute>
             }
           /> */}
@@ -53,7 +73,8 @@ export const App = () => {
               </PublicRoute>
             }
           /> */}
-          <Route path="/contacts" element={<ContactsPage />} />
+          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
+          
         </Route>
       </Routes>
     </>
