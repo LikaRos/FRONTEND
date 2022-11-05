@@ -27,7 +27,7 @@ const PageNotFound = () => {
             alt="not found"
           />
           <p className={styles.NotFoundText}>
-            Opsss! This page doesn't exist 🤨
+            I'm sorrry! This page doesn't exist 🤨
           </p>
 
           <button className={styles.NotFoundButton} type="button">
