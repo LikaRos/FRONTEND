@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -7,6 +8,14 @@ import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 
 import { AuthPage } from '../pages/AuthPage/AuthPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
+
+import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+
+const UserMaterialsLazyPage = lazy(() => import("../pages/UserMaterialsPage"));
+const ContactsLazyPage = lazy(() => import("../pages/ContactsPage"));
+
+
 import MainPage from '../pages/MainPage/MainPage';
 import { Result } from 'pages/Result/Result';
 import ContactsPage from 'pages/ContactsPage/ContactsPage';
@@ -41,6 +50,24 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+
+          <Route  
+            path="/materials"
+            element={
+              <Suspense fallback={"Loading ..."}>
+                <UserMaterialsLazyPage />
+              </Suspense> 
+            }
+          />
+          <Route  
+            path="/contacts"
+            element={
+              <Suspense fallback={"Loading ..."}>
+                <ContactsLazyPage />
+              </Suspense> 
+            }
+          />
+
           <Route
             path="/result"
             element={
@@ -55,7 +82,7 @@ export const App = () => {
             path="/materials"
             element={
               <PrivateRoute>
-                <MaterialsPage />
+                <UserMaterialsLazyPage />
               </PrivateRoute>
             }
           /> /}
@@ -67,7 +94,8 @@ export const App = () => {
               </PublicRoute>
             }
           /> */}
-          <Route path="/contacts" element={<ContactsPage />} />
+          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
+          
         </Route>
       </Routes>
       <ToastContainer />
