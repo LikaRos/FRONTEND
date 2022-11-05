@@ -1,12 +1,11 @@
 // import styles from './Main.module.css';
 // import PropTypes from 'prop-types';
 import { QuotationList } from 'components/QuotationList/QuotationList';
-import quotations from 'components/data/quotations.json';
 
 export default function Main() {
   return (
     <>
-      <QuotationList quotations={quotations} />
+      <QuotationList />
     </>
   );
 }

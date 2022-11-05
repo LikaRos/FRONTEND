@@ -9,6 +9,6 @@ export const tokenAuth = {
   },
 
   unset() {
-    API.defaults.headers.common.Authorization = ``;
+    API.defaults.headers.common.Authorization = '';
   },
 };

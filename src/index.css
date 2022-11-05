@@ -2,25 +2,29 @@
 @media screen and (min-width: 768px)  and (max-width: 1279px) /  /
 / @media screen and (min-width: 768px)  and (max-width: 1279px)
 @media screen and (min-width: 1280px) */
-
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
 
 :root {
   --main-color: #f5f6fb;
-  --secondary-color: ;
+  --secondary-color: #ffffff;
 
   --accent-color: #ff6b09;
+  --accent-hover-color: #cb5709;
 
   --accent-pale-color: ;
 
   --main-text: #000;
-  --secondary-text: ;
-  --accent-pale-text: ;
-  --inputs-text: ;
+  --secondary-text: #555555;
+  --button-background: #02172a;
+  --accent-button-background: #ff6b01;
   --expenses-text: ;
   --income-text: ;
-
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*:before,
+*:after {
+  box-sizing: border-box;
 }
 
 body {
@@ -32,7 +36,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Montserrat', sans-serif;
 }
 .hidden {
   overflow: hidden;
@@ -55,6 +59,7 @@ ul,
 li {
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 a {

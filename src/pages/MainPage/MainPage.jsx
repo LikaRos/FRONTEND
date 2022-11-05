@@ -1,56 +1,26 @@
-import React from 'react';
-// import { useState } from 'react';
-
 import Main from 'components/Main/Main';
 import QuestionButton from 'components/QuestionButton/QuestionButton';
-import { useDispatch } from 'react-redux';
-import { getRandomQuestions } from 'redux/questions/questions-operations';
-
-// import styles from './MainPage.module.css';
-const options = [
-  {
-    name: 'tech',
-    title: 'QA technical training',
-    id: 1,
-  },
-  {
-    name: 'theory',
-    title: 'Testing theory',
-    id: 2,
-  },
-];
+import { useEffect } from 'react';
+import { userGet } from 'redux/Auth/user-operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { getToken, getVerify } from '../../redux/Auth/auth-selector';
+import { tokenAuth } from '../../services/API';
+import { Modal } from 'components/AuthForm/AuthModal';
 
 export default function MainPage() {
-  // const [type, setType] = useState(''); //для статистики
-  let type = null;
+  const token = useSelector(getToken);
+  const verify = useSelector(getVerify);
+  console.log(verify);
   const dispatch = useDispatch();
-  //  const [randomQuestions, setRandomQuestions] = useState([]); //для статистики
-
-  //   const addQuestion = () => {
-  //     setRandomQuestion;
-  //   };
-
-  const handleUpdate = async event => {
-    const { name } = event.target;
-    switch (name) {
-      case 'tech':
-        type = 'tech';
-        break;
-
-      case 'theory':
-        type = 'theory';
-        break;
-
-      default:
-        return;
-    }
-    dispatch(getRandomQuestions(type));
-  };
-
+  useEffect(() => {
+    tokenAuth.set(token);
+    dispatch(userGet());
+  });
   return (
     <>
+      {!verify && <Modal />}
       <Main />
-      <QuestionButton options={options} handleUpdate={handleUpdate} />
+      <QuestionButton />
     </>
   );
 }

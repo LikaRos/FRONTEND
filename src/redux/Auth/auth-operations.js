@@ -2,34 +2,53 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API, tokenAuth } from '../../services/API';
 import { toast } from 'react-toastify';
 
-export const signIn = createAsyncThunk('users/signup', async credentials => {
-  const { data } = await API.post('/api/auth/users/signup', credentials);
-  return data;
-});
+export const signIn = createAsyncThunk(
+  'users/signup',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await API.post('/api/auth/users/signup', credentials);
+      return data;
+    } catch (error) {
+      if (error.response.status === 401) {
+        toast.error('Server error, please try again later');
+      }
+      return rejectWithValue('something went wrong');
+    }
+  }
+);
 
-export const logIn = createAsyncThunk('users/login', async credentials => {
-  try {
-    const { data } = await API.post('/api/auth/users/login', credentials);
-    tokenAuth.set(data.token);
-    return data;
-  } catch (error) {
-    if (error.response.status === 401) {
+export const logIn = createAsyncThunk(
+  'users/login',
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await API.post('/api/auth/users/login', credentials);
+
+      tokenAuth.set(data.token);
+      return data;
+    } catch (error) {
+      if (error.response.status === 401) {
+        toast.error('Server error, please try again later');
+      }
+      if (error.response.status !== 401) {
+        toast.error('Wrong email or password, please try again.');
+      }
+      return rejectWithValue('something went wrong');
+    }
+  }
+);
+
+export const logOut = createAsyncThunk(
+  'users/logout',
+  async (_, { rejectWithValue }) => {
+    try {
+      await API.get('/api/auth/users/logout');
+      tokenAuth.unset();
+    } catch {
       toast.error('Server error, please try again later');
-    }
-    if (error.response.status !== 401) {
-      toast.error('Wrong email or password, please try again.');
+      return rejectWithValue('something went wrong');
     }
   }
-});
-
-export const logOut = createAsyncThunk('users/logout', async () => {
-  try {
-    await API.post('/api/auth/users/logout');
-    tokenAuth.unset();
-  } catch {
-    toast.error('Server error, please try again later');
-  }
-});
+);
 
 // export const getRefresh = createAsyncThunk(
 //   'auth/refresh',

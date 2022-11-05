@@ -1,17 +1,26 @@
 import { lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Layout from './Layout/Layout';
+import { PublicRoute } from '../components/PublicRoute/PublicRoute';
+import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
+
 import { AuthPage } from '../pages/AuthPage/AuthPage';
-import MainPage from 'pages/MainPage/MainPage';
 import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
-// import ContactsPage from 'pages/ContactsPage/ContactsPage';
+
 import { PublicRoute } from '../components/PublicRoute/PublicRoute';
 import { PrivateRoute } from '../components/PrivateRoute/PrivateRoute';
 
 const UserMaterialsLazyPage = lazy(() => import("../pages/UserMaterialsPage"));
 const ContactsLazyPage = lazy(() => import("../pages/ContactsPage"));
 
-//---------------------------------------------------------------//
+
+import MainPage from '../pages/MainPage/MainPage';
+import { Result } from 'pages/Result/Result';
+import ContactsPage from 'pages/ContactsPage/ContactsPage';
+import PageNotFound from '../pages/NotFoundPage/PageNotFound';
+
 export const App = () => {
   return (
     <>
@@ -41,6 +50,7 @@ export const App = () => {
               </PrivateRoute>
             }
           />
+
           <Route  
             path="/materials"
             element={
@@ -57,6 +67,17 @@ export const App = () => {
               </Suspense> 
             }
           />
+
+          <Route
+            path="/result"
+            element={
+              <PrivateRoute>
+                <Result />
+              </PrivateRoute>
+            }
+          />
+          <Route path="*" element={<PageNotFound />} />
+
           {/* <Route
             path="/materials"
             element={
@@ -64,8 +85,8 @@ export const App = () => {
                 <UserMaterialsLazyPage />
               </PrivateRoute>
             }
-          /> */}
-          {/* <Route
+          /> /}
+          {/ <Route
             path="/contacts"
             element={
               <PublicRoute>
@@ -77,6 +98,7 @@ export const App = () => {
           
         </Route>
       </Routes>
+      <ToastContainer />
     </>
   );
 };

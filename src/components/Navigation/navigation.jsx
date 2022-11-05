@@ -19,7 +19,7 @@ const Navigation = ({ handlerMenu, isLogin, isActive }) => {
             <NavLink
               to="/home"
               state={location}
-              className={styles.link_btn}
+							className={({isActive}) => isActive ? styles.link_btn_active : styles.link_btn }
               onClick={handlerMenu}
             >
               Home
@@ -32,7 +32,7 @@ const Navigation = ({ handlerMenu, isLogin, isActive }) => {
             <NavLink
               to="/materials"
               state={location}
-              className={styles.link_btn}
+							className={({isActive}) => isActive ? styles.link_btn_active : styles.link_btn }
               onClick={handlerMenu}
             >
               Materials
@@ -43,7 +43,8 @@ const Navigation = ({ handlerMenu, isLogin, isActive }) => {
           <NavLink
             to="/contacts"
             state={location}
-            className={styles.link_btn}
+            // className={styles.link_btn}
+            className={({isActive}) => isActive ? styles.link_btn_active : styles.link_btn }
             onClick={handlerMenu}
           >
             Contacts
