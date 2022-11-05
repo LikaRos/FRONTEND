@@ -13,13 +13,6 @@ main {
     padding: 50px 30px;
 }
 
-p {
-    font-family: 'Montserrat';
-    line-height: 1.4;
-    font-size: 16px;
-    margin-bottom: 30px;
-}
-
 code {
     background: #f4f6fc;
     border-radius: 5px;
@@ -91,13 +84,13 @@ h1 {
     padding: 15px;
     width: 560px; */
 /* //////////////////////////// */
-    min-width: 550px;
+    max-width: 550px;
 
     position: relative;
 
     padding: 5px;
     border-radius: 20px;
-    min-height: calc(50vh - 80px);
+    min-height: calc(40vh - 80px);
 
     display: flex;
     align-items: center;
@@ -119,9 +112,15 @@ h1 {
     font-size: 24px;
     font-weight: 700;
     letter-spacing: 0.06em;
-    padding: 26px 0px;
+    padding: 26px 0px 0px;
 }
-
+.modal__text{
+    font-family: 'Montserrat';
+    line-height: 1.4;
+    font-size: 16px;
+    padding: 33px 33px 24px;
+    text-align: justify;
+}
 .modalBtn {
     composes:textStyle;
     background: #8c54ff;
@@ -131,7 +130,7 @@ h1 {
     cursor: pointer;
     font-size: 16px;
     font-weight: 600;
-    margin: 20px 0px;
+    margin: 10px 0px 40px;
     padding: 10px 15px;
     transition: transform 100ms ease-out;
 

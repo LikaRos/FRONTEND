@@ -1,5 +1,5 @@
 import ContactsItem from '../../components/ContactsItem';
-import Appear from 'components/common/Appear';
+import Appear from 'common/Appear';
 import { nanoid } from 'nanoid';
 import { contacts } from '../../components/data/contacts.js';
 

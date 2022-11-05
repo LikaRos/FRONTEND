@@ -45,24 +45,27 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-
+          {/* <Route element={<PrivateRoute />}> */}
           <Route
             path="/materials"
             element={
+            <PrivateRoute>
               <Suspense fallback={'Loading ...'}>
                 <UserMaterialsLazyPage />
               </Suspense>
+            </PrivateRoute>
             }
-          />
+            />
           <Route
             path="/contacts"
             element={
+              <PublicRoute>
               <Suspense fallback={'Loading ...'}>
                 <ContactsLazyPage />
               </Suspense>
+              </PublicRoute>
             }
-          />
-
+          />    
           <Route
             path="/result"
             element={
@@ -73,23 +76,6 @@ export const App = () => {
           />
           <Route path="*" element={<PageNotFound />} />
 
-          {/* <Route
-            path="/materials"
-            element={
-              <PrivateRoute>
-                <UserMaterialsLazyPage />
-              </PrivateRoute>
-            }
-          /> /}
-          {/ <Route
-            path="/contacts"
-            element={
-              <PublicRoute>
-                <ContactsPage />
-              </PublicRoute>
-            }
-          /> */}
-          {/* <Route path="/home" element={<MainPage />} /> */}
         </Route>
       </Routes>
       <ToastContainer />

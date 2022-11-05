@@ -19,7 +19,7 @@ export default function MainPage() {
   });
   return (
     <div
-      // className={s.mainContainer}
+      className={s.mainContainer}
     >
       {!verify && <Modal />}
       <Main />
