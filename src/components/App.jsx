@@ -11,7 +11,7 @@ import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 
 import MainPage from '../pages/MainPage/MainPage';
 import { Result } from 'pages/Result/Result';
-// import ContactsPage from 'pages/ContactsPage/ContactsPage';
+
 import PageNotFound from '../pages/NotFoundPage/PageNotFound';
 
 const UserMaterialsLazyPage = lazy(() => import('../pages/UserMaterialsPage'));
@@ -73,24 +73,6 @@ export const App = () => {
             }
           />
           <Route path="*" element={<PageNotFound />} />
-
-          {/* <Route
-            path="/materials"
-            element={
-              <PrivateRoute>
-                <UserMaterialsLazyPage />
-              </PrivateRoute>
-            }
-          /> /}
-          {/ <Route
-            path="/contacts"
-            element={
-              <PublicRoute>
-                <ContactsPage />
-              </PublicRoute>
-            }
-          /> */}
-          {/* <Route path="/contacts" element={<ContactsPage />} /> */}
         </Route>
       </Routes>
       <ToastContainer />
