@@ -6,7 +6,8 @@
 }
 
 .container{
-  padding: 100px 0px 272px 123px;
+  padding: 100px 0px 0px 123px;
+  min-height: calc(100vh - 223px);
   background: url('../../svg/materials_images/materials_1280.jpg');
   background-repeat: no-repeat;
   background-size:cover;
@@ -52,7 +53,8 @@
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   .container{
-    padding: 182px 0px 356px 32px;
+    padding: 102px 0px 30px 32px;
+    min-height: calc(100vh - 255px);
     background-image: url('../../svg/materials_images/materials_768.jpg');
     background-size:cover;
 
@@ -60,7 +62,7 @@
 }
 @media (min-width: 320px) and (max-width: 767px) {
   .container{
-    padding: 42px 0px 117px 20px;
+    padding: 42px 0px 55px 20px;
     background-image: url('../../svg/materials_images/materials_320.jpg');
   }
   .title{

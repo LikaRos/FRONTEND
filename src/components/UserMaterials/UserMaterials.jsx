@@ -3,7 +3,8 @@ import s from './UserMaterials.module.css';
 
 const UserMaterials = () => {
   return (
-    <div className={s.container}>
+    <div
+      className={s.container}>
       <div>
         <h3 className={s.title}>Useful literature</h3>
 
@@ -35,7 +36,5 @@ const UserMaterials = () => {
     </div>
   );
 };
-
-UserMaterials.propTypes = {};
 
 export default UserMaterials;
