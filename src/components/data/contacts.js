@@ -1,6 +1,6 @@
 import Yura from '../../svg/images/Yura.jpg';
 import Yehor from '../../svg/images/YehorB.jpg';
-import Valentin from '../../svg/images/Valentin_Kuzmich.jpg';
+import Valentin from '../../svg/images/valentin_kuzmich.jpg';
 import Andrew from '../../svg/images/AndriiHaida.jpg';
 import Lika from '../../svg/images/Lika.jpeg';
 import Sasha from '../../svg/images/Sasha.jpeg';
