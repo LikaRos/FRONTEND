@@ -22,16 +22,16 @@ export const logIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await API.post('/api/auth/users/login', credentials);
-
+      toast.success('You have successfully signed up.');
       tokenAuth.set(data.token);
       return data;
     } catch (error) {
       if (error.response.status === 401) {
         toast.error('Server error, please try again later');
       }
-      if (error.response.status !== 401) {
-        toast.error('Wrong email or password, please try again.');
-      }
+      // if (error.response.status !== 401) {
+      //   toast.error('Wrong email or password, please try again.');
+      // }
       return rejectWithValue('something went wrong');
     }
   }
