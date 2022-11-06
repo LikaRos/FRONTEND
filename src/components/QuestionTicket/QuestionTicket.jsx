@@ -31,7 +31,6 @@ export const QuestionTicket = () => {
   const answers = useSelector(getAnswers);
   const testName = randomQuestions[0]?.type;
   const { rightAnswers } = useSelector(getResult);
-  console.log('rightAnswers', rightAnswers);
 
   useEffect(() => {
     if (!!document.querySelector('.checked')) {
