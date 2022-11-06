@@ -9,6 +9,8 @@
 @media screen and (min-width: 767px) {
   .item {
     width: 530px;
+    display: flex;
+    flex-direction: column;
   }
 }
 @media screen and (min-width: 270px) {
