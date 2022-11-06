@@ -8,10 +8,6 @@
   transform: none;
   transition: 600ms ease-in-out;
 }
-/* 
-.root .exit {
-  opacity: 1;
-} */
 
 .root.exit-active {
   opacity: 0;

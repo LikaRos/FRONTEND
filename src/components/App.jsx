@@ -11,7 +11,6 @@ import { QuestionPage } from 'pages/QuestionPage/QuestionPage';
 
 import MainPage from '../pages/MainPage/MainPage';
 import { Result } from 'pages/Result/Result';
-
 import PageNotFound from '../pages/NotFoundPage/PageNotFound';
 
 const UserMaterialsLazyPage = lazy(() => import('../pages/UserMaterialsPage'));
@@ -46,24 +45,27 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-
+          {/* <Route element={<PrivateRoute />}> */}
           <Route
             path="/materials"
             element={
-              <Suspense fallback={'Loading ...'}>
-                <UserMaterialsLazyPage />
-              </Suspense>
+              <PrivateRoute>
+                <Suspense fallback={'Loading ...'}>
+                  <UserMaterialsLazyPage />
+                </Suspense>
+              </PrivateRoute>
             }
           />
           <Route
             path="/contacts"
             element={
-              <Suspense fallback={'Loading ...'}>
-                <ContactsLazyPage />
-              </Suspense>
+              <PublicRoute>
+                <Suspense fallback={'Loading ...'}>
+                  <ContactsLazyPage />
+                </Suspense>
+              </PublicRoute>
             }
           />
-
           <Route
             path="/result"
             element={

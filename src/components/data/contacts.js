@@ -1,10 +1,10 @@
 import Yura from '../../svg/images/Yura.jpg';
 import Yehor from '../../svg/images/YehorB.jpg';
-import Valentin from '../../svg/images/Valentin_Kuzmich.jpg';
+import Valentin from '../../svg/images/valentin_kuzmich.jpg';
 import Andrew from '../../svg/images/AndriiHaida.jpg';
 import Lika from '../../svg/images/Lika.jpeg';
 import Sasha from '../../svg/images/Sasha.jpeg';
-import Vsevolod from '../../svg/images/YehorB.jpg';
+import Vsevolod from '../../svg/images/vsevolod.jpeg';
 
 const contacts = [
   {
@@ -31,7 +31,7 @@ const contacts = [
     name: 'Yuri Lys',
     photo: Yura,
     position: 'Full-stack Developer',
-    tasks: ``,
+    tasks: `Implemented full back-end authorization with google authorization . Worked with Redux on front-end side.`,
     email: 'Lys1999@ukr.net',
     linkedin: 'https://www.linkedin.com/in/yurii-lys-889b52249/',
     github: 'https://github.com/RedokLeeroy',
@@ -51,13 +51,13 @@ const contacts = [
     photo: Andrew,
     position: 'Front-End Developer',
     tasks:
-      'Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos tenetur repellendus cumque maxime at natus facere illum sit, autem, ratione sed eum animi odio iusto, minus beatae sequi? Ut, natus.',
-    email: '',
-    linkedin: '',
+      'Develop a header and mobile menu and logic of switching pages. Also worked on Redux',
+    email: 'galgayand@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/andrii-haida-290231204/',
     github: 'https://github.com/GaydAndr',
   },
   {
-    name: '',
+    name: 'Vsevolod Zharkov',
     photo: Vsevolod,
     position: 'Full-stack Developer',
     tasks:

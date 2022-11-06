@@ -4,11 +4,12 @@ import s from './UserMaterialsPage.module.css';
 
 const UserMaterialsPage = () => {
   return (
-    // <Appear time={600}>
+    
+    <Appear time={600}>
     <div className={s.container}>
-      <UserMaterials />
+        <UserMaterials />
     </div>
-    // </Appear>
+     </Appear>
   );
 };
 
