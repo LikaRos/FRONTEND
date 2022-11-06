@@ -1,6 +1,6 @@
-import s from './MainContainer.module.css';
+import styles from './MainContainer.module.css';
 
 const MainContainer = ({ children }) => {
-  return <div>{children}</div>;
+  return <div className={styles.mainContainer}>{children}</div>;
 };
 export default MainContainer;

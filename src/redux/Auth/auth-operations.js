@@ -7,6 +7,7 @@ export const signIn = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await API.post('/api/auth/users/signup', credentials);
+      toast.success('You have successfully signed up.');
       return data;
     } catch (error) {
       if (error.response.status === 401) {
@@ -29,9 +30,7 @@ export const logIn = createAsyncThunk(
       if (error.response.status === 401) {
         toast.error('Server error, please try again later');
       }
-      if (error.response.status !== 401) {
-        toast.error('Wrong email or password, please try again.');
-      }
+
       return rejectWithValue('something went wrong');
     }
   }
@@ -42,6 +41,7 @@ export const logOut = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await API.get('/api/auth/users/logout');
+      toast.success('Logout successful your session has been logged out.');
       tokenAuth.unset();
     } catch {
       toast.error('Server error, please try again later');

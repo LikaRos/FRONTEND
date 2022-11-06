@@ -23,7 +23,7 @@ export default function MainPage() {
     if (!verify) {
       dispatch(userGet());
     }
-  });
+  }, [dispatch, token, verify]);
   return (
     <>
       <section className={styles.mainContainer}>
