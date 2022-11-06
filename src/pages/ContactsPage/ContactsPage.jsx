@@ -8,18 +8,18 @@ import styles from './ContactsPage.module.css';
 const ContactsPage = () => {
   return (
     <Appear time={600}>
-    <div className={styles.wrapper}>
-      <div className={styles.headContainer}>
-        <h2 className={styles.head}>Our team</h2>
+      <div className={styles.wrapper}>
+        <div className={styles.headContainer}>
+          <h2 className={styles.head}>Our team</h2>
+        </div>
+        <ul className={styles.ourTeam}>
+          {contacts.map(item => (
+            <li key={nanoid()} className={styles.ourTeam_Item}>
+              <ContactsItem {...item} />
+            </li>
+          ))}
+        </ul>
       </div>
-      <ul className={styles.ourTeam}>
-        {contacts.map(item => (
-          <li key={nanoid()} className={styles.ourTeam_Item}>
-            <ContactsItem {...item} />
-          </li>
-        ))}
-      </ul>
-    </div>
     </Appear>
   );
 };
