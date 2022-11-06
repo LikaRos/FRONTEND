@@ -10,18 +10,10 @@ import { Formik, Form } from 'formik';
 import * as Yup from 'yup';
 import { FormField } from './formic/FormField';
 import { GoogleAuth } from './GoogleAuth';
-import { toast } from 'react-toastify';
-
-// import googleIcon from '../../svg/google-auth.png';
-// import Notifications from './pushNotifications/Notifications';
-// import formikEnhancer from './formic-yup/formikEnhancer';
-// import authOperations from '../../redux/auth/authOperations';
-
-// import { getVerify } from 'redux/Auth/auth-selector';
 
 export const AuthForm = () => {
   const dispatch = useDispatch();
-  // const verify = useSelector(getVerify);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const onChange = event => {
@@ -48,10 +40,8 @@ export const AuthForm = () => {
     dispatch(signIn(credentials))
       .unwrap()
       .then(() => dispatch(logIn(credentials)))
-      .catch(
-        rejectedValueOrSerializedError =>
-          console.log(rejectedValueOrSerializedError),
-        toast.error('Wrong email or password, please try again.')
+      .catch(rejectedValueOrSerializedError =>
+        console.log(rejectedValueOrSerializedError)
       );
   };
   const onHandleSigIn = async () => {
