@@ -59,11 +59,9 @@ export const App = () => {
           <Route
             path="/contacts"
             element={
-              <PublicRoute>
                 <Suspense fallback={'Loading ...'}>
                   <ContactsLazyPage />
                 </Suspense>
-              </PublicRoute>
             }
           />
           <Route

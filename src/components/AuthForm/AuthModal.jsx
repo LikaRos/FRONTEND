@@ -24,8 +24,7 @@ export const Modal = ({ onRequestClose }) => {
     <div className={styles.modal__backdrop}>
       <div className={styles.modal__container}>
 
-        {/* <h3 className={styles.modal__title}>I'm a modal!</h3> */}
-        <p></p>
+        <h3 className={styles.modal__title}>Email verification notification!</h3>
         <p className={styles.modal__text}>
           Dear new User,
           <br /> To close this modal, please, verify your account. Please, open

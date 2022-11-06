@@ -1,4 +1,4 @@
-import Appear from 'common/Appear';
+import Appear from 'components/common/Appear';
 import UserMaterials from 'components/UserMaterials';
 import s from './UserMaterialsPage.module.css';
 
