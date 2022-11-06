@@ -41,7 +41,7 @@ export const logOut = createAsyncThunk(
   async (_, { rejectWithValue }) => {
     try {
       await API.get('/api/auth/users/logout');
-      toast.success('Logout successful your session has been logged out.');
+      toast.success('Logout successful. Your session has been logged out.');
       tokenAuth.unset();
     } catch {
       toast.error('Server error, please try again later');
