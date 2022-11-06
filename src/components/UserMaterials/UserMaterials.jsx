@@ -26,7 +26,7 @@ const UserMaterials = () => {
             links.map((item, index) => (
               <li key={index + 1}>
                 <a className={s.text} href={item.link}>
-                  {index + 1}. {item.name}
+                  {index + 1}. <span className={s.href}>{item.name}</span>
                 </a>
               </li>
             ))}
