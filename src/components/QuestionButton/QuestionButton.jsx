@@ -9,6 +9,7 @@ import { getQuestions } from 'redux/questions/questions-selectors';
 
 import {
   clearAnswers,
+  clearResult,
   questionNumberReset,
 } from 'redux/questions/questions-slice';
 
@@ -48,6 +49,7 @@ const QuestionButton = () => {
 
     if (randomQuestions.length === 0) {
       dispatch(getRandomQuestions(type));
+      dispatch(clearResult());
       return;
     }
 
@@ -55,6 +57,7 @@ const QuestionButton = () => {
       dispatch(clearAnswers());
       dispatch(questionNumberReset());
       dispatch(getRandomQuestions(type));
+      dispatch(clearResult());
       return;
     }
   };
