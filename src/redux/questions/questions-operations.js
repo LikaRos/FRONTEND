@@ -1,7 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API } from 'services/API';
-// import axios from 'axios';
-// axios.defaults.baseURL = 'http://localhost:3001/api/';
 
 export const getRandomQuestions = createAsyncThunk(
   'questions/random', //под капотом создаст статусы

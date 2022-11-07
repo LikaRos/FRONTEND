@@ -45,7 +45,6 @@ export const App = () => {
               </PrivateRoute>
             }
           />
-          {/* <Route element={<PrivateRoute />}> */}
           <Route
             path="/materials"
             element={

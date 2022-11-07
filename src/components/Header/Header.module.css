@@ -1,7 +1,6 @@
 .header {
   height: 70px;
   background: var(--main-color);
-  /* border-bottom: 1px solid #e2e3e5; */
   box-shadow: inset 0px -1px 0px 0px rgba(226, 227, 229, 1);
 }
 
