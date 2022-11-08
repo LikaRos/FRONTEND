@@ -13,7 +13,7 @@ const contacts = [
     position: 'Team-Lead',
     tasks:
       'Managed the project being a team lead. Developed MainPage and Test Questions (card with questions). On the backend created an endpoint for receiving 12 random different questions from the technical test and an endpoint for receiving 12 random different questions from the theoretical test.',
-    email: '',
+    email: 'lika.rossinskaya@gmail.com',
     linkedin: 'https://www.linkedin.com/in/lika-rossinskaya/',
     github: 'https://github.com/LikaRos',
   },
