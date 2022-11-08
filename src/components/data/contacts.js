@@ -12,15 +12,25 @@ const contacts = [
     photo: Lika,
     position: 'Team-Lead',
     tasks:
-      'Managed the project being a team lead and a scrum master. Developed Test Questions (card with questions). On the backend created an endpoint for receiving 12 random different questions from the technical test and an endpoint for receiving 12 random different questions from the theoretical test.',
+      'Managed the project being a team lead. Developed MainPage and Test Questions (card with questions). On the backend created an endpoint for receiving 12 random different questions from the technical test and an endpoint for receiving 12 random different questions from the theoretical test.',
     email: '',
     linkedin: 'https://www.linkedin.com/in/lika-rossinskaya/',
     github: 'https://github.com/LikaRos',
   },
   {
+    name: 'Oleksandr Abramov',
+    photo: Sasha,
+    position: 'Scrum-master',
+    tasks:
+      'I’ve worked on Card with questions, the Results, Diagram and Questions components on this project. Developed functionality for testing, receiving and displaying test results.',
+    email: 'aleksander.abramov@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/oleksandrabramov/',
+    github: 'https://github.com/Oleksandr-Abramov',
+  },
+  {
     name: 'Yehor Boichenko',
     photo: Yehor,
-    position: 'Scrum-master',
+    position: 'Full-stack Developer',
     tasks:
       'This project was a challenge for me. I completed authorization part in front end and backend. Also make some features and help my colleagues with their tasks.',
     email: 'boichenko.yehor@gmail.com',
@@ -36,16 +46,7 @@ const contacts = [
     linkedin: 'https://www.linkedin.com/in/yurii-lys-889b52249/',
     github: 'https://github.com/RedokLeeroy',
   },
-  {
-    name: 'Oleksandr Abramov',
-    photo: Sasha,
-    position: 'Full-stack Developer',
-    tasks:
-      'I’ve worked on the Results, Diagram and Questions components on this project. Developed functionality for testing, receiving and displaying test results.',
-    email: 'aleksander.abramov@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/oleksandrabramov/',
-    github: 'https://github.com/Oleksandr-Abramov',
-  },
+
   {
     name: 'Andrii Haida',
     photo: Andrew,
