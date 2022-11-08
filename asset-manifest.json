@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/teamproject-protest_frontend/static/css/main.af2e1faa.css",
-    "main.js": "/teamproject-protest_frontend/static/js/main.0d3fa9f5.js",
+    "main.js": "/teamproject-protest_frontend/static/js/main.fe09b604.js",
     "static/css/128.f461c49b.chunk.css": "/teamproject-protest_frontend/static/css/128.f461c49b.chunk.css",
     "static/js/128.de82555b.chunk.js": "/teamproject-protest_frontend/static/js/128.de82555b.chunk.js",
     "static/css/393.52f4435e.chunk.css": "/teamproject-protest_frontend/static/css/393.52f4435e.chunk.css",
@@ -24,7 +24,7 @@
     "static/media/symbol-defs.svg": "/teamproject-protest_frontend/static/media/symbol-defs.a4d5c01231d392175fc00ed9cf97f2d7.svg",
     "index.html": "/teamproject-protest_frontend/index.html",
     "main.af2e1faa.css.map": "/teamproject-protest_frontend/static/css/main.af2e1faa.css.map",
-    "main.0d3fa9f5.js.map": "/teamproject-protest_frontend/static/js/main.0d3fa9f5.js.map",
+    "main.fe09b604.js.map": "/teamproject-protest_frontend/static/js/main.fe09b604.js.map",
     "128.f461c49b.chunk.css.map": "/teamproject-protest_frontend/static/css/128.f461c49b.chunk.css.map",
     "128.de82555b.chunk.js.map": "/teamproject-protest_frontend/static/js/128.de82555b.chunk.js.map",
     "393.52f4435e.chunk.css.map": "/teamproject-protest_frontend/static/css/393.52f4435e.chunk.css.map",
@@ -33,6 +33,6 @@
   },
   "entrypoints": [
     "static/css/main.af2e1faa.css",
-    "static/js/main.0d3fa9f5.js"
+    "static/js/main.fe09b604.js"
   ]
 }
