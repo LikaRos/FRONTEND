@@ -42,7 +42,9 @@ export const AuthForm = () => {
       );
   };
   const onHandleSigIn = async () => {
-    window.location.replace('http://localhost:3001/api/googleAuth/google');
+    window.location.replace(
+      'https://pro-test-team-project.herokuapp.com/api/googleAuth/google'
+    );
   };
 
   const schema = Yup.object({
