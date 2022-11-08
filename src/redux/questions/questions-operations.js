@@ -2,7 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { API } from 'services/API';
 
 export const getRandomQuestions = createAsyncThunk(
-  'questions/random', //под капотом создаст статусы
+  'questions/random',
   async (type, { rejectedWithValue }) => {
     try {
       const { data } = await API.get(`/api/questions/${type}/random`);

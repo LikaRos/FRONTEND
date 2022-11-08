@@ -17,6 +17,3 @@ export const GoogleAuth = () => {
     }
   }, [accessToken, email, dispatch, avatarURL]);
 };
-// Чи потрібен імейл . Діставити його з параметрів
-
-// Як бути далі  AcessToken  Що куди діспатчити
