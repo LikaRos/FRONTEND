@@ -6,7 +6,6 @@ import Logo from '../Logo/logo';
 import Navigation from '../Navigation/navigation';
 import UserEmailName from '../UserEmailName/userEmailName';
 import { getIsLoggedIn } from '../../redux/Auth/auth-selector';
-// import NoLoginNav from 'components/Navigation/NoLoginNav/NoLoginNav';
 import BurgerMenu from 'components/BurgerMenu/BurgerMenu';
 import { useState } from 'react';
 
@@ -30,7 +29,6 @@ export default function Header() {
             isActive={isActive}
           />
           {isLogin && <UserEmailName />}
-          {/* {!isLogin && <NoLoginNav />} */}
           <BurgerMenu handlerMenu={handlerMenu} isActive={isActive} />
         </div>
       </div>

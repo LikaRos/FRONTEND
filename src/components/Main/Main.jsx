@@ -1,5 +1,4 @@
-// import styles from './Main.module.css';
-// import PropTypes from 'prop-types';
+
 import { QuotationList } from 'components/QuotationList/QuotationList';
 
 export default function Main() {

@@ -10,7 +10,6 @@ const Navigation = ({ handlerMenu, isLogin, isActive }) => {
 
   return (
     <nav
-      // className={styles.nav}
       className={`${styles.nav} ${isActive ? styles.active : ''}`}
     >
       <ul className={styles.list}>
@@ -43,7 +42,6 @@ const Navigation = ({ handlerMenu, isLogin, isActive }) => {
           <NavLink
             to="/contacts"
             state={location}
-            // className={styles.link_btn}
             className={({isActive}) => isActive ? styles.link_btn_active : styles.link_btn }
             onClick={handlerMenu}
           >

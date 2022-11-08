@@ -1,9 +1,6 @@
 import React from 'react';
-// import { compose } from 'redux';
-// import { connect } from 'react-redux';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-// import { Link } from 'react-router-dom';
 import { logIn, signIn } from '../../redux/Auth/auth-operations';
 import styles from './authForm.module.css';
 import { Formik, Form } from 'formik';
