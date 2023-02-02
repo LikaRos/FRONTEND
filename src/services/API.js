@@ -5,7 +5,7 @@ export const API = axios.create({
 
   //   baseURL: 'https://teamproject-protest-backend.vercel.app',
 
-  baseURL: 'https://teamproject-protest-backend.vercel.app/api',
+  baseURL: 'https://teamproject-protest-backend.vercel.app',
 });
 
 export const tokenAuth = {
