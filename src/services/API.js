@@ -4,7 +4,7 @@ export const API = axios.create({
    //  baseURL: 'https://pro-test-team-project.herokuapp.com/api/',
 
 
-	 baseURL: "https://teamproject-protest-backend.onrender.com/api/",
+	 baseURL: "https://teamproject-protest-backend.onrender.com",
 
  
 });
