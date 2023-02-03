@@ -6,7 +6,7 @@ export const signIn = createAsyncThunk(
   'users/signup',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await API.post('auth/users/signup', credentials);
+      const { data } = await API.post('/api/auth/users/signup', credentials);
       toast.success('You have successfully signed up.');
       return data;
     } catch (error) {
@@ -22,7 +22,7 @@ export const logIn = createAsyncThunk(
   'users/login',
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await API.post('auth/users/login', credentials);
+      const { data } = await API.post('/api/auth/users/login', credentials);
 
       tokenAuth.set(data.token);
       return data;
@@ -40,7 +40,7 @@ export const logOut = createAsyncThunk(
   'users/logout',
   async (_, { rejectWithValue }) => {
     try {
-      await API.get('auth/users/logout');
+      await API.get('/api/auth/users/logout');
       toast.success('Logout successful. Your session has been logged out.');
       tokenAuth.unset();
     } catch {

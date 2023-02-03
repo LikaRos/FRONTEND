@@ -5,7 +5,7 @@ export const getRandomQuestions = createAsyncThunk(
   'questions/random',
   async (type, { rejectedWithValue }) => {
     try {
-      const { data } = await API.get(`questions/${type}/random`);
+      const { data } = await API.get(`/api/questions/${type}/random`);
 
       return data;
     } catch (error) {
@@ -18,7 +18,7 @@ export const getAnswerResult = createAsyncThunk(
   'questions/result',
   async (answers, { rejectedWithValue }) => {
     try {
-      const { data } = await API.post('questions/result', answers);
+      const { data } = await API.post('/api/questions/result', answers);
 
       return data;
     } catch (error) {
@@ -31,7 +31,7 @@ export const getResult = createAsyncThunk(
   'questions/result',
   async (answers, { rejectedWithValue }) => {
     try {
-      const { data } = await API.get('questions/result', answers);
+      const { data } = await API.get('/api/questions/result', answers);
 
       return data;
     } catch (error) {
