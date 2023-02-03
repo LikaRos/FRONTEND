@@ -43,9 +43,9 @@ export const AuthForm = () => {
   };
   const onHandleSigIn = async () => {
     window.location.replace(
-      // 'https://pro-test-team-project.herokuapp.com/api/googleAuth/google'
+      'https://pro-test-team-project.herokuapp.com/api/googleAuth/google'
 
-		"https://teamproject-protest-backend.vercel.app/api/googleAuth/google"
+		
     );
   };
 
